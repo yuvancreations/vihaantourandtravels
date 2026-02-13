@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vihaan Tour & Travels - Premium travel packages and services in Haridwar.">
+    <title>Page Title | Vihaan Tour & Travels</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <!-- ============  MASTER HEADER ============ -->
+   <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+    </script>
+    <!-- ============ END MASTER HEADER ============ -->
+
+
+    <!-- ============ PAGE-SPECIFIC CONTENT ============ -->
+    <div class="container py-5">
+        <h1 class="fw-bold text-center mb-5">Welcome to This Page</h1>
+        
+        <!-- Add your page content here -->
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <p>This is a template page that includes the master header and footer. Replace this content with your page-specific information.</p>
+            </div>
+        </div>
+    </div>
+    <!-- ============ END PAGE-SPECIFIC CONTENT ============ -->
+
+
+    <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+    
+    <!-- Back to Top Button -->
+    <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Master JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

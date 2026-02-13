@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vihaan Travels - Best Tour and Travels in Haridwar. Specializing in Chardham Yatra, Car Rental, and Uttarakhand Tour Packages. Trust with Nature.">
+    <meta name="keywords" content="Travel Agency Haridwar, Chardham Yatra Packages, Taxi Service Haridwar, Wedding Car Rental Haridwar, Uttarakhand Tours">
+    <title>Vihaan Travels | Best Tour & Travels Agency in Haridwar</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        :root {
+            --primary: #0d6efd;
+            --wedding-gold: #d4af37;
+            --wedding-glow: rgba(212, 175, 55, 0.4);
+            --dark: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.98);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* OVERLAP FIX */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f8fafc;
+            padding-top: 140px; 
+        }
+
+        @media (max-width: 991px) {
+            body { padding-top: 100px; }
+        }
+
+        .header-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+            transition: var(--transition);
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background: var(--dark);
+            color: #fff;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 12px 0 !important;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .brand-text {
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--dark);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .brand-text span { color: var(--primary); }
+        .brand-sub {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        .logo-brand {
+            padding: 0;
+        }
+
+        .logo-brand img {
+            width: 230px;
+            height: 70px;
+            display: block;
+            object-fit: contain;
+            padding-left: 20px;
+        }
+
+        /* NAV LINKS */
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark) !important;
+            padding: 10px 15px !important;
+            margin: 0 2px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        /* WEDDING PACKAGE - ULTRA HIGHLIGHT & BLINK */
+        .nav-wedding {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffeb99 100%);
+            border: 1px solid var(--wedding-gold) !important;
+            color: var(--dark) !important;
+            position: relative;
+            overflow: hidden;
+            animation: wedding-blink 2s infinite ease-in-out; 
+        }
+
+        .nav-wedding i {
+            color: var(--wedding-gold);
+            margin-right: 6px;
+        }
+
+        .nav-wedding::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            20% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes wedding-blink {
+            0%, 100% { box-shadow: 0 0 5px var(--wedding-glow); transform: scale(1); }
+            50% { box-shadow: 0 0 20px var(--wedding-gold); transform: scale(1.03); }
+        }
+
+        .nav-wedding:hover {
+            background: var(--wedding-gold) !important;
+            color: white !important;
+            transform: translateY(-3px) scale(1.05) !important;
+        }
+
+        /* AUTO-OPEN DROPDOWN */
+        .dropdown:hover > .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            padding: 10px;
+            transition: var(--transition);
+            transform: translateY(10px);
+        }
+
+        .dropdown-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* CALL CTA */
+        .btn-call {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 22px !important;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            border: none;
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
+        }
+
+        /* SCROLL EFFECT */
+        .scrolled .top-bar { margin-top: -40px; opacity: 0; }
+        .scrolled .navbar { padding: 8px 0 !important; }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 15px;
+                margin-top: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .logo-brand img {
+                width: 180px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+
+    <header class="header-main" id="header" role="banner" itemscope itemtype="https://schema.org/LocalBusiness">
+        <div class="top-bar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="contact-info">
+                    <span class="me-3">
+                        <i class="fas fa-envelope text-primary me-2" aria-hidden="true"></i> 
+                        <a href="mailto:info@vihaantravels.com" class="text-white text-decoration-none" itemprop="email">info@vihaantravels.com</a>
+                    </span>
+                    <span>
+                        <i class="fas fa-phone-alt text-primary me-2" aria-hidden="true"></i> 
+                        <a href="tel:9897352211" class="text-white text-decoration-none" itemprop="telephone">+91-9897352211</a>
+                    </span>
+                </div>
+                <div class="d-none d-md-block" itemprop="description">Haridwar's Top Rated Tour & Travels Agency</div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg" aria-label="Main Navigation">
+            <div class="container">
+                <a class="navbar-brand logo-brand d-flex align-items-center" href="index.html" itemprop="url" aria-label="Vihaan Tour and Travels Home">
+                    <img src="assets/Logo.png" alt="Vihaan Tour and Travels Logo" itemprop="logo">
+                </a>
+
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navContent">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html" title="Go to Home Page">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="packages.html" title="Explore Chardham and Uttarakhand Packages">Packages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="destinations.html" title="Top Tourist Places in Uttarakhand">Destinations</a></li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link nav-wedding" href="weddingpackage.html" title="Luxury Wedding Car Rental Services">
+                                <i class="fas fa-heart" aria-hidden="true"></i> Wedding Packages
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" href="activities.html" title="Adventure Activities in Rishikesh and Haridwar">Activities</a></li>
+                                <li><a class="dropdown-item" href="car-rental.html" title="Best Taxi Service in Haridwar">Car Rental</a></li>
+                                <li><a class="dropdown-item" href="helicopter-packages.html" title="Chardham Yatra by Helicopter">Helicopter Tours</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="hotels.html" title="Book Best Hotels in Haridwar and Mussoorie">Hotels</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html" title="Contact Vihaan Travels for Booking">Contact</a></li>
+                        
+                        <li class="nav-item ms-lg-3">
+                            <a href="tel:9897352211" class="btn-call" title="Call Vihaan Travels Now">CALL NOW</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

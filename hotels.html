@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore premium hotels and accommodations across Uttarakhand with Vihaan Tour & Travels. Find perfect stay options for your travel.">
+    <title>Hotels & Accommodations | Vihaan Tour & Travels</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hotels Page Styles */
+        .hotels-hero {
+            background:
+                linear-gradient(135deg, rgba(0,108,228,0.82) 0%, rgba(0,53,128,0.88) 100%),
+                url('https://images.unsplash.com/photo-1570129477492-45667003e54a?q=80&w=1920&auto=format&fit=crop') center/cover;
+            background-attachment: fixed;
+            padding: 110px 0 80px;
+            color: white;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            min-height: 520px;
+        }
+
+        .hotels-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(254,187,2,0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hotels-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hotels-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hotels-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hotels-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            font-weight: 700;
+        }
+
+        .hero-pill i { color: #febb02; }
+
+        .hotels-hero-actions {
+            margin-top: 18px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-attraction-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.25);
+            position: relative;
+            transform: translateZ(0);
+        }
+
+        .hero-attraction-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 40%, transparent 70%);
+            transform: translateX(-120%);
+            transition: transform 0.8s ease;
+            pointer-events: none;
+        }
+
+        .hero-attraction-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            transform: scale(1.01);
+            transition: transform 0.6s ease;
+            display: block;
+        }
+
+        .hero-attraction-overlay {
+            position: absolute;
+            inset: auto 16px 16px 16px;
+            padding: 14px 14px;
+            border-radius: 14px;
+            background: rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.18);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-attraction-card:hover img { transform: scale(1.08); }
+        .hero-attraction-card:hover::after { transform: translateX(120%); }
+
+        .hotels-stats {
+            margin-bottom: 18px;
+        }
+
+        .stat-pill {
+            background: #f5f7fa;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 14px;
+            padding: 14px 14px;
+            height: 100%;
+            box-shadow: 0 14px 35px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-pill i {
+            color: #006ce4;
+            margin-right: 8px;
+        }
+
+        .stat-pill strong { color: #1a1a1a; }
+
+        /* Search Form */
+        .hotels-search-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-group {
+            margin-bottom: 15px;
+        }
+
+        .search-group label {
+            display: block;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .search-group input,
+        .search-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-group input:focus,
+        .search-group select:focus {
+            border-color: #006ce4;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,108,228,0.1);
+        }
+
+        .btn-search {
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border: none;
+            color: white;
+            padding: 12px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-search:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,108,228,0.3);
+            color: white;
+        }
+
+        /* Hotels Section */
+        .hotels-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .hotels-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hotels-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .hotels-title p {
+            color: #6b6b6b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Buttons */
+        .hotel-filter {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #1a1a1a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            color: white;
+            border-color: #006ce4;
+            box-shadow: 0 5px 20px rgba(0,108,228,0.3);
+        }
+
+        /* Hotel Card */
+        .hotel-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f0f0f0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-card:hover {
+            box-shadow: 0 20px 50px rgba(0,108,228,0.15);
+            transform: translateY(-15px);
+            border-color: #006ce4;
+        }
+
+        .hotel-image {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .hotel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hotel-card:hover .hotel-image img {
+            transform: scale(1.12);
+        }
+
+        .hotel-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #febb02 0%, #f9a825 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(254,187,2,0.3);
+            z-index: 2;
+        }
+
+        .rating-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            color: #006ce4;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .rating-badge i {
+            color: #febb02;
+        }
+
+        .hotel-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .hotel-location {
+            color: #006ce4;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hotel-description {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .hotel-amenities {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .amenity {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #006ce4;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #f0f7ff;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .amenity i {
+            font-size: 0.9rem;
+        }
+
+        .hotel-pricing {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 15px;
+        }
+
+        .price-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: #6b6b6b;
+            margin-bottom: 3px;
+        }
+
+        .price-amount {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #006ce4;
+        }
+
+        .price-currency {
+            font-size: 0.9rem;
+            color: #6b6b6b;
+            font-weight: 600;
+        }
+
+        .hotel-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-book {
+            flex: 1;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .btn-book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,108,228,0.3);
+            color: white;
+        }
+
+        .btn-favorite {
+            padding: 12px 18px;
+            border: 2px solid #006ce4;
+            background: white;
+            color: #006ce4;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-favorite:hover {
+            background: #f5f7fa;
+            box-shadow: 0 5px 15px rgba(0,108,228,0.15);
+        }
+
+        .btn-favorite.is-favorite {
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,108,228,0.25);
+        }
+
+        /* Why Stay Section */
+        .why-stay-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0ff 100%);
+        }
+
+        .why-stay-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .stay-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .stay-feature {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .stay-feature:hover {
+            box-shadow: 0 10px 30px rgba(0,108,228,0.1);
+            transform: translateY(-8px);
+            border-color: #006ce4;
+        }
+
+        .stay-feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .stay-feature h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .stay-feature p {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Room Categories Section */
+        .room-categories {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .room-categories-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .category-card:hover {
+            box-shadow: 0 15px 40px rgba(0,108,228,0.15);
+            transform: translateY(-5px);
+            border-color: #006ce4;
+        }
+
+        .category-icon {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .category-info {
+            padding: 20px;
+        }
+
+        .category-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .category-desc {
+            color: #6b6b6b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .category-count {
+            display: inline-block;
+            background: #f0f7ff;
+            color: #006ce4;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hotels-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hotels-hero p {
+                font-size: 1.05rem;
+            }
+
+            .hotels-search-form {
+                padding: 20px;
+            }
+
+            .hotel-image {
+                height: 200px;
+            }
+
+            .why-stay-title,
+            .room-categories-title {
+                font-size: 1.8rem;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                margin: 3px;
+            }
+
+            .hotel-card:hover {
+                transform: translateY(-8px);
+            }
+
+            .search-group {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .hotels-hero {
+                background-attachment: scroll;
+                padding: 90px 0 70px;
+                text-align: center;
+            }
+
+            .hotels-hero h1 { font-size: 2.7rem; }
+            .hotels-hero p { font-size: 1.1rem; }
+        }
+
+        /* Modal Animation */
+        .modal.fade .modal-dialog {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal.show .modal-dialog {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- ============  MASTER HEADER ============ -->
+   <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+    </script>
+    <!-- ============ END MASTER HEADER ============ -->
+
+
+    <!-- HERO SECTION -->
+    <section class="hotels-hero">
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-lg-start text-center">
+                    <div class="hero-pill mb-3">
+                        <i class="fa-solid fa-hotel"></i>
+                        <span>Premium Stays • Verified Locations • Fast Support</span>
+                    </div>
+                    <div class="hotels-hero-content">
+                        <h1>Find Your Perfect Stay</h1>
+                        <p>Discover comfortable, premium hotels and accommodations across Uttarakhand with Vihaan Tour & Travels.</p>
+                    </div>
+
+                    <div class="hotels-hero-actions justify-content-lg-start justify-content-center">
+                        <a href="#" class="btn btn-warning rounded-pill px-4 fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                        <a href="https://wa.me/919897352211" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="#hotelsList" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-arrow-down me-2"></i>Browse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-attraction-card">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1400&auto=format&fit=crop" alt="Premium hotel stay" loading="lazy">
+                        <div class="hero-attraction-overlay text-white">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div>
+                                    <p class="mb-0 fw-bold">Verified Premium Stays</p>
+                                    <p class="mb-0 small" style="opacity: 0.9;">Hover for a premium effect</p>
+                                </div>
+                                <span class="badge rounded-pill text-bg-warning text-dark fw-bold">Stay</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH FORM -->
+    <div class="container">
+        <div class="hotels-search-form">
+            <form class="row g-3" action="contact.html#contactForm" method="GET">
+                <div class="col-md-3">
+                    <div class="search-group">
+                        <label>Hotel Name</label>
+                        <input type="text" name="hotelName" placeholder="Enter hotel name" autocomplete="off" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="search-group">
+                        <label>Check-in Date</label>
+                        <input type="date" name="checkIn" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="search-group">
+                        <label>Check-out Date</label>
+                        <input type="date" name="checkOut" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="search-group">
+                        <label>Guests</label>
+                        <select name="guests">
+                            <option>1 Guest</option>
+                            <option>2 Guests</option>
+                            <option>3 Guests</option>
+                            <option>4+ Guests</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn-search" type="submit">Search Hotels</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- HOTELS SECTION -->
+    <section class="hotels-section" id="hotelsList">
+        <div class="container">
+            <div class="hotels-title">
+                <h2>Explore Our Hotels</h2>
+                <p>Choose from our curated collection of premium hotels across Uttarakhand for a comfortable and memorable stay</p>
+            </div>
+
+            <!-- Filter -->
+            <div class="hotel-filter">
+                <div class="hotels-stats mb-3">
+                    <div class="row g-3 text-center">
+                        <div class="col-6 col-lg-3">
+                            <div class="stat-pill">
+                                <div class="fw-bold"><i class="fas fa-medal"></i><strong>Trusted</strong></div>
+                                <div class="text-muted small">Since 2015</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="stat-pill">
+                                <div class="fw-bold"><i class="fas fa-location-dot"></i><strong>Locations</strong></div>
+                                <div class="text-muted small">Best areas</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="stat-pill">
+                                <div class="fw-bold"><i class="fas fa-hotel"></i><strong>Verified</strong></div>
+                                <div class="text-muted small">Clean stays</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="stat-pill">
+                                <div class="fw-bold"><i class="fas fa-headset"></i><strong>Support</strong></div>
+                                <div class="text-muted small">Fast help</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="filter-btn active" onclick="filterHotels('all', this)">All Hotels</button>
+                <button class="filter-btn" onclick="filterHotels('luxury', this)">Luxury</button>
+                <button class="filter-btn" onclick="filterHotels('premium', this)">Premium</button>
+                <button class="filter-btn" onclick="filterHotels('budget', this)">Budget Friendly</button>
+            </div>
+
+            <!-- Hotels Grid -->
+            <div class="row g-4">
+                <!-- Hotel 1 -->
+                <div class="col-lg-4 col-md-6 hotel-item" data-category="luxury">
+                    <div class="hotel-card">
+                        <div class="hotel-image">
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=500&auto=format&fit=crop" alt="Radisson Blu Haridwar">
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.8/5</span>
+                            <span class="hotel-badge">Luxury</span>
+                        </div>
+                        <div class="hotel-content">
+                            <h3 class="hotel-name">Radisson Blu Haridwar</h3>
+                            <div class="hotel-location">
+                                <i class="fas fa-map-marker-alt"></i> Haridwar
+                            </div>
+                            <p class="hotel-description">5-star luxury hotel with world-class amenities, spa, fine dining restaurants, and exceptional service. Perfect for a premium getaway.</p>
+                            <div class="hotel-amenities">
+                                <div class="amenity"><i class="fas fa-wifi"></i> WiFi</div>
+                                <div class="amenity"><i class="fas fa-swimming-pool"></i> Pool</div>
+                                <div class="amenity"><i class="fas fa-spa"></i> Spa</div>
+                                <div class="amenity"><i class="fas fa-utensils"></i> Restaurant</div>
+                            </div>
+                            <div class="hotel-actions">
+                                <a href="contact.html#contactForm" class="btn-book">Book Now</a>
+                                <button class="btn-favorite" type="button" title="Save hotel" aria-label="Save hotel"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 2 -->
+                <div class="col-lg-4 col-md-6 hotel-item" data-category="premium">
+                    <div class="hotel-card">
+                        <div class="hotel-image">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=500&auto=format&fit=crop" alt="Taj Resort Rishikesh">
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.6/5</span>
+                            <span class="hotel-badge">Premium</span>
+                        </div>
+                        <div class="hotel-content">
+                            <h3 class="hotel-name">Taj Resort Rishikesh</h3>
+                            <div class="hotel-location">
+                                <i class="fas fa-map-marker-alt"></i> Rishikesh
+                            </div>
+                            <p class="hotel-description">Riverside resort with yoga facilities, wellness center, and Ayurvedic treatments. Ideal for spiritual retreats and relaxation.</p>
+                            <div class="hotel-amenities">
+                                <div class="amenity"><i class="fas fa-wifi"></i> WiFi</div>
+                                <div class="amenity"><i class="fas fa-om"></i> Yoga</div>
+                                <div class="amenity"><i class="fas fa-water"></i> River View</div>
+                                <div class="amenity"><i class="fas fa-leaf"></i> Spa</div>
+                            </div>
+                            <div class="hotel-actions">
+                                <a href="contact.html#contactForm" class="btn-book">Book Now</a>
+                                <button class="btn-favorite" type="button" title="Save hotel" aria-label="Save hotel"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 3 -->
+                <div class="col-lg-4 col-md-6 hotel-item" data-category="premium">
+                    <div class="hotel-card">
+                        <div class="hotel-image">
+                            <img src="https://media.istockphoto.com/id/2210925932/photo/serene-gazebo-at-sunrise-overlooking-valley-cityscape-mussoorie-uttarakhand-india.jpg?s=612x612&w=0&k=20&c=GjTAJtgyPy_89vucyE9kjxuby6Cn7tDPaLuUnkg1ZLc=" alt="Snow View Mussoorie">
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.5/5</span>
+                            <span class="hotel-badge">Premium</span>
+                        </div>
+                        <div class="hotel-content">
+                            <h3 class="hotel-name">Snow View Mussoorie</h3>
+                            <div class="hotel-location">
+                                <i class="fas fa-map-marker-alt"></i> Mussoorie
+                            </div>
+                            <p class="hotel-description">Mountain resort with panoramic views, adventure activities, and warm hospitality. Gateway to Himalayan trekking expeditions.</p>
+                            <div class="hotel-amenities">
+                                <div class="amenity"><i class="fas fa-wifi"></i> WiFi</div>
+                                <div class="amenity"><i class="fas fa-mountain"></i> Views</div>
+                                <div class="amenity"><i class="fas fa-person-hiking"></i> Trek Info</div>
+                                <div class="amenity"><i class="fas fa-utensils"></i> Dining</div>
+                            </div>
+                            <div class="hotel-actions">
+                                <a href="contact.html#contactForm" class="btn-book">Book Now</a>
+                                <button class="btn-favorite" type="button" title="Save hotel" aria-label="Save hotel"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 4 -->
+                <div class="col-lg-4 col-md-6 hotel-item" data-category="luxury">
+                    <div class="hotel-card">
+                        <div class="hotel-image">
+                            <img src="https://images.unsplash.com/photo-1601622256416-d7f757f99eb2?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lakeside Palace Nainital">
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.7/5</span>
+                            <span class="hotel-badge">Luxury</span>
+                        </div>
+                        <div class="hotel-content">
+                            <h3 class="hotel-name">Lakeside Palace Nainital</h3>
+                            <div class="hotel-location">
+                                <i class="fas fa-map-marker-alt"></i> Nainital
+                            </div>
+                            <p class="hotel-description">Waterfront luxury resort with lake views, water sports, fine dining, and premium accommodations for an unforgettable stay.</p>
+                            <div class="hotel-amenities">
+                                <div class="amenity"><i class="fas fa-wifi"></i> WiFi</div>
+                                <div class="amenity"><i class="fas fa-water"></i> Boating</div>
+                                <div class="amenity"><i class="fas fa-spa"></i> Spa</div>
+                                <div class="amenity"><i class="fas fa-utensils"></i> Restaurant</div>
+                            </div>
+                            <div class="hotel-actions">
+                                <a href="contact.html#contactForm" class="btn-book">Book Now</a>
+                                <button class="btn-favorite" type="button" title="Save hotel" aria-label="Save hotel"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 5 -->
+                <div class="col-lg-4 col-md-6 hotel-item" data-category="budget">
+                    <div class="hotel-card">
+                        <div class="hotel-image">
+                            <img src="https://a.otcdn.com/imglib/hotelphotos/8/8/3445/hotel-green-valley-resort-pvt-ltd-dhanaulti-20230930000712534600.jpg" alt="Green Valley Lodge">
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.3/5</span>
+                            <span class="hotel-badge">Budget</span>
+                        </div>
+                        <div class="hotel-content">
+                            <h3 class="hotel-name">Green Valley Lodge</h3>
+                            <div class="hotel-location">
+                                <i class="fas fa-map-marker-alt"></i> Chardham Route
+                            </div>
+                            <p class="hotel-description">Comfortable budget hotel with clean rooms, basic amenities, and friendly staff. Perfect for pilgrims on Char Dham Yatra.</p>
+                            <div class="hotel-amenities">
+                                <div class="amenity"><i class="fas fa-wifi"></i> WiFi</div>
+                                <div class="amenity"><i class="fas fa-bed"></i> Rooms</div>
+                                <div class="amenity"><i class="fas fa-utensils"></i> Meals</div>
+                                <div class="amenity"><i class="fas fa-phone"></i> Support</div>
+                            </div>
+                            <div class="hotel-actions">
+                                <a href="contact.html#contactForm" class="btn-book">Book Now</a>
+                                <button class="btn-favorite" type="button" title="Save hotel" aria-label="Save hotel"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 6 -->
+                <div class="col-lg-4 col-md-6 hotel-item" data-category="budget">
+                    <div class="hotel-card">
+                        <div class="hotel-image">
+                            <img src="https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?q=80&w=500&auto=format&fit=crop" alt="Heritage Inn Haridwar">
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.2/5</span>
+                            <span class="hotel-badge">Budget</span>
+                        </div>
+                        <div class="hotel-content">
+                            <h3 class="hotel-name">Heritage Inn Haridwar</h3>
+                            <div class="hotel-location">
+                                <i class="fas fa-map-marker-alt"></i> Haridwar
+                            </div>
+                            <p class="hotel-description">Family-run budget hotel near temples and ghats. Affordable rooms with essential amenities and authentic local hospitality.</p>
+                            <div class="hotel-amenities">
+                                <div class="amenity"><i class="fas fa-wifi"></i> WiFi</div>
+                                <div class="amenity"><i class="fas fa-gopuram"></i> Temple Nearby</div>
+                                <div class="amenity"><i class="fas fa-utensils"></i> Food</div>
+                                <div class="amenity"><i class="fas fa-bed"></i> Rooms</div>
+                            </div>
+                            <div class="hotel-actions">
+                                <a href="contact.html#contactForm" class="btn-book">Book Now</a>
+                                <button class="btn-favorite" type="button" title="Save hotel" aria-label="Save hotel"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROOM CATEGORIES -->
+    <section class="room-categories">
+        <div class="container">
+            <h2 class="room-categories-title">Room Categories</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-bed"></i></div>
+                        <div class="category-info">
+                            <h4 class="category-name">Standard Room</h4>
+                            <p class="category-desc">Comfortable rooms with essential amenities, perfect for budget-conscious travelers and short stays.</p>
+                            <span class="category-count">Contact for rates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-door-open"></i></div>
+                        <div class="category-info">
+                            <h4 class="category-name">Deluxe Room</h4>
+                            <p class="category-desc">Spacious rooms with modern furnishings, enhanced amenities, and beautiful views of the surroundings.</p>
+                            <span class="category-count">Contact for rates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-crown"></i></div>
+                        <div class="category-info">
+                            <h4 class="category-name">Premium Suite</h4>
+                            <p class="category-desc">Luxury suites with premium amenities, personal service, and exclusive access to resort facilities.</p>
+                            <span class="category-count">Contact for rates</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY STAY WITH US -->
+    <section class="why-stay-section">
+        <div class="container">
+            <h2 class="why-stay-title">Why Stay With Us?</h2>
+
+            <div class="stay-features">
+                <div class="stay-feature">
+                    <div class="stay-feature-icon"><i class="fas fa-star"></i></div>
+                    <h4>Premium Quality</h4>
+                    <p>Carefully curated selection of best hotels across Uttarakhand with consistent quality and excellent service standards.</p>
+                </div>
+
+                <div class="stay-feature">
+                    <div class="stay-feature-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <h4>Best Prices</h4>
+                    <p>Get exclusive deals and discounts through our partnership with premium hotels. Guaranteed lowest prices online.</p>
+                </div>
+
+                <div class="stay-feature">
+                    <div class="stay-feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Secure Booking</h4>
+                    <p>100% secure payment gateway and instant booking confirmation. Your transactions are completely safe and encrypted.</p>
+                </div>
+
+                <div class="stay-feature">
+                    <div class="stay-feature-icon"><i class="fas fa-headset"></i></div>
+                    <h4>24/7 Support</h4>
+                    <p>Round-the-clock customer support to help with booking, changes, or any issues during your stay.</p>
+                </div>
+
+                <div class="stay-feature">
+                    <div class="stay-feature-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Personal Touch</h4>
+                    <p>Our team can customize your hotel experience based on your preferences, special occasions, and travel needs.</p>
+                </div>
+
+                <div class="stay-feature">
+                    <div class="stay-feature-icon"><i class="fas fa-map-location-dot"></i></div>
+                    <h4>Prime Locations</h4>
+                    <p>Hotels strategically located near major attractions, temples, and tourist destinations for convenient access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hotel-highlights" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Highlights</h6>
+                <h2 class="fw-bold text-dark">Stay Near Top Attractions</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Premium stays near rivers, temples, hills, and viewpoints — perfect for a comfortable itinerary.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Haridwar stays">
+                        <img src="https://media.istockphoto.com/id/458731819/photo/priest-are-performing-rituals-on-the-banks-of-river-ganges.jpg?s=612x612&w=0&k=20&c=ce-XouF7EUotqpdM6Mwfc6t4VD9w8ZWkgrGG_Mt6zf4=" alt="Haridwar ghat and river" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Riverside</span>
+                            <h5 class="mb-1 fw-bold">Haridwar</h5>
+                            <p class="mb-0 small">Easy aarti access & pickup support</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Rishikesh stays">
+                        <img src="https://t4.ftcdn.net/jpg/05/92/31/69/360_F_592316916_O8G5DBzsuWOjlCVZ9wfnpAfkodH41YDN.jpg" alt="Rishikesh river and adventure" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Wellness</span>
+                            <h5 class="mb-1 fw-bold">Rishikesh</h5>
+                            <p class="mb-0 small">Yoga retreats & river views</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Mussoorie stays">
+                        <img src="https://www.tourmyindia.com/blog//wp-content/uploads/2020/11/Mussoorie-snow.jpg" alt="Scenic hills and viewpoints" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Hill View</span>
+                            <h5 class="mb-1 fw-bold">Mussoorie</h5>
+                            <p class="mb-0 small">Viewpoints & premium cab add-ons</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="destinations.html" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+                    View Destinations <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="hotel-testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Reviews</h6>
+                <h2 class="fw-bold text-dark">Comfort That Guests Love</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">P</div>
+                                <div>
+                                    <div class="fw-bold">Pooja Mehta</div>
+                                    <div class="text-muted small">Haridwar Stay</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Very clean rooms and smooth check-in. The location was perfect for evening aarti, and the support team was responsive.”</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">R</div>
+                                <div>
+                                    <div class="fw-bold">Rahul Singh</div>
+                                    <div class="text-muted small">Rishikesh Resort</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Premium vibe and great river view. They helped us add yoga sessions and arranged cab support for sightseeing.”</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">A</div>
+                                <div>
+                                    <div class="fw-bold">Ankit Verma</div>
+                                    <div class="text-muted small">Mussoorie Trip</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Great stay and a professional driver. Everything felt premium and the itinerary timing was perfect.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white" id="hotel-faq">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">FAQ</h6>
+                <h2 class="fw-bold text-dark">Before You Book</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Quick answers for stay planning. For customized options, send us an enquiry.</p>
+            </div>
+
+            <div class="accordion accordion-flush bg-white" id="hotelsFaq">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="hotelsFaqOneHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#hotelsFaqOne" aria-expanded="false" aria-controls="hotelsFaqOne">
+                            Can you help with hotel + cab together?
+                        </button>
+                    </h2>
+                    <div id="hotelsFaqOne" class="accordion-collapse collapse" aria-labelledby="hotelsFaqOneHeading" data-bs-parent="#hotelsFaq">
+                        <div class="accordion-body text-muted">
+                            Yes. We plan complete stays with pickup/drop, sightseeing routes, and hotel category based on your comfort and budget.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="hotelsFaqTwoHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#hotelsFaqTwo" aria-expanded="false" aria-controls="hotelsFaqTwo">
+                            Are these hotels verified?
+                        </button>
+                    </h2>
+                    <div id="hotelsFaqTwo" class="accordion-collapse collapse" aria-labelledby="hotelsFaqTwoHeading" data-bs-parent="#hotelsFaq">
+                        <div class="accordion-body text-muted">
+                            We prioritize clean stays, good locations, and reliable service. Share your dates and we’ll confirm the best available options.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="hotelsFaqThreeHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#hotelsFaqThree" aria-expanded="false" aria-controls="hotelsFaqThree">
+                            How do I book quickly?
+                        </button>
+                    </h2>
+                    <div id="hotelsFaqThree" class="accordion-collapse collapse" aria-labelledby="hotelsFaqThreeHeading" data-bs-parent="#hotelsFaq">
+                        <div class="accordion-body text-muted">
+                            Tap “Book Now” or “Get Quote” and share your dates, guests, and location preference. We’ll confirm availability on call/WhatsApp.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section py-5 text-white" id="hotels-cta">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-2">Need a Premium Stay Recommendation?</h2>
+                    <p class="mb-0 opacity-75">Share your destination and dates — we’ll suggest the best verified stays with transparent pricing.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+                        <a href="https://wa.me/919897352211" class="btn btn-warning rounded-pill px-4 fw-bold text-dark">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="contact.html#contactForm" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-paper-plane me-2"></i>Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header border-0 text-white p-4" style="background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);">
+                    <div>
+                        <h5 class="modal-title fw-bold mb-1" id="quoteModalLabel">Plan Your Stay</h5>
+                        <p class="mb-0 small opacity-75">Get a customized quote within 30 minutes</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <form id="modalQuoteForm">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Hotel Quote Request">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control border-0 shadow-sm" id="modalName" name="name" placeholder="Your Name" required>
+                            <label for="modalName" class="text-muted">Full Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control border-0 shadow-sm" id="modalPhone" name="phone" placeholder="Phone" required>
+                            <label for="modalPhone" class="text-muted">Phone Number</label>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control border-0 shadow-sm" id="modalDate" name="date">
+                                    <label for="modalDate" class="text-muted">Check-in Date</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control border-0 shadow-sm" id="modalGuests" name="guests" placeholder="Guests" min="1">
+                                    <label for="modalGuests" class="text-muted">Guests</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control border-0 shadow-sm" placeholder="Message" id="modalMessage" name="message" style="height: 100px"></textarea>
+                            <label for="modalMessage" class="text-muted">Requirements (Optional)</label>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-pill shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+    <!-- Back to Top Button -->
+    <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Filter functionality
+        function filterHotels(category, btnEl) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            const items = document.querySelectorAll('.hotel-item');
+            items.forEach(item => {
+                const itemCategory = item.dataset.category;
+                const show = category === 'all' || itemCategory === category;
+                if (show) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 0);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 250);
+                }
+            });
+        }
+
+        // Favorite toggle (UI only)
+        document.querySelectorAll('.btn-favorite').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('is-favorite');
+                const icon = btn.querySelector('i');
+                if (!icon) return;
+                icon.classList.toggle('fas');
+                icon.classList.toggle('far');
+            });
+        });
+
+        // Modal Form Submission
+        document.getElementById('modalQuoteForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert('Thank you! We have received your enquiry. Our team will contact you shortly.');
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+                    modal.hide();
+                    form.reset();
+                } else {
+                    console.log(response);
+                    alert(json.message);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Something went wrong! Please try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

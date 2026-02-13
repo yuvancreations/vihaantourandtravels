@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore premium Chardham Yatra and Uttarakhand tour packages with Vihaan Tour & Travels. Book your divine pilgrimage and adventure tours.">
+    <title>Premium Tour Packages | Vihaan Tour & Travels</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Premium Package Page Styles */
+        .packages-hero {
+            background:
+                linear-gradient(135deg, rgba(0, 106, 228, 0.452) 0%, rgba(0,53,128,0.70) 100%),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1920&auto=format&fit=crop') center/cover;
+            background-attachment: fixed;
+            padding: 110px 0 80px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .packages-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .packages-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .packages-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .packages-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .packages-hero-actions {
+            position: relative;
+            z-index: 2;
+            margin-top: 30px;
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-pill i { color: #febb02; }
+
+        .hero-attraction-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.25);
+            position: relative;
+            transform: translateZ(0);
+        }
+
+        .hero-attraction-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 40%, transparent 70%);
+            transform: translateX(-120%);
+            transition: transform 0.8s ease;
+            pointer-events: none;
+        }
+
+        .hero-attraction-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            transform: scale(1.01);
+            transition: transform 0.6s ease;
+            display: block;
+        }
+
+        .hero-attraction-overlay {
+            position: absolute;
+            inset: auto 16px 16px 16px;
+            padding: 8px 8px;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.18);
+            backdrop-filter: blur(1.5px);
+        }
+
+        .hero-attraction-card:hover img { transform: scale(1.08); }
+        .hero-attraction-card:hover::after { transform: translateX(120%); }
+
+        .packages-filter {
+            background: white;
+            padding: 40px;
+            margin-top: -50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .packages-stats {
+            margin-bottom: 18px;
+        }
+
+        .stat-pill {
+            background: #f5f7fa;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 14px;
+            padding: 14px 14px;
+            height: 100%;
+            box-shadow: 0 14px 35px rgba(0,0,0,0.05);
+        }
+
+        .stat-pill i {
+            color: #006ce4;
+            margin-right: 8px;
+        }
+
+        .stat-pill strong { color: #1a1a1a; }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #1a1a1a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            color: white;
+            border-color: #006ce4;
+            box-shadow: 0 5px 20px rgba(0,108,228,0.3);
+        }
+
+        .packages-grid {
+            padding: 60px 0;
+        }
+
+        .premium-package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f0f0f0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .premium-package-card:hover {
+            box-shadow: 0 20px 50px rgba(0,108,228,0.15);
+            transform: translateY(-15px);
+            border-color: #006ce4;
+        }
+
+        .package-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .package-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .premium-package-card:hover .package-image-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #febb02 0%, #f9a825 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(254,187,2,0.3);
+            z-index: 2;
+        }
+
+        .package-days-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            color: #006ce4;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .package-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .package-subtitle {
+            color: #006ce4;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .package-description {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .package-highlights {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-tag {
+            background: #f5f7fa;
+            color: #006ce4;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .highlight-tag i {
+            font-size: 0.9rem;
+        }
+
+        .package-pricing {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Hide visible prices on package cards (per request) */
+        .package-pricing { display: none !important; }
+
+        .price-section {
+            flex-grow: 1;
+        }
+
+        .original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .final-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-suffix {
+            font-size: 0.85rem;
+            color: #6b6b6b;
+            font-weight: 500;
+        }
+
+        .rating-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff3e0;
+            padding: 8px 15px;
+            border-radius: 10px;
+        }
+
+        .rating-badge i {
+            color: #febb02;
+        }
+
+        .rating-badge span {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .package-action {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-primary-premium {
+            flex: 1;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border: none;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .btn-primary-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,108,228,0.3);
+        }
+
+        .btn-secondary-premium {
+            padding: 14px 20px;
+            border: 2px solid #006ce4;
+            background: white;
+            color: #006ce4;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-secondary-premium:hover {
+            background: #f5f7fa;
+            box-shadow: 0 5px 15px rgba(0,108,228,0.15);
+        }
+
+        .btn-secondary-premium.is-favorite {
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,108,228,0.25);
+        }
+
+        @media (max-width: 991.98px) {
+            .packages-hero { background-attachment: scroll; padding: 90px 0 70px; }
+            .packages-hero h1 { font-size: 2.7rem; }
+            .hero-attraction-card img { height: 300px; }
+        }
+
+        /* Essence Section */
+        .essence-section {
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
+
+        .essence-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .essence-card {
+            background: white;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+            border-left: 5px solid #006ce4;
+        }
+
+        .essence-card:hover {
+            box-shadow: 0 15px 40px rgba(0,108,228,0.1);
+            transform: translateY(-5px);
+        }
+
+        .essence-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .essence-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .essence-card p {
+            color: #6b6b6b;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .essence-image {
+            position: relative;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 350px;
+            background: #e0e0e0;
+        }
+
+        .essence-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .essence-image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+        }
+
+        /* WhyChooseUs Section */
+        .why-choose-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: #f5f7fa;
+            transition: all 0.4s ease;
+        }
+
+        .feature-item:hover {
+            background: #e8f0ff;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,108,228,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .packages-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .packages-hero p {
+                font-size: 1.05rem;
+            }
+
+            .packages-filter {
+                padding: 20px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .essence-title {
+                font-size: 1.8rem;
+            }
+
+            .essence-card {
+                padding: 25px;
+            }
+
+            .essence-image {
+                height: 250px;
+            }
+
+            .premium-package-card:hover {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Modal Animation and styling to match packages theme */
+        .modal { z-index: 200000 !important; }
+        .modal.fade .modal-dialog {
+            transform: scale(0.96) translateY(12px);
+            opacity: 0;
+            transition: all 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .modal.show .modal-dialog {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        /* Package modal specific styles */
+        #packageModal .modal-dialog { max-width: 1100px; }
+        #packageModal .modal-content {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(2,40,90,0.18);
+        }
+        #packageModal .modal-body { padding: 0; max-height: 92vh; overflow: auto; }
+        #packageModal .package-carousel img { width:100%; height:420px; object-fit:cover; display:block; }
+        #packageModal .modal-main { padding: 22px 30px; }
+        /* Top toolbar buttons */
+        .btn-booknow { background: linear-gradient(135deg,#006ce4 0%,#0048a0 100%) !important; color:#fff !important; padding:8px 18px; border-radius:12px; font-weight:800; box-shadow:0 12px 30px rgba(0,108,228,0.14); transition: transform .18s ease, box-shadow .18s ease; }
+        .btn-booknow:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(0,108,228,0.22); }
+        /* WhatsApp brand green and hover states */
+        .btn-whatsapp { background:#25D366 !important; color:#fff !important; padding:8px 12px; border-radius:10px; border:1px solid rgba(0,0,0,0.05); }
+        .btn-whatsapp:hover { background:#128C7E !important; color:#fff !important; transform:translateY(-1px); box-shadow:0 6px 18px rgba(18,140,126,0.12); }
+        .close-modal-btn { background:transparent; border:0; color:#fff; padding:6px 8px; }
+        /* Premium WhatsApp button (gradient + shadow) */
+        .btn-whatsapp-premium { background: linear-gradient(135deg,#25D366 0%,#128C7E 100%) !important; color:#fff !important; padding:12px 18px; border-radius:12px; font-weight:800; box-shadow:0 12px 30px rgba(37,211,102,0.12); transition: transform .18s ease, box-shadow .18s ease; border: none; display: inline-flex; align-items: center; justify-content: center; }
+        .btn-whatsapp-premium:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(18,140,126,0.22); }
+        #packageModal .quick-info-panel { padding: 18px; }
+
+        /* Hover & focus effects for options inside the popup */
+        #packageModal .related-list .list-group-item { cursor: pointer; padding:8px 12px; transition: all .18s ease; border-radius:8px; }
+        #packageModal .related-list .list-group-item:hover, #packageModal .related-list .list-group-item:focus {
+            background: linear-gradient(90deg, rgba(37,211,102,0.06) 0%, rgba(0,0,0,0.02) 100%);
+            transform: translateX(6px);
+            box-shadow: 0 10px 24px rgba(2,40,90,0.06);
+        }
+        #packageModal .related-list .list-group-item .related-thumb { width:56px; height:40px; transition: transform .18s ease; }
+        #packageModal .related-list .list-group-item:hover .related-thumb { transform:scale(1.05); }
+        #packageModal .related-list .list-group-item .flex-grow-1 { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+        /* Quick info and inclusions/exclusions hover states */
+        #packageModal .quick-info-panel ul li, #packageModal .modal-main .mb-3 ul li {
+            transition: color .12s ease, transform .12s ease;
+        }
+        #packageModal .quick-info-panel ul li:hover { color: #0b53a0; transform: translateX(4px); }
+
+        .related-thumb { width:72px; height:52px; object-fit:cover; border-radius:8px; }
+        @media (max-width: 768px) {
+            #packageModal .package-carousel img { height: 220px; }
+            #packageModal .modal-dialog { max-width: 95%; }
+        }
+        /* --- Destination modal styles (copied from destinations.html) --- */
+        .modal.fade .modal-dialog {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal.show .modal-dialog {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+        /* Blur Backdrop */
+        .modal-backdrop.show { backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+        :root { --site-header-height: 140px; --site-footer-height: 120px; }
+        .modal-backdrop.show { z-index: 2090 !important; }
+        .modal { z-index: 2100 !important; display: flex; align-items: flex-start; }
+        .modal.modal-dialog-centered { align-items: flex-start; }
+        .modal { padding-top: calc(var(--site-header-height) + 12px); }
+        .modal-dialog { max-width: 980px; width:100%; margin:0 auto; max-height: calc(100vh - var(--site-header-height) - 40px); }
+        .modal-content { max-height: calc(100vh - var(--site-header-height) - 80px); overflow:hidden; border-radius:20px; }
+        .modal-body { overflow-y:auto; -webkit-overflow-scrolling: touch; max-height: calc(100vh - var(--site-header-height) - 40px); }
+        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important; }
+    </style>
+</head>
+<body>  
+
+<!-- ============  MASTER HEADER ============ -->
+   <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+
+                /* -------------------- Package Explore Modal (dynamic) -------------------- */
+                document.addEventListener('DOMContentLoaded', function(){
+                        // Build an array of packages from DOM after content loads
+                        const packageEls = Array.from(document.querySelectorAll('.package-item'));
+                        const packages = packageEls.map((el, idx) => {
+                                const title = el.querySelector('.package-title')?.innerText?.trim() || `Package ${idx+1}`;
+                                const subtitle = el.querySelector('.package-subtitle')?.innerText?.trim() || '';
+                                const desc = el.querySelector('.package-description')?.innerText?.trim() || '';
+                                const img = el.querySelector('.package-image-wrapper img')?.src || '';
+                                const days = el.querySelector('.package-days-badge')?.innerText?.trim() || '';
+                                const badge = el.querySelector('.package-badge')?.innerText?.trim() || '';
+                                const highlights = Array.from(el.querySelectorAll('.highlight-tag')).map(h => h.innerText.trim());
+                                const rating = el.querySelector('.rating-badge span')?.innerText?.trim() || '';
+                                const details = el.querySelector('.package-card')?.dataset || {};
+                                return { idx, title, subtitle, desc, img, days, badge, highlights, rating, details };
+                        });
+
+                        // Replace primary CTA with Explore button and attach handlers
+                        packageEls.forEach((el, idx) => {
+                                const action = el.querySelector('.package-action');
+                                if (!action) return;
+                                // remove existing primary anchor (Book Now) if present
+                                const primary = action.querySelector('.btn-primary-premium');
+                                if (primary) primary.remove();
+
+                                const exploreBtn = document.createElement('button');
+                                exploreBtn.className = 'btn-primary-premium';
+                                exploreBtn.type = 'button';
+                                exploreBtn.innerHTML = '<i class="fas fa-eye me-2"></i> Explore';
+                                exploreBtn.dataset.idx = idx;
+                                exploreBtn.style.cursor = 'pointer';
+                                action.insertBefore(exploreBtn, action.firstChild);
+
+                                exploreBtn.addEventListener('click', function(){ openPackageModal(idx); });
+                        });
+
+                        // Delegated fallback: open modal when any premium CTA is clicked
+                        document.body.addEventListener('click', function(e){
+                            const btn = e.target.closest && e.target.closest('.btn-primary-premium');
+                            if (!btn) return;
+                            e.preventDefault();
+                            let idx = -1;
+                            if (btn.dataset && btn.dataset.idx) idx = Number(btn.dataset.idx);
+                            if (idx < 0) {
+                                const parent = btn.closest('.package-item');
+                                if (parent) idx = Array.from(document.querySelectorAll('.package-item')).indexOf(parent);
+                            }
+                            if (idx >= 0 && typeof openPackageModal === 'function') openPackageModal(idx);
+                        });
+
+                        // Enhanced modal markup
+                        const modalHtml = `
+                        <div class="modal fade" id="packageModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl">
+                                <div class="modal-content border-0 rounded-4 overflow-hidden shadow-lg" style="border-radius:18px;">
+                                    <div class="bg-gradient-light" style="height:8px; background:linear-gradient(90deg,#006ce4,#febb02);"></div>
+                                    <div class="modal-body" style="padding:0;">
+                                        <div class="package-carousel">
+                                            <div id="packageCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
+                                                <div class="carousel-inner" id="packageCarouselInner"></div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#packageCarousel" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#packageCarousel" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+
+                                                <!-- Top-right overlay: only close button (keep as-is) -->
+                                                <div style="position:absolute; top:12px; right:12px; z-index:1070; display:flex; gap:8px;">
+                                                    <button type="button" class="btn-close btn-close-white bg-dark bg-opacity-50 rounded-circle p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="modal-main">
+
+                                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                                    <div>
+                                                        <h3 id="modalPackageTitle" class="fw-bold mb-1"></h3>
+                                                        <div id="modalPackageSubtitle" class="text-primary mb-2"></div>
+                                                    </div>
+                                                    <div class="text-end text-muted" id="modalPackageMeta"></div>
+                                                </div>
+
+                                                <div class="row g-3">
+                                                    <div class="col-lg-8">
+                                                        <h6 class="fw-bold">About this package</h6>
+                                                        <p id="modalPackageDesc" class="text-muted"></p>
+
+                                                        <h6 class="fw-bold mt-3">Detailed Itinerary</h6>
+                                                        <div id="modalItinerary" class="mb-3"></div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <h6 class="fw-bold">Inclusions</h6>
+                                                                <div id="modalInclusives" class="mb-3"></div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <h6 class="fw-bold">Exclusions & Terms</h6>
+                                                                <div id="modalExclusions" class="mb-3"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <h6 class="fw-bold mt-2">Booking Guide</h6>
+                                                        <div id="modalBookingGuide" class="mb-3"></div>
+
+                                                        <!-- Related Packages moved here (below Booking Guide) -->
+                                                        <div class="p-3 bg-white rounded-3 border related-list mt-3">
+                                                            <h6 class="fw-bold mb-2">Related Packages</h6>
+                                                            <div id="modalRelated" class="list-group"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="quick-info-panel bg-light rounded-3 mb-3 sticky-top" style="top:18px;">
+                                                            <div class="d-grid mb-3">
+                                                                    <a id="modalBookNow" class="btn btn-primary-premium btn-lg fw-bold mb-2" href="contact.html#contactForm"><i class="fas fa-paper-plane me-2"></i> Book Now</a>
+                                                                    <a id="modalWhatsApp" class="btn btn-whatsapp-premium btn-lg fw-bold" href="#"><i class="fab fa-whatsapp me-2"></i> WhatsApp</a>
+                                                                </div>
+                                                            <h6 class="fw-bold">Quick Info</h6>
+                                                            <ul class="list-unstyled mb-0" id="modalQuickInfo"></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+
+                        document.body.insertAdjacentHTML('beforeend', modalHtml);
+                        const packageModalEl = document.getElementById('packageModal');
+                        let packageModal = null;
+
+                        // Lazily initialize Bootstrap modal once `bootstrap` is available
+                        function ensurePackageModal(){
+                            return new Promise((resolve)=>{
+                                if (packageModal) return resolve(packageModal);
+                                // Prefer real Bootstrap modal when available
+                                if (window.bootstrap && packageModalEl) {
+                                    try { packageModal = new bootstrap.Modal(packageModalEl); } catch(e){ packageModal = null; }
+                                    return resolve(packageModal);
+                                }
+                                // Poll briefly for bootstrap to initialize
+                                const iv = setInterval(()=>{
+                                    if (window.bootstrap && packageModalEl){
+                                        try { packageModal = new bootstrap.Modal(packageModalEl); } catch(e){ packageModal = null; }
+                                        clearInterval(iv);
+                                        return resolve(packageModal);
+                                    }
+                                }, 120);
+                                // After timeout, provide a lightweight fallback modal API so Explore still works
+                                setTimeout(()=>{
+                                    clearInterval(iv);
+                                    if (packageModal) return resolve(packageModal);
+                                    // create a simple fallback modal controller
+                                    let backdropEl = null;
+                                    const fallback = {
+                                        show(){
+                                            try {
+                                                packageModalEl.classList.add('show');
+                                                packageModalEl.style.display = 'block';
+                                                packageModalEl.removeAttribute('aria-hidden');
+                                                packageModalEl.setAttribute('aria-modal','true');
+                                                document.body.classList.add('modal-open');
+                                                backdropEl = document.createElement('div');
+                                                backdropEl.className = 'modal-backdrop fade show';
+                                                document.body.appendChild(backdropEl);
+                                            } catch(e){ console.error('Fallback modal show failed', e); }
+                                        },
+                                        hide(){
+                                            try {
+                                                packageModalEl.classList.remove('show');
+                                                packageModalEl.style.display = 'none';
+                                                packageModalEl.setAttribute('aria-hidden','true');
+                                                document.body.classList.remove('modal-open');
+                                                if (backdropEl){ backdropEl.remove(); backdropEl = null; }
+                                            } catch(e){ console.error('Fallback modal hide failed', e); }
+                                        }
+                                    };
+                                    packageModal = fallback;
+                                    return resolve(packageModal);
+                                }, 120 * 50 /* ~6s */);
+                            });
+                        }
+
+                        // Ensure dismiss buttons inside the package modal work even without Bootstrap JS
+                        document.body.addEventListener('click', function(e){
+                            const dismiss = e.target.closest && e.target.closest('[data-bs-dismiss="modal"], .close-modal-btn');
+                            if (!dismiss) return;
+                            // Only act if the clicked dismiss belongs to the packageModal
+                            if (!dismiss.closest || !dismiss.closest('#packageModal')) return;
+                            ensurePackageModal().then(m=>{ if (m && typeof m.hide === 'function') m.hide(); });
+                        });
+
+                        function openPackageModal(idx){
+                                const pkg = packages[idx];
+                                if (!pkg) return;
+
+                                document.getElementById('modalPackageTitle').innerText = pkg.title;
+                                document.getElementById('modalPackageSubtitle').innerText = pkg.subtitle || (pkg.days ? pkg.days : '');
+                                document.getElementById('modalPackageDesc').innerText = pkg.desc;
+                                document.getElementById('modalPackageMeta').innerHTML = `<small class="text-muted">${pkg.badge ? pkg.badge + ' • ' : ''}${pkg.rating ? pkg.rating + ' ★' : ''}</small>`;
+                                // Also populate destination-style modal fields if present
+                                const destImg = document.getElementById('modalDestImage'); if (destImg) destImg.src = pkg.img || '';
+                                const destBadge = document.getElementById('modalDestBadge'); if (destBadge) destBadge.innerText = pkg.badge || '';
+                                const destTitle = document.getElementById('modalDestTitle'); if (destTitle) destTitle.innerText = pkg.title || '';
+                                const destRegion = document.getElementById('modalDestRegion'); if (destRegion) destRegion.innerHTML = '<i class="fas fa-map-marker-alt me-1"></i> ' + (pkg.subtitle || '');
+                                const destDesc = document.getElementById('modalDestDesc'); if (destDesc) destDesc.innerText = pkg.desc || '';
+                                const destTime = document.getElementById('modalDestTime'); if (destTime) destTime.innerHTML = `<i class="far fa-calendar-alt me-2 text-warning"></i>${pkg.days||'TBD'}`;
+                                const destDuration = document.getElementById('modalDestDuration'); if (destDuration) destDuration.innerHTML = `<i class="far fa-clock me-2 text-warning"></i>${pkg.days||'TBD'}`;
+                                const destExp = document.getElementById('modalDestExperiences'); if (destExp){ destExp.innerHTML=''; (pkg.highlights||[]).forEach(h=> destExp.innerHTML += `<li class="col-md-6"><i class="fas fa-check-circle text-success me-2 small"></i>${h}</li>`); }
+                                const destHighlights = document.getElementById('modalDestHighlights'); if (destHighlights){ destHighlights.innerHTML = (pkg.highlights||[]).map(h=> `<div class="highlight"> <i class="fas fa-check-circle"></i> ${h}</div>`).join(''); }
+
+                                // Carousel slides
+                                const inner = document.getElementById('packageCarouselInner');
+                                inner.innerHTML = '';
+                                const imgs = [pkg.img].filter(Boolean);
+                                // If additional images provided via data-images attribute, split and append
+                                if (pkg.details && pkg.details.images) {
+                                        try { const more = pkg.details.images.split(',').map(s=>s.trim()).filter(Boolean); if (more.length) imgs.push(...more); } catch(e){}
+                                }
+                                // If no images available, add a placeholder
+                                if (imgs.length === 0) imgs.push('https://via.placeholder.com/1200x700?text=Package+Image');
+
+                                imgs.forEach((src,i)=>{
+                                        const active = i===0 ? 'active' : '';
+                                        const slide = document.createElement('div');
+                                        slide.className = 'carousel-item '+active;
+                                        slide.innerHTML = `<img src="${src}" class="d-block w-100" style="height:460px; object-fit:cover; filter: saturate(1.02) contrast(1.02);" alt="Slide ${i+1}">`;
+                                        inner.appendChild(slide);
+                                });
+
+                                // Itinerary — try to use data-itinerary if present, else auto-generate
+                                const itinEl = document.getElementById('modalItinerary');
+                                itinEl.innerHTML = '';
+                                let generated = false;
+                                if (pkg.details && pkg.details.itinerary) {
+                                        itinEl.innerHTML = pkg.details.itinerary;
+                                } else {
+                                        const days = pkg.days ? (pkg.days.match(/\d+/)?.[0] || '') : '';
+                                        const n = Math.max( (days? Number(days) : 3), 3 );
+                                        for (let d=1; d<=n; d++){
+                                                const li = document.createElement('div');
+                                                li.innerHTML = `<strong>Day ${d}:</strong> Highlights and suggested activities for day ${d}.`;
+                                                itinEl.appendChild(li);
+                                        }
+                                        generated = true;
+                                }
+
+                                // Booking guide
+                                document.getElementById('modalBookingGuide').innerHTML = `
+                                    <p class="text-muted">To confirm booking, click <strong>Book Now</strong>, share tentative dates, pickup city, and guest count. We will reply with final pricing, payment link, and confirmation within working hours.</p>
+                                `;
+
+                                // Inclusives
+                                document.getElementById('modalInclusives').innerHTML = `
+                                    <ul>
+                                        <li>Comfortable transfers and verified driver</li>
+                                        <li>Hotel stays as per package category</li>
+                                        <li>Daily breakfast and selected meals</li>
+                                        <li>Local sightseeing as mentioned in itinerary</li>
+                                        <li>24×7 on-ground support</li>
+                                    </ul>
+                                `;
+
+                                // Exclusions & Terms
+                                document.getElementById('modalExclusions').innerHTML = `
+                                    <ul>
+                                        <li>Flight / train tickets unless specified</li>
+                                        <li>Personal expenses, tips, and entrance fees (unless listed)</li>
+                                        <li>Any additional activities not included in itinerary</li>
+                                    </ul>
+                                    <p class="small text-muted">Cancellation and refund subject to our <a href="contact.html#contactForm">terms</a>. Prices may vary during peak season.</p>
+                                `;
+
+                                // Quick info
+                                const qi = document.getElementById('modalQuickInfo'); qi.innerHTML='';
+                                qi.innerHTML += `<li><strong>Duration:</strong> ${pkg.days||'TBD'}</li>`;
+                                qi.innerHTML += `<li><strong>Category:</strong> ${pkg.subtitle||'Package'}</li>`;
+                                if (pkg.rating) qi.innerHTML += `<li><strong>Rating:</strong> ${pkg.rating} ★</li>`;
+                                if (pkg.badge) qi.innerHTML += `<li><strong>Note:</strong> ${pkg.badge}</li>`;
+
+                                // Related packages (3 others) — render as destination-style cards
+                                const rel = document.getElementById('modalRelated'); rel.innerHTML='';
+                                const row = document.createElement('div'); row.className = 'row g-3';
+                                packages.filter(p=>p.idx!==pkg.idx).slice(0,3).forEach(p=>{
+                                    const col = document.createElement('div'); col.className = 'col-md-6';
+                                    const a = document.createElement('a');
+                                    a.href = '#packagesGrid';
+                                    a.className = 'd-block text-decoration-none';
+                                    const thumb = p.img || 'https://via.placeholder.com/200x120?text=Img';
+                                    a.innerHTML = `
+                                        <div class="d-flex align-items-center bg-white border rounded-3 p-2 shadow-sm h-100 hover-lift">
+                                            <div class="rounded-3 overflow-hidden me-3" style="width:70px; height:70px; flex-shrink:0;">
+                                                <img src="${thumb}" class="w-100 h-100 object-fit-cover" alt="${p.title}">
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 text-dark fw-bold small">${p.title}</h6>
+                                                <p class="mb-0 text-muted small" style="font-size:0.75rem;">${p.subtitle||''}</p>
+                                                <span class="text-primary small fw-bold" style="font-size:0.75rem;">${p.days||''}</span>
+                                            </div>
+                                        </div>
+                                    `;
+                                    a.addEventListener('click', (e)=>{
+                                        e.preventDefault();
+                                        ensurePackageModal().then(m=>{ if (m && typeof m.hide === 'function') m.hide();
+                                            const target = document.querySelectorAll('.package-item')[p.idx];
+                                            if (target) { target.scrollIntoView({behavior:'smooth', block:'center'}); }
+                                        });
+                                    });
+                                    col.appendChild(a);
+                                    row.appendChild(col);
+                                });
+                                rel.appendChild(row);
+
+                                // WhatsApp and Book Now links (single top controls)
+                                const waBtn = document.getElementById('modalWhatsApp');
+                                const waHref = `https://wa.me/919897352211?text=${encodeURIComponent('I am interested in the '+pkg.title+' package. Please share details & availability.')}`;
+                                if (waBtn) waBtn.href = waHref;
+
+                                const bookBtn = document.getElementById('modalBookNow');
+                                if (bookBtn) bookBtn.href = 'contact.html#contactForm';
+
+                                // Show modal with subtle animation (ensure modal initialized)
+                                ensurePackageModal().then(m=>{ if (m && typeof m.show === 'function') m.show(); else if (!m) console.warn('Bootstrap modal not available to show.'); });
+                        }
+                });
+    </script>
+    <!-- ============ END MASTER HEADER ============ -->
+
+
+    <!-- HERO SECTION -->
+    <section class="packages-hero">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-lg-start text-center">
+                    <div class="hero-pill mb-3">
+                        <i class="fa-solid fa-gem"></i>
+                        <span>Premium Packages • Verified Stays • 24×7 Support</span>
+                    </div>
+                    <h1>Discover Our Premium Packages</h1>
+                    <p>Experience the divine serenity, breathtaking landscapes, and vibrant culture of Uttarakhand through our expertly curated travel packages.</p>
+
+                    <div class="packages-hero-actions">
+                        <a href="#" class="btn btn-warning rounded-pill px-4 fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                        <a href="https://wa.me/919897352211" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="#packagesGrid" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-arrow-down me-2"></i>Browse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-attraction-card">
+                        <img src="https://media.istockphoto.com/id/2210922717/photo/lakshman-jhula-bridge-temple-and-ganges-river-at-sunset-rishikesh-india.webp?a=1&b=1&s=612x612&w=0&k=20&c=9ukhwQzdKXuOtMUaWgY9XHYEVk9S3Ts_5UsSp3au0h0=" alt="Uttarakhand attraction" loading="lazy">
+                        <div class="hero-attraction-overlay text-white">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div>
+                                    <p class="mb-0 fw-bold">Explore Divine Uttarakhand</p>
+                                    <p class="mb-0 small" style="opacity: 0.9;">With Vihaan Tour & Travels</p>
+                                </div>
+                                <span class="badge rounded-pill text-bg-warning text-dark fw-bold">Explore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER SECTION -->
+    <div class="container">
+        <div class="packages-filter">
+            <div class="text-center mb-4">
+                <h4 style="color: #1a1a1a; font-weight: 700; margin-bottom: 30px;">Filter Packages</h4>
+            </div>
+
+            <div class="packages-stats">
+                <div class="row g-3 text-center">
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-medal"></i><strong>Trusted</strong></div>
+                            <div class="text-muted small">Since 2015</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-route"></i><strong>Curated</strong></div>
+                            <div class="text-muted small">Premium routes</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-hotel"></i><strong>Verified</strong></div>
+                            <div class="text-muted small">Stays & drivers</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-headset"></i><strong>Support</strong></div>
+                            <div class="text-muted small">24×7 help</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+                <button class="filter-btn active" onclick="filterPackages('all', this)">All Packages</button>
+                <button class="filter-btn" onclick="filterPackages('pilgrimage', this)">Pilgrimage</button>
+                <button class="filter-btn" onclick="filterPackages('adventure', this)">Adventure</button>
+                <button class="filter-btn" onclick="filterPackages('relaxation', this)">Relaxation</button>
+                <button class="filter-btn" onclick="filterPackages('wildlife', this)">Wildlife</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- PACKAGES GRID -->
+    <section class="packages-grid" id="packagesGrid">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Package 1: Chardham -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="pilgrimage">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://badrinath-kedarnath.gov.in/css_js_2024/img/kedarnath-4k.jpg" alt="Chardham Yatra">
+                            <span class="package-days-badge">8 Days</span>
+                            <span class="package-badge">Popular</span>
+                        </div>
+                        <div class="package-content">
+                                <div id="chardham-complete-package" class="package-card" 
+                                    data-itinerary="<ol>
+                                        <li><strong>Day 1:</strong> Drive from Delhi to Barkot via Haridwar. Evening arrival and hotel stay.</li>
+                                        <li><strong>Day 2:</strong> Yamunotri darshan and return to Barkot; local sightseeing.</li>
+                                        <li><strong>Day 3:</strong> Drive to Uttarkashi; short Ganga ghats visit and rest.</li>
+                                        <li><strong>Day 4:</strong> Drive towards Guptkashi / Sonprayag area; prepare for Kedarnath.</li>
+                                        <li><strong>Day 5:</strong> Kedarnath darshan (by trek/heli as per plan) and overnight at local stay.</li>
+                                        <li><strong>Day 6:</strong> Travel to Joshimath and on to Badrinath area; evening rest.</li>
+                                        <li><strong>Day 7:</strong> Badrinath darshan and visit local temples; start return towards Haridwar/Rishikesh.</li>
+                                        <li><strong>Day 8:</strong> Drive back to Delhi with enroute breaks; trip conclusion.</li>
+                                        </ol>" data-images="https://media.istockphoto.com/id/1251156350/photo/badrinath-temple.webp?a=1&b=1&s=612x612&w=0&k=20&c=D4_mT03ClQryr76KtfLcGe6llwf_0svxWwwXzz3JrU8=,
+                                                            https://triuttarakhand.in/tri-turismo/wp-content/uploads/2022/09/Yamunotri1.jpg,
+                                                            https://www.namasteindiatrip.com/wp-content/uploads/2019/09/Gangotri-Travel-HD.jpg,
+                                                            https://media.istockphoto.com/id/2156329181/photo/char-dham.jpg?s=612x612&w=0&k=20&c=L585fKnrNGlQ_i5n9u_v4CETDID8x9P511DG-KkrCNs=">
+                                </div>
+                            <div class="package-subtitle">Sacred Pilgrimage</div>
+                            <h3 class="package-title">Chardham Yatra Complete</h3>
+                            <p class="package-description">Embark on a sacred pilgrimage to Yamunotri, Gangotri, Kedarnath, and Badrinath, seeking divine blessings and spiritual awakening.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-gopuram"></i> Temple Darshan</div>
+                                <div class="highlight-tag"><i class="fas fa-person-hiking"></i> Guided Tours</div>
+                                <div class="highlight-tag"><i class="fas fa-bed"></i> Luxury Stays</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹35,000</div>
+                                    <div class="final-price">₹24,999 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2: Do Dham -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="pilgrimage">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://media.istockphoto.com/id/1251156350/photo/badrinath-temple.webp?a=1&b=1&s=612x612&w=0&k=20&c=D4_mT03ClQryr76KtfLcGe6llwf_0svxWwwXzz3JrU8=" alt="Do Dham Yatra">
+                            <span class="package-days-badge">5 Days</span>
+                            <span class="package-badge">Divine</span>
+                        </div>
+                            <div class="package-content">
+                                <div class="package-card" 
+                                    data-itinerary="<ol><li><strong>Day 1:</strong> Depart Delhi for Rishikesh; attend Ganga aarti and overnight stay.</li>
+                                                    <li><strong>Day 2:</strong> Drive towards Sonprayag and proceed to Kedarnath for darshan; stay nearby.</li>
+                                                    <li><strong>Day 3:</strong> Return from Kedarnath to Guptkashi/Joshimath area; relax and local visits.</li>
+                                                    <li><strong>Day 4:</strong> Drive to Badrinath with scenic stops; evening rest at Joshimath.</li>
+                                                    <li><strong>Day 5:</strong> Badrinath darshan and drive back towards Delhi with enroute breaks.</li>
+                                                </ol>" data-images="https://images.unsplash.com/photo-1547378809-db8f9515a63b?q=80&w=1200&auto=format&fit=crop,">
+                                </div>
+                            <div class="package-subtitle">Kedarnath & Badrinath</div>
+                            <h3 class="package-title">Do Dham Yatra</h3>
+                            <p class="package-description">A spiritual journey to the two most revered shrines, Kedarnath and Badrinath, offering peace and divine blessings.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-gopuram"></i> Kedar & Badri</div>
+                                <div class="highlight-tag"><i class="fas fa-helicopter"></i> Heli Option</div>
+                                <div class="highlight-tag"><i class="fas fa-hotel"></i> Premium Stay</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹22,000</div>
+                                    <div class="final-price">₹16,500 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3: Rishikesh -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="adventure">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://www.naturetravelagency.com/uploads/1739354839Best%20time%20to%20visit%20Rishikesh.jpg" alt="Rishikesh">
+                            <span class="package-days-badge">7 Days</span>
+                            <span class="package-badge">Adventure</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-card"   data-itinerary="<ol><li><strong>Day 1:</strong> Arrive Rishikesh; evening Ganga aarti at Triveni Ghat and relax.</li>
+                                                                        <li><strong>Day 2:</strong> River rafting experience on the Ganges and beach time.</li>
+                                                                        <li><strong>Day 3:</strong> Morning yoga session and meditation at an ashram.</li>
+                                                                        <li><strong>Day 4:</strong> Trek to Neer Garh Falls and visit Beatles Ashram.</li>
+                                                                        <li><strong>Day 5:</strong> Adventure day with camping or zipline activities.</li>
+                                                                        <li><strong>Day 6:</strong> Optional bungee jump or local exploration.</li>
+                                                                        <li><strong>Day 7:</strong> Depart for home with peaceful morning by the Ganga.</li>
+                                                                    </ol>" data-images="https://www.naturetravelagency.com/uploads/1739354839Best%20time%20to%20visit%20Rishikesh.jpg,
+                                                                                        https://images.unsplash.com/photo-1720819029162-8500607ae232?q=80&w=1200&auto=format&fit=crop"></div>
+                            <div class="package-subtitle">Spiritual & Adventure</div>
+                            <h3 class="package-title">Rishikesh Adventure Tour</h3>
+                            <p class="package-description">Experience the yoga capital of the world with thrilling river rafting, meditation retreats, and spiritual awakening at the banks of Ganga.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-water"></i> River Rafting</div>
+                                <div class="highlight-tag"><i class="fas fa-om"></i> Yoga Classes</div>
+                                <div class="highlight-tag"><i class="fas fa-spa"></i> Meditation</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹28,000</div>
+                                    <div class="final-price">₹18,999 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 4: Nainital -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="relaxation">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1667029838861-2fe3a590a1d2?q=80&w=936&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Nainital">
+                            <span class="package-days-badge">4 Days</span>
+                            <span class="package-badge">Peaceful</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Nainital; evening boat ride on Naini Lake.</li><li><strong>Day 2:</strong> Visit Naini Peak, Snow View Point and Mall Road shopping.</li><li><strong>Day 3:</strong> Excursion to Bhimtal and Sattal; birdwatching and lakeside walks.</li><li><strong>Day 4:</strong> Morning market visit and drive back to Delhi.</li></ol>"></div>
+                            <div class="package-subtitle">Hill Station Getaway</div>
+                            <h3 class="package-title">Nainital Lake Escape</h3>
+                            <p class="package-description">Relax by the shimmering lakes, wander through colonial lanes, and enjoy tranquil boat rides in the charming hill station of Nainital.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-boat"></i> Lake Boating</div>
+                                <div class="highlight-tag"><i class="fas fa-gopuram"></i> Temple Visits</div>
+                                <div class="highlight-tag"><i class="fas fa-walking"></i> Mall Road</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹14,000</div>
+                                    <div class="final-price">₹9,999 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 5: Mussoorie -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="relaxation">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1675545404805-900ec2b85c04?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mussoorie">
+                            <span class="package-days-badge">4 Days</span>
+                            <span class="package-badge">Scenic</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive to Mussoorie; evening stroll on Mall Road and local dining.</li><li><strong>Day 2:</strong> Visit Kempty Falls, Gun Hill cable car and viewpoints.</li><li><strong>Day 3:</strong> Explore Landour, Camel's Back Road and waterfalls; short treks.</li><li><strong>Day 4:</strong> Leisure morning and return to Delhi.</li></ol>"></div>
+                            <div class="package-subtitle">Mountain Retreat</div>
+                            <h3 class="package-title">Mussoorie Hill Escape</h3>
+                            <p class="package-description">Wander through misty hills, visit cascading waterfalls, and enjoy stunning panoramic views of the Himalayan ranges from Queen of Hills.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-water"></i> Kempty Falls</div>
+                                <div class="highlight-tag"><i class="fas fa-mountain"></i> Gun Hill</div>
+                                <div class="highlight-tag"><i class="fas fa-person-hiking"></i> Trekking</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹15,000</div>
+                                    <div class="final-price">₹10,499 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 6: Jim Corbett -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="wildlife">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1665129967399-f28a228d064e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jim Corbett">
+                            <span class="package-days-badge">3 Days</span>
+                            <span class="package-badge">Wildlife</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Arrive at Corbett area; evening nature walk and lodge stay.</li><li><strong>Day 2:</strong> Early morning jeep safari in the national park followed by afternoon birdwatching.</li><li><strong>Day 3:</strong> Optional second safari or nature trail; depart for home in the afternoon.</li></ol>"></div>
+                            <div class="package-subtitle">Wildlife Adventure</div>
+                            <h3 class="package-title">Jim Corbett</h3>
+                            <p class="package-description">Embark on an exhilarating jungle safari to spot tigers, elephants, and exotic wildlife in India's oldest national park with expert naturalists.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-paw"></i> Jeep Safari</div>
+                                <div class="highlight-tag"><i class="fas fa-hotel"></i> Resort Stay</div>
+                                <div class="highlight-tag"><i class="fas fa-tree"></i> Nature Walk</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹13,000</div>
+                                    <div class="final-price">₹8,999 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 7: Auli -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="adventure">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618661057370-7cf87dfad271?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Auli">
+                            <span class="package-days-badge">5 Days</span>
+                            <span class="package-badge">Thrilling</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive to Joshimath and transfer to Auli; settle in and enjoy sunset views.</li><li><strong>Day 2:</strong> Skiing lessons and exploring gentle slopes; cable car ride to Gurso Bugyal.</li><li><strong>Day 3:</strong> Full day skiing and snow activities; optional snow trekking.</li><li><strong>Day 4:</strong> Day excursion to nearby meadows and scenic viewpoints.</li><li><strong>Day 5:</strong> Return to Delhi via Joshimath after breakfast.</li></ol>"></div>
+                            <div class="package-subtitle">Winter Wonderland</div>
+                            <h3 class="package-title">Auli Snow Adventure</h3>
+                            <p class="package-description">Glide down snowy slopes and marvel at awe-inspiring Himalayan vistas. Experience world-class skiing and adventure in India's premier ski destination.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-person-skiing"></i> Skiing</div>
+                                <div class="highlight-tag"><i class="fas fa-cable-car"></i> Cable Car</div>
+                                <div class="highlight-tag"><i class="fas fa-mountain"></i> Snow Trekking</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹22,000</div>
+                                    <div class="final-price">₹15,999 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>5.0</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 8: Shimla -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="relaxation">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1562649846-ab413ca01712?q=80&w=800&auto=format&fit=crop" alt="Shimla">
+                            <span class="package-days-badge">4 Days</span>
+                            <span class="package-badge">Colonial</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive to Shimla; evening walk on Mall Road and local market visit.</li><li><strong>Day 2:</strong> Explore The Ridge, Christ Church and Jakhu Temple with panoramic views.</li><li><strong>Day 3:</strong> Day trip to Kufri for horseback riding and scenic viewpoints.</li><li><strong>Day 4:</strong> Leisure morning and return to Delhi.</li></ol>"></div>
+                            <div class="package-subtitle">Queen of Hills</div>
+                            <h3 class="package-title">Shimla Colonial Charm</h3>
+                            <p class="package-description">Walk through the historic Ridge, explore Mall Road, and enjoy the colonial architecture and pine forests of Shimla.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-church"></i> The Ridge</div>
+                                <div class="highlight-tag"><i class="fas fa-shopping-bag"></i> Mall Road</div>
+                                <div class="highlight-tag"><i class="fas fa-mountain"></i> Jakhu Temple</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹16,000</div>
+                                    <div class="final-price">₹11,999 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 9: Manali -->
+                <div class="col-lg-4 col-md-6 package-item" data-category="adventure">
+                    <div class="premium-package-card">
+                        <div class="package-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1579689189009-874f5cac2db5?q=80&w=704&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Manali">
+                            <span class="package-days-badge">5 Days</span>
+                            <span class="package-badge">Snow</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Manali; evening stroll on Mall Road.</li><li><strong>Day 2:</strong> Visit Hadimba Temple, Tibetan Monastery and local cafes in Old Manali.</li><li><strong>Day 3:</strong> Day at Solang Valley for zorbing, paragliding and snow activities.</li><li><strong>Day 4:</strong> Excursion to Rohtang Pass or nearby scenic valleys (seasonal).</li><li><strong>Day 5:</strong> Leisure morning and drive back to Delhi with stops enroute.</li></ol>"></div>
+                            <div class="package-subtitle">Valley of Gods</div>
+                            <h3 class="package-title">Manali Mountain Bliss</h3>
+                            <p class="package-description">Experience the thrill of Solang Valley, the peace of Hadimba Temple, and the vibrant cafe culture of Old Manali.</p>
+                            <div class="package-highlights">
+                                <div class="highlight-tag"><i class="fas fa-snowflake"></i> Solang Valley</div>
+                                <div class="highlight-tag"><i class="fas fa-gopuram"></i> Hadimba Temple</div>
+                                <div class="highlight-tag"><i class="fas fa-motorcycle"></i> Rohtang Pass</div>
+                            </div>
+                            <div class="package-pricing">
+                                <div class="price-section">
+                                    <div class="original-price">₹18,000</div>
+                                    <div class="final-price">₹13,499 <span class="price-suffix">/person</span></div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a class="btn-primary-premium" href="contact.html#contactForm">Book Now</a>
+                                <button class="btn-secondary-premium" type="button" title="Save package" aria-label="Save package"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- HIGHLIGHTS SECTION -->
+    <section id="package-highlights" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Highlights</h6>
+                <h2 class="fw-bold text-dark">Destination Inspirations</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Get inspired by Uttarakhand’s most-loved attractions — perfect add-ons for your package.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Kedarnath">
+                        <img src="https://media.istockphoto.com/id/2156329181/photo/char-dham.jpg?s=612x612&w=0&k=20&c=L585fKnrNGlQ_i5n9u_v4CETDID8x9P511DG-KkrCNs=" alt="Kedarnath Temple" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Spiritual</span>
+                            <h5 class="mb-1 fw-bold">Kedarnath</h5>
+                            <p class="mb-0 small">Darshan, heli options, guided support</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Rishikesh">
+                        <img src="https://images.unsplash.com/photo-1720819029162-8500607ae232?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rishikesh rafting and river" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Adventure</span>
+                            <h5 class="mb-1 fw-bold">Rishikesh</h5>
+                            <p class="mb-0 small">Rafting, camping, yoga & cafes</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Auli">
+                        <img src="https://images.unsplash.com/photo-1648328816428-1b14adcc5f2c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Auli snow mountains" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Snow</span>
+                            <h5 class="mb-1 fw-bold">Auli</h5>
+                            <p class="mb-0 small">Skiing, ropeway, winter escapes</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="destinations.html" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+                    View All Destinations <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESSENCE SECTION -->
+    <section class="essence-section">
+        <div class="container">
+            <h2 class="essence-title">Explore the Essence of Uttarakhand</h2>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="essence-image">
+                        <img src="https://www.shivkhori.in/wp-content/uploads/2025/09/Kedarnath-Temple.webp" alt="Kedarnath Temple">
+                        <div class="essence-image-caption">Kedarnath Temple - A cornerstone of the Char Dham pilgrimage</div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="essence-card">
+                        <h3><span class="essence-icon"><i class="fas fa-gopuram"></i></span> Sacred Spiritual Legacy</h3>
+                        <p>Uttarakhand is a spiritual beacon, home to the revered Char Dham—Yamunotri, Gangotri, Kedarnath, and Badrinath—sacred sites that draw millions of pilgrims annually. The holy Ganges flows through Haridwar and Rishikesh, where the mesmerizing Ganga Aarti illuminates the evening skies. Ancient temples, serene ashrams, and meditation retreats offer a sanctuary for those seeking divine connection and inner tranquility.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center flex-row-reverse mb-5">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="essence-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=600&auto=format&fit=crop" alt="Valley of Flowers">
+                        <div class="essence-image-caption">Valley of Flowers - A UNESCO World Heritage Site</div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="essence-card">
+                        <h3><span class="essence-icon"><i class="fas fa-leaf"></i></span> Unparalleled Natural Splendor</h3>
+                        <p>Uttarakhand's landscapes are a testament to nature's artistry. The tranquil lakes of Nainital, the mist-covered hills of Mussoorie, and the vibrant meadows of the Valley of Flowers create a visual symphony. Trek through the pristine trails of Chopta, ski down the slopes of Auli, or gaze at the majestic Nanda Devi peak. Each destination unveils the untouched beauty of the Himalayas, inviting exploration and awe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="essence-image">
+                        <img src="https://www.sterlingholidays.com/blog/wp-content/uploads/2023/05/shutterstock_1372981319.jpg" alt="Wildlife Safari">
+                        <div class="essence-image-caption">Jim Corbett National Park - Sanctuary for the Royal Bengal Tiger</div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="essence-card">
+                        <h3><span class="essence-icon"><i class="fas fa-paw"></i></span> Thrilling Adventures & Wildlife</h3>
+                        <p>Uttarakhand is an adventurer's paradise, offering a spectrum of exhilarating experiences. Navigate the roaring rapids of Rishikesh, embark on a thrilling jeep safari in Jim Corbett National Park, or trek the challenging routes of Roopkund and Har Ki Dun. The state's rich biodiversity, home to the majestic Bengal tiger, Himalayan monal, and elusive snow leopard, makes it a haven for wildlife enthusiasts and nature lovers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose-section">
+        <div class="container">
+            <h2 class="essence-title" style="margin-bottom: 50px;">Why Choose Vihaan Tour & Travels</h2>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                    <h4 class="feature-title">Expert Planning</h4>
+                    <p class="feature-desc">Meticulously crafted itineraries by travel experts with decades of experience exploring Uttarakhand.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="feature-title">Safety First</h4>
+                    <p class="feature-desc">Comprehensive travel insurance, trained guides, and 24/7 customer support for peace of mind.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-star"></i></div>
+                    <h4 class="feature-title">Premium Quality</h4>
+                    <p class="feature-desc">Handpicked luxury accommodations, comfortable transportation, and gourmet meals throughout.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h4 class="feature-title">Best Prices</h4>
+                    <p class="feature-desc">Competitive pricing with flexible payment options and special discounts for group bookings.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                    <h4 class="feature-title">Personalized Service</h4>
+                    <p class="feature-desc">Customizable packages tailored to your preferences, budget, and travel style.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h4 class="feature-title">Group Specials</h4>
+                    <p class="feature-desc">Special rates for families, friends, and corporate groups with dedicated trip coordinators.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- TESTIMONIALS -->
+    <section class="py-5 bg-light" id="package-testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Reviews</h6>
+                <h2 class="fw-bold text-dark">Trusted by Travelers</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">R</div>
+                                <div>
+                                    <div class="fw-bold">Rohit Gupta</div>
+                                    <div class="text-muted small">Char Dham Package</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Everything felt premium — stays, vehicle, and the planning. They guided us at each dham with perfect timing.”</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">N</div>
+                                <div>
+                                    <div class="fw-bold">Neha Singh</div>
+                                    <div class="text-muted small">Nainital Trip</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Clean hotels and a very polite driver. The team customized the itinerary and added sightseeing without hassle.”</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">K</div>
+                                <div>
+                                    <div class="fw-bold">Kavita Rawat</div>
+                                    <div class="text-muted small">Auli Snow Adventure</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Auli was amazing! Great planning, premium stays, and all activities were arranged smoothly. Highly recommended.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ -->
+    <section class="py-5 bg-white" id="faq">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">FAQ</h6>
+                <h2 class="fw-bold text-dark">Common Questions</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Quick answers before you book. For custom queries, message us on WhatsApp.</p>
+            </div>
+
+            <div class="accordion accordion-flush bg-white" id="packagesFaq">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqOneHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                            What is included in your packages?
+                        </button>
+                    </h2>
+                    <div id="faqOne" class="accordion-collapse collapse" aria-labelledby="faqOneHeading" data-bs-parent="#packagesFaq">
+                        <div class="accordion-body text-muted">
+                            Packages typically include stays, sightseeing planning, and transportation options. Inclusions vary by package — share your dates and we’ll confirm everything before booking.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqTwoHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                            Can you customize a package for my family?
+                        </button>
+                    </h2>
+                    <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqTwoHeading" data-bs-parent="#packagesFaq">
+                        <div class="accordion-body text-muted">
+                            Yes. We customize routes, hotel category, vehicle type, pickup city, and pacing for elders/children — just send your requirements using the contact form.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqThreeHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                            How do I book quickly?
+                        </button>
+                    </h2>
+                    <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqThreeHeading" data-bs-parent="#packagesFaq">
+                        <div class="accordion-body text-muted">
+                            Tap “Book Now” on any package to send an enquiry. We’ll share availability, final itinerary, and payment steps on call/WhatsApp.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CTA -->
+    <section class="cta-section py-5 text-white" id="premium-cta">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-2">Need a Custom Premium Package?</h2>
+                    <p class="mb-0 opacity-75">Share your dates and budget — we’ll suggest the best routes, stays, and vehicles with on-ground support.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+                        <a href="https://wa.me/919897352211" class="btn btn-warning rounded-pill px-4 fw-bold text-dark">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="contact.html#contactForm" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-paper-plane me-2"></i>Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header border-0 text-white p-4" style="background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);">
+                    <div>
+                        <h5 class="modal-title fw-bold mb-1" id="quoteModalLabel">Plan Your Trip</h5>
+                        <p class="mb-0 small opacity-75">Get a customized quote within 30 minutes</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <form id="modalQuoteForm">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Quote Request from Website">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control border-0 shadow-sm" id="modalName" name="name" placeholder="Your Name" required>
+                            <label for="modalName" class="text-muted">Full Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control border-0 shadow-sm" id="modalPhone" name="phone" placeholder="Phone" required>
+                            <label for="modalPhone" class="text-muted">Phone Number</label>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control border-0 shadow-sm" id="modalDate" name="date">
+                                    <label for="modalDate" class="text-muted">Travel Date</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control border-0 shadow-sm" id="modalGuests" name="guests" placeholder="Guests" min="1">
+                                    <label for="modalGuests" class="text-muted">Guests</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control border-0 shadow-sm" placeholder="Message" id="modalMessage" name="message" style="height: 100px"></textarea>
+                            <label for="modalMessage" class="text-muted">Requirements (Optional)</label>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-pill shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+   
+    <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+    <!-- Back to Top Button -->
+    <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Filter functionality
+        function filterPackages(category, btnEl) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            const items = document.querySelectorAll('.package-item');
+            items.forEach(item => {
+                const show = category === 'all' || item.dataset.category === category;
+                if (show) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 0);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 250);
+                }
+            });
+        }
+
+        // Favorite toggle (UI only)
+        document.querySelectorAll('.btn-secondary-premium').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('is-favorite');
+                const icon = btn.querySelector('i');
+                if (!icon) return;
+                icon.classList.toggle('fas');
+                icon.classList.toggle('far');
+            });
+        });
+
+        // Modal Form Submission
+        document.getElementById('modalQuoteForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert('Thank you! We have received your enquiry. Our team will contact you shortly.');
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+                    modal.hide();
+                    form.reset();
+                } else {
+                    console.log(response);
+                    alert(json.message);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Something went wrong! Please try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

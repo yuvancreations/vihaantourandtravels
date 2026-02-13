@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vihaan Tour & Travels offers premium Chardham Yatra packages, helicopter tickets, car rentals, and destination wedding planning in Haridwar and Uttarakhand.">
+    <title>Vihaan Tour & Travels | Chardham Yatra, Car Rental & Tour Packages in Haridwar</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #wedding-package-cta {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            perspective: 1500px; /* Creates a 3D space for child elements */
+        }
+
+        .wedding-cta-card {
+            background: white;  
+            border: 1px solid #eee;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d; /* Allows children to exist in 3D space */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+        .wedding-cta-card:hover {
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.2);
+            transform: rotateY(3deg) rotateX(3deg) scale(1.01); /* Subtle 3D tilt on hover */
+        }
+        .text-content-wrapper {
+            transform: translateZ(20px); /* Pulls the text content slightly forward */
+        }
+        .wedding-title-home {
+            font-family: 'Roboto', sans-serif;
+            color: #1a1a1a;
+        }
+        .love-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 50px;
+            font-weight: 600;
+            color: #d4af37;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .love-pill:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.05);
+        }
+        .love-pill i { 
+            color: #d4af37; 
+            animation: heart-beat 1.5s infinite ease-in-out;
+        }
+        @keyframes heart-beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .wedding-btn-home { background-color: #d4af37; color: white; border-radius: 50px; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+        .wedding-btn-home:hover { background-color: #c8a029; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5); }
+        .wedding-cta-img-wrapper {
+            transform: translateZ(50px); /* Pushes the image forward in 3D space */
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            height: 100%;
+            transition: transform 0.4s ease;
+        }
+        .wedding-cta-card:hover .wedding-cta-img-wrapper {
+            transform: translateZ(60px) scale(1.02); /* Enhances 3D effect on hover */
+        }
+        .wedding-cta-img { height: 100%; width: 100%; object-fit: cover; min-height: 400px; transition: transform 0.5s ease; }
+        .wedding-cta-card:hover .wedding-cta-img {
+            transform: scale(1.1);
+        }
+        
+
+
+
+
+        /* Responsive adjustments for smaller screens */
+        /* Font and Icon Setup */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+        .chardham-poster {
+            position: relative;
+            height: 80vh; /* Screen ka 80% area cover karega */
+            width: 100%;
+            background: url('assets/chardham_poster.webp') no-repeat center center/cover;
+            background-attachment: fixed; /* Parallax Effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .poster-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.384));
+        }
+
+        .poster-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1); /* Glassmorphism */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            margin: 0 20px;
+        }
+
+        .poster-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .poster-content h4 {
+            color: #f39c12; /* Golden Saffron color */
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .poster-features {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: #f39c12;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: scale(1.05);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+ <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+    </script>
+
+    
+
+
+
+    <!-- Hero Section -->
+    <header class="hero-section hero-section--home" id="home">
+        <div class="hero-bg hero-bg--home"></div>
+        
+        <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center text-white position-relative z-2">
+            <h1 class="display-4 fw-bold mb-3">Explore the Divine Himalayas</h1>
+            <p class="lead mb-5">Chardham Yatra | Yamunotri • Gangotri • Kedarnath • Badrinath</p>
+        </div>
+
+        <!-- Search Widget -->
+        <div class="search-widget-container">
+            <div class="container">
+                <div class="search-widget shadow-lg">
+                    <form class="row g-3 align-items-end" id="searchForm">
+
+                        <!-- DESTINATION -->
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small fw-bold">DESTINATION</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </span>
+                                <input type="text" 
+                                    class="form-control border-start-0 ps-0"
+                                    id="destination"
+                                    placeholder="Where do you want to go?"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- TRAVEL DATE -->
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small fw-bold">TRAVEL DATE</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0">
+                                    <i class="fas fa-calendar-alt text-primary"></i>
+                                </span>
+                                <input type="date" class="form-control border-start-0 ps-0" id="travelDate">
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY -->
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small fw-bold">CATEGORY</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0">
+                                    <i class="fas fa-layer-group text-primary"></i>
+                                </span>
+                                <select class="form-select border-start-0 ps-0"
+                                        id="categorySelect"
+                                        required>
+                                    <option value="">Select Category</option>
+                                    <option value="packages">Packages</option>
+                                    <option value="car-rental">Car Rental</option>
+                                    <option value="wedding">Wedding</option>
+                                    <option value="activities">Activities</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- ACTIVITY (Hidden by default) -->
+                        <div class="col-md-3 d-none" id="activityBox">
+                            <label class="form-label text-muted small fw-bold">ACTIVITY TYPE</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0">
+                                    <i class="fas fa-hiking text-primary"></i>
+                                </span>
+                                <select class="form-select border-start-0 ps-0" id="activitySelect">
+                                    <option value="">Select Activity</option>
+                                    <option value="Rafting">Rafting</option>
+                                    <option value="Camping">Camping</option>
+                                    <option value="Bungee-Jumping">Bungee Jumping</option>
+                                    <option value="Jungle-Safari">Jungle Safari</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- BUTTON -->
+                        <div class="col-md-3">
+                            <button type="submit"
+                                    class="btn btn-primary w-100 py-2 fw-bold text-uppercase">
+                                Check Availability
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("searchForm");
+    const destination = document.getElementById("destination");
+    const date = document.getElementById("travelDate");
+    const category = document.getElementById("categorySelect");
+    const activityBox = document.getElementById("activityBox");
+    const activitySelect = document.getElementById("activitySelect");
+
+    // 🔹 SHOW / HIDE ACTIVITY DROPDOWN
+    category.addEventListener("change", function () {
+
+        if (this.value === "activities") {
+            activityBox.classList.remove("d-none");
+        } else {
+            activityBox.classList.add("d-none");
+            activitySelect.value = "";
+        }
+
+    });
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); // form submit rok do
+
+        if (destination.value === "") {
+            alert("Please enter destination");
+            return;
+        }
+
+        if (category.value === "") {
+            alert("Please select category");
+            return;
+        }
+
+        if (category.value === "activities" && activitySelect.value === "") {
+            alert("Please select activity");
+            return;
+        }
+
+        let page = "";
+
+        switch (category.value) {
+            case "packages":
+                page = "packages.html";
+                break;
+            case "wedding":
+                page = "wedding.html";
+                break;
+            case "car-rental":
+                page = "car-rental.html";
+                break;
+            case "activities":
+                page = "activities.html";
+                break;
+        }
+
+        let url =
+            page +
+            "?destination=" + encodeURIComponent(destination.value) +
+            "&date=" + encodeURIComponent(date.value);
+
+        if (category.value === "activities") {
+            url += "&activity=" + encodeURIComponent(activitySelect.value);
+        }
+
+        window.location.href =
+            page +
+            "?destination=" + encodeURIComponent(destination.value) +
+            "&date=" + encodeURIComponent(date.value);
+    });
+
+});
+
+    </script>
+
+    <div class="spacer-80"></div>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Services</h6>
+                <h2 class="fw-bold text-dark">Our Premium Services</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- js for Chardham Yatra Poster -->
+
+    <script>
+        window.addEventListener('scroll', function() {
+    const posterContent = document.querySelector('.poster-content');
+    let scrollPos = window.scrollY;
+    
+    // Simple parallax effect on text
+    if (scrollPos > 100) {
+        posterContent.style.opacity = '1';
+        posterContent.style.transform = 'translateY(0)';
+    }
+});
+
+function scrollToBooking() {
+    alert("Redirecting to Booking Section...");
+    // Aap yahan section ID link kar sakte hain: 
+    // document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+
+
+    // packages.html ke footer ke paas add karein
+window.onload = function() {
+    if (window.location.hash === "#chardham-complete-package") {
+        const target = document.getElementById("chardham-complete-package");
+        if (target) {
+            target.style.outline = "3px solid #ffc107"; // Gold highlight
+            target.style.transition = "outline 2s";
+            setTimeout(() => { target.style.outline = "none"; }, 3000);
+        }
+    }
+};
+}
+    </script>
+
+    
+    <!-- Chardham Yatra Poster (Landscape) -->
+    <section class="chardham-poster">
+    <div class="poster-overlay"></div>
+    <div class="poster-content">
+        <h4>Experience the Divine</h4>
+        <h1>Chardham Yatra 2026</h1>
+        <p>Badrinath • Kedarnath • Gangotri • Yamunotri</p>
+        
+        <div class="poster-features">
+            <span><i class="fas fa-check-circle"></i> Luxury Stays</span>
+            <span><i class="fas fa-check-circle"></i> Expert Guides</span>
+            <span><i class="fas fa-check-circle"></i> Safe Transport</span>
+        </div>
+        <button class="cta-button" onclick="location.href='packages.html#chardham-complete-package'">
+    Plan Your Pilgrimage
+</button>
+    </div>
+</section>
+
+    <!-- Services -->
+   <section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-success fw-bold text-uppercase ls-2">Services</h6>
+            <h2 class="fw-bold text-dark">Our Premium Services</h2>
+            <div class="divider mx-auto bg-primary"></div>
+        </div>
+        
+        <div class="row g-4 text-center">
+            
+            <div class="col-md">
+                <div class="service-icon-box p-4 rounded-3 h-100">
+                    <div class="icon-circle bg-light mx-auto mb-3">
+                        <img src="https://img.icons8.com/fluency/96/helicopter.png" width="60" alt="Helicopter 3D">
+                    </div>
+                    <h5 class="fw-bold">Helicopter Services</h5>
+                    <p class="text-muted small mb-0">Easy booking for Chardham Yatra from Dehradun to Dehradun</p>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="service-icon-box p-4 rounded-3 h-100">
+                    <div class="icon-circle bg-light mx-auto mb-3">
+                        <img src="https://img.icons8.com/fluency/96/sedan.png" width="60" alt="Car 3D">
+                    </div>
+                    <h5 class="fw-bold">Car Rental</h5>
+                    <p class="text-muted small mb-0">Luxury & Comfort Vehicles</p>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="service-icon-box p-4 rounded-3 h-100">
+                    <div class="icon-circle bg-light mx-auto mb-3">
+                        <img src="https://img.icons8.com/fluency/96/elephant.png" width="60" alt="Safari 3D">
+                    </div>
+                    <h5 class="fw-bold">Jungle Safari</h5>
+                    <p class="text-muted small mb-0">Rajaji National Park Tours</p>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="service-icon-box p-4 rounded-3 h-100">
+                    <div class="icon-circle bg-light mx-auto mb-3">
+                        <img src="https://img.icons8.com/fluency/96/user-group-man-woman.png" width="60" alt="Group 3D">
+                    </div>
+                    <h5 class="fw-bold">Group Packages</h5>
+                    <p class="text-muted small mb-0">Affordable Group Rates</p>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="service-icon-box p-4 rounded-3 h-100">
+                    <div class="icon-circle bg-light mx-auto mb-3">
+                        <img src="https://img.icons8.com/fluency/96/wedding-rings.png" width="60" alt="Wedding 3D">
+                    </div>
+                    <h5 class="fw-bold">Triyuginarayan</h5>
+                    <p class="text-muted small mb-0">Destination Wedding Available</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Packages -->
+    <section id="packages" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Best Selling</h6>
+                <h2 class="fw-bold text-dark">Popular Tour Packages</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-card card border-0 shadow-sm h-100">
+                        <div class="card-img-top position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1676182255054-7e5d81cbaa9c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid w-100" alt="Helicopter view of Kedarnath temple, part of a premium Yatra package">
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-3">Hot Deal</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 5 Days / 4 Nights</small>
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.9</small>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Kedarnath Yatra By Helicopter</h5>
+                            <p class="card-text text-muted small">Premium Darshan, VIP Stay, and Helicopter shuttle service from Phata/Guptkashi.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="package-premium-meta d-flex flex-column">
+                                    <span class="badge bg-warning text-dark mb-1">Premium</span>
+                                    <small class="text-muted">Contact us for pricing</small>
+                                </div>
+                                <a href="packages.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-card card border-0 shadow-sm h-100">
+                        <div class="card-img-top position-relative overflow-hidden">
+                            <img src="https://media.istockphoto.com/id/1019274900/photo/badrinath-temple-corridor.jpg?s=612x612&w=0&k=20&c=z45zqNNj4zRnJv4HUCaVZTV-4-wqvt5BjIhSLsCnaoE=" class="img-fluid w-100" alt="Badrinath temple surrounded by mountains, a destination in the complete Chardham Yatra">
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 10 Days / 9 Nights</small>
+                                <small class="text-warning"><i class="fas fa-star"></i> 5.0</small>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Complete Chardham Yatra</h5>
+                            <p class="card-text text-muted small">Yamunotri, Gangotri, Kedarnath & Badrinath. Includes Luxury Bus/Tempo Traveller.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="package-premium-meta d-flex flex-column">
+                                    <span class="badge bg-warning text-dark mb-1">Premium</span>
+                                    <small class="text-muted">Contact us for pricing</small>
+                                </div>
+                                <a href="packages.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-card card border-0 shadow-sm h-100">
+                        <div class="card-img-top position-relative overflow-hidden">
+                            <img src="https://media.istockphoto.com/id/999802872/photo/moon-rise-seen-from-campsite-in-shivpuri.jpg?s=612x612&w=0&k=20&c=zSCaN0edN7iLmW8RTODZLfTmy0OtqApIMGVdCPzwQ9Y=" class="img-fluid w-100" alt="A group enjoying river rafting in Rishikesh, part of an adventure and camping package">
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 3 Days / 2 Nights</small>
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.8</small>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Rishikesh Adventure & Camping</h5>
+                            <p class="card-text text-muted small">River Rafting, Jungle Camping, Bonfire, and Trekking activities.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="package-premium-meta d-flex flex-column">
+                                    <span class="badge bg-warning text-dark mb-1">Premium</span>
+                                    <small class="text-muted">Contact us for pricing</small>
+                                </div>
+                                <a href="packages.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="packages.html" class="btn btn-primary rounded-pill px-4 fw-bold">
+                    Explore All Packages <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Attractions -->
+    <section id="attractions" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Attractions</h6>
+                <h2 class="fw-bold text-dark">Top Places to Explore</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Spiritual journeys, hill-station escapes, riverside adventures, and snowy getaways — all curated with premium comfort.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Kedarnath">
+                        <img src="https://cdn1.prayagsamagam.com/media/2023/05/24212654/kedarnath-4-1024x576.webp" alt="The sacred Kedarnath Temple, a top spiritual attraction in Uttarakhand" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Spiritual</span>
+                            <h5 class="mb-1 fw-bold">Kedarnath</h5>
+                            <p class="mb-0 small">Helicopter & trek assistance</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Badrinath">
+                        <img src="https://badrinath-kedarnath.gov.in/css_js_2024/img/badrinath-temple_1.jpg" alt="The divine Badrinath temple set against the Himalayan mountains, a key attraction" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Divine</span>
+                            <h5 class="mb-1 fw-bold">Badrinath</h5>
+                            <p class="mb-0 small">Premium stays & local guidance</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Rishikesh">
+                        <img src="https://images.unsplash.com/photo-1713340546638-5e30e2b7b1fe?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="People enjoying adventurous river rafting on the Ganges in Rishikesh" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Adventure</span>
+                            <h5 class="mb-1 fw-bold">Rishikesh</h5>
+                            <p class="mb-0 small">Rafting, camping & yoga</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Mussoorie">
+                        <img src="https://images.unsplash.com/photo-1583143874828-de3d288be51a?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A beautiful view of the Mussoorie hill station, a popular tourist attraction" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Hill Station</span>
+                            <h5 class="mb-1 fw-bold">Mussoorie</h5>
+                            <p class="mb-0 small">Viewpoints & premium cabs</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Auli">
+                        <img src="https://images.unsplash.com/photo-1648328816428-1b14adcc5f2c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ski slopes in Auli covered with snow, a top attraction for winter sports" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Snow</span>
+                            <h5 class="mb-1 fw-bold">Auli</h5>
+                            <p class="mb-0 small">Skiing & winter escapes</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="destinations.html" aria-label="Explore Jim Corbett / Rajaji Safari">
+                        <img src="https://media.istockphoto.com/id/1156897410/photo/showstopper-a-wild-male-bengal-tiger-sitting-on-road-and-in-background-safari-vehicles.webp?a=1&b=1&s=612x612&w=0&k=20&c=ZfP3FyY2_0otWATUj0cVOnTVbkxkFVK2leVdEHO3ES8=" alt="A safari jeep in a dense forest, representing wildlife attractions like Rajaji and Corbett parks" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Wildlife</span>
+                            <h5 class="mb-1 fw-bold">Safari Trails</h5>
+                            <p class="mb-0 small">Rajaji & Corbett experiences</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="destinations.html" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+                    View All Destinations <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Premium Stays -->
+    <section class="py-5 bg-white" id="stays">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Premium Stays</h6>
+                <h2 class="fw-bold text-dark">Handpicked Hotels & Camps</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Clean rooms, great views, and verified locations — selected for comfort and value.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-card card border-0 shadow-sm h-100">
+                        <div class="card-img-top position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop" class="img-fluid w-100" alt="A well-appointed luxury hotel room in Haridwar, representing premium stay options" loading="lazy">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3">Top Rated</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i> Haridwar</small>
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.8</small>
+                            </div>
+                            <h5 class="card-title fw-bold mb-2">Riverside Premium Stay</h5>
+                            <p class="card-text text-muted small mb-3">Comfort rooms, easy temple access, and smooth pickup support.</p>
+                            <a href="hotels.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">Explore Hotels</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-card card border-0 shadow-sm h-100">
+                        <div class="card-img-top position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1200&auto=format&fit=crop" class="img-fluid w-100" alt="A boutique hotel in Mussoorie offering stunning hill views" loading="lazy">
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-3">Premium</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i> Mussoorie</small>
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.7</small>
+                            </div>
+                            <h5 class="card-title fw-bold mb-2">Hill View Boutique Hotel</h5>
+                            <p class="card-text text-muted small mb-3">Scenic views, premium ambience, and guided sightseeing add-ons.</p>
+                            <a href="hotels.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">Explore Hotels</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-card card border-0 shadow-sm h-100">
+                        <div class="card-img-top position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" class="img-fluid w-100" alt="A comfortable tent for a luxury camping experience in Rishikesh" loading="lazy">
+                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3">Best Value</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i> Rishikesh</small>
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.6</small>
+                            </div>
+                            <h5 class="card-title fw-bold mb-2">Luxury Camp & Bonfire</h5>
+                            <p class="card-text text-muted small mb-3">River vibe, camping nights, and adventure activities on request.</p>
+                            <a href="hotels.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">Explore Hotels</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="hotels.html" class="btn btn-primary rounded-pill px-4 fw-bold">
+                    View All Stays <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Wedding Package CTA Section -->
+    <section class="py-5" id="wedding-package-cta">
+        <div class="container">
+            <div class="wedding-cta-card rounded-4 overflow-hidden">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-4 p-md-5 text-content-wrapper">
+                            <div class="love-pill mb-3">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>Premium Wedding Planning</span>
+                            </div>
+                            <h2 class="wedding-title-home mb-3 fw-bold text-dark">Destination Wedding at Triyuginarayan</h2>
+                            <p class="text-muted mb-4">Celebrate your forever at the sacred place where Lord Shiva & Parvati are believed to have been married. We curate a premium, stress-free wedding experience with verified stays and warm local support.</p>
+                            <a href="weddingpackage.html" class="btn wedding-btn-home px-4 py-2">
+                                <i class="fas fa-paper-plane me-2"></i>Explore Wedding Package
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block p-4">
+                        <div class="wedding-cta-img-wrapper">
+                            <img src="https://plannersy.com/wp-content/uploads/2025/05/PDS_2721-scaled-min.webp" class="img-fluid wedding-cta-img" alt="A couple during their destination wedding ceremony in the mountains">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Testimonials -->
+    <!-- Wedding Gallery (Premium Look) -->
+    <section id="wedding-gallery" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Moments</h6>
+                <h2 class="fw-bold text-dark">G     A     L     L     E     R    Y</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">A divine and timeless collection of sacred moments from Ram Mandir (Ayodhya), Vrindavan, Agra, and Kashi Vishwanath (Varanasi) — where spirituality meets eternal beauty. Click any image to experience the grandeur, devotion, and heritage in our premium immersive viewer.</p>
+            </div>
+
+            <div class="premium-gallery row g-3">
+                <!-- Repeatable thumb items -->
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="0" aria-label="Open photo 1">
+                        <img src="https://akhilbharat.in/wp-content/uploads/2025/10/Gemini_Generated_Image_wzfldmwzfldmwzfl-Edited-1-1024x581.png" alt="Wedding moment 1">
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="1" aria-label="Open photo 2">
+                        <img src="https://media.istockphoto.com/id/1141604525/photo/lathmar-holi-festival-in-nandgaon-india-2019.jpg?s=612x612&w=0&k=20&c=6zR6Ea999Qdj3uK39rGJZd8eg3BZWnHofZpkCRCEPbw=" alt="Wedding moment 2">
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="2" aria-label="Open photo 3">
+                        <img src="https://media.istockphoto.com/id/2220548432/photo/the-majestic-taj-mahal-in-agra-india-on-a-clear-day.jpg?s=612x612&w=0&k=20&c=esJoXl_OuqTsCpD8zmawV9Oyiv6pODtzy0EwpUzl0gQ=" alt="Wedding moment 3">
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="3" aria-label="Open photo 4">
+                        <img src="https://images.unsplash.com/photo-1599831069477-b2acdc0bcb91?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wedding moment 4">
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="4" aria-label="Open photo 5">
+                        <img src="https://i.ytimg.com/vi/DoHVRMhyIpc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCwes7QNr_FwVKyxmya0VwYj9UXIw" alt="Wedding moment 5">
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="5" aria-label="Open photo 6">
+                        <img src="https://media.istockphoto.com/id/537988165/photo/varanasi.jpg?s=612x612&w=0&k=20&c=fFpEL17MiQJx5NkkNIVrTsesd2E8b04SCgzjfhUmQ7g=" alt="Wedding moment 6">
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="6" aria-label="Open photo 7">
+                        <img src="https://media.istockphoto.com/id/1169495903/photo/agra-fort-exterior-architecture-with-landscape-at-sunset.jpg?s=612x612&w=0&k=20&c=eGRHUiwWhqtM_Kug_93Fb5gkw6OsESuXSf3yVjy-e5E=" alt="Wedding moment 7">
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="gallery-thumb" data-index="7" aria-label="Open photo 8">
+                        <img src="https://www.poojn.in/wp-content/uploads/2025/03/Prem-Mandir-Vrindavan-Festivals-Celebrations-A-Divine-Experience.jpeg.jpg" alt="Wedding moment 8">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal / Premium viewer -->
+        <div id="galleryModal" class="image-modal" aria-hidden="true">
+            <div class="image-modal__backdrop"></div>
+            <div class="image-modal__inner" role="dialog" aria-modal="true">
+                <button class="image-modal__close" aria-label="Close gallery">&times;</button>
+                <button class="image-modal__nav image-modal__prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+                <div class="image-modal__stage">
+                    <img src="" alt="Expanded photo" class="image-modal__img">
+                    <div class="image-modal__caption"></div>
+                </div>
+                <button class="image-modal__nav image-modal__next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Reviews</h6>
+                <h2 class="fw-bold text-dark">Loved by Travelers</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">A</div>
+                                <div>
+                                    <div class="fw-bold">Amit Sharma</div>
+                                    <div class="text-muted small">Kedarnath Yatra</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Premium service from start to finish. Pickup was on time, hotels were clean, and the team guided us perfectly.”</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">P</div>
+                                <div>
+                                    <div class="fw-bold">Priya Verma</div>
+                                    <div class="text-muted small">Rishikesh Trip</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“The itinerary felt premium. Great cab, smooth check-ins, and they helped us add rafting and camping at the last minute.”</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">S</div>
+                                <div>
+                                    <div class="fw-bold">Sunita Rawat</div>
+                                    <div class="text-muted small">Family Tour</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Very polite staff and transparent pricing. The driver was professional and the whole trip was comfortable for elders.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5 text-white">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-2">Want a Custom Premium Itinerary?</h2>
+                    <p class="mb-0 opacity-75">Share your dates and budget — we’ll suggest the best routes, stays, and vehicles with on-ground support.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+                        <a href="https://wa.me/919897352211" class="btn btn-warning rounded-pill px-4 fw-bold text-dark">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="contact.html#contactForm" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-paper-plane me-2"></i>Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+    <!-- Back to Top Button -->
+    <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

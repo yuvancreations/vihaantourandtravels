@@ -1,0 +1,437 @@
+/* Activities Page (activities.html) - Premium styles */
+
+.activities-hero {
+    background:
+        linear-gradient(135deg, rgba(0,108,228,0.82) 0%, rgba(0,53,128,0.88) 100%),
+        url('https://images.unsplash.com/photo-1502476569772-277d337d1d2b?q=80&w=1920&auto=format&fit=crop') center/cover;
+    background-attachment: fixed;
+    padding: 110px 0 85px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.activities-hero .container { position: relative; z-index: 2; }
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    font-weight: 700;
+}
+
+.hero-pill i { color: #febb02; }
+
+.activities-title {
+    font-size: 3.1rem;
+    font-weight: 900;
+    letter-spacing: -0.6px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+}
+
+.activities-subtitle {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    max-width: 740px;
+}
+
+.hero-attraction-card {
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 22px 55px rgba(0,0,0,0.25);
+    position: relative;
+    transform: translateZ(0);
+}
+
+.hero-attraction-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 40%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+}
+
+.hero-attraction-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.hero-attraction-overlay {
+    position: absolute;
+    inset: auto 16px 16px 16px;
+    padding: 14px 14px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+}
+
+.hero-attraction-card:hover img { transform: scale(1.08); }
+.hero-attraction-card:hover::after { transform: translateX(120%); }
+
+.activities-stats { margin-bottom: 18px; }
+
+.stat-pill {
+    background: #f5f7fa;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 14px;
+    padding: 14px 14px;
+    height: 100%;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-pill i {
+    color: #006ce4;
+    margin-right: 8px;
+}
+
+.stat-pill strong { color: #1a1a1a; }
+
+.activity-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.07);
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,108,228,0.22);
+    box-shadow: 0 26px 60px rgba(0,0,0,0.12);
+}
+
+.activity-img {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.activity-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    transition: transform 0.6s ease;
+}
+
+.activity-card:hover .activity-img img { transform: scale(1.10); }
+
+.activity-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.activity-rating {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.activity-rating i { color: #febb02; margin-right: 6px; }
+
+.activity-body { padding: 18px; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #f0f7ff;
+    color: #006ce4;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.activity-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Reuse packages.html button style names for consistency */
+.btn-primary-premium {
+    flex: 1;
+    background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,108,228,0.30);
+    color: #fff;
+}
+
+.btn-secondary-premium {
+    padding: 12px 18px;
+    border: 2px solid #006ce4;
+    background: white;
+    color: #006ce4;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-secondary-premium:hover {
+    background: #f5f7fa;
+    box-shadow: 0 5px 15px rgba(0,108,228,0.15);
+}
+
+.btn-secondary-premium.is-favorite {
+    background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,108,228,0.25);
+}
+
+/* Borrow the premium card feel used elsewhere */
+.love-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.love-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0,108,228,0.22);
+    box-shadow: 0 24px 55px rgba(0,0,0,0.10);
+}
+
+.love-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,108,228,0.10);
+    color: #006ce4;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 991.98px) {
+    .activities-hero { background-attachment: scroll; padding: 90px 0 75px; }
+    .activities-title { font-size: 2.6rem; }
+    .hero-attraction-card img { height: 300px; }
+}
+
+/* Premium animated filter buttons */
+.activities-filter {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.filter-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid rgba(0,108,228,0.12);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    color: var(--text-dark);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease, color 0.22s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.6px;
+}
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(212,175,55,0.06), rgba(0,108,228,0.06));
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+.filter-btn:hover::after { transform: translateX(0%); }
+.filter-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(2,24,58,0.12); }
+
+.filter-btn.active {
+    background: linear-gradient(90deg, #006ce4 0%, #0048a0 100%);
+    color: #fff;
+    box-shadow: 0 18px 50px rgba(0,108,228,0.28);
+    transform: translateY(-6px) scale(1.02);
+}
+.filter-btn.active::after { transform: translateX(100%); opacity: 0.06; }
+
+/* small pulse when clicked */
+.filter-btn:active { transform: scale(0.99); }
+
+/* animation helpers for activity items */
+.activity-item { transition: opacity 0.36s ease, transform 0.36s ease; }
+.activity-item.anim-hide { opacity: 0; transform: translateY(10px) scale(0.995); }
+
+/* Premium Activity Modal */
+.activity-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.activity-modal.show { display: flex; }
+.activity-modal__backdrop {
+    position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,7,18,0.6), rgba(3,7,18,0.7)); backdrop-filter: blur(6px);
+}
+.activity-modal__inner {
+    position: relative;
+    width: min(1100px, calc(100% - 40px));
+    max-height: calc(100vh - var(--header-height, 0px) - 32px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 40px 120px rgba(2,24,58,0.6);
+    transform: translateY(12px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.36s cubic-bezier(.2,.9,.2,1), opacity 0.28s ease;
+    overflow: hidden;
+}
+.activity-modal.show .activity-modal__inner { transform: translateY(0) scale(1); opacity: 1; }
+.activity-modal__media {
+    position: relative; border-radius: 10px; overflow: hidden; background: #000; display:flex; align-items:center; justify-content:center;
+}
+.activity-modal__media img { width:100%; height:100%; object-fit:cover; display:block; }
+.activity-modal__badge { position: absolute; top: 14px; left: 14px; padding: 8px 12px; border-radius: 999px; background: linear-gradient(90deg,#f7c948,#d4af37); color:#2b2b2b; font-weight:800; }
+.activity-modal__rating { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,0.45); color: #fff; padding:8px 12px; border-radius:999px; }
+.activity-modal__content { padding: 8px 6px 6px 6px; display:flex; flex-direction:column; gap:12px; color: #fff; }
+.activity-modal__title { font-size: 1.6rem; font-weight: 800; color: #fff; }
+.activity-modal__meta { display:flex; gap:10px; color: rgba(255,255,255,0.85); font-weight:600; }
+.activity-modal__desc { color: rgba(255,255,255,0.92); line-height:1.45; }
+.activity-modal__tags { display:flex; gap:8px; flex-wrap:wrap; }
+.activity-modal__tag { background: rgba(255,255,255,0.08); padding:8px 12px; border-radius:999px; color: #fff; font-weight:700; }
+.activity-modal__actions { margin-top:auto; display:flex; gap:12px; }
+.activity-modal__cta { background: linear-gradient(135deg,#006ce4 0%, #0048a0 100%); color:#fff; padding:12px 16px; border-radius:12px; font-weight:800; text-decoration:none; }
+.activity-modal__close {
+    position: absolute;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    right: 13px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.12);
+    box-shadow: 0 8px 24px rgba(2,24,58,0.32);
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+.activity-modal__close:hover {
+    transform: translateY(-3px) scale(1.04);
+    background: linear-gradient(90deg, rgba(212,175,55,0.14), rgba(0,108,228,0.06));
+    color: #111;
+    box-shadow: 0 20px 50px rgba(2,24,58,0.45);
+}
+
+@media (max-width: 900px) {
+    .activity-modal__inner { grid-template-columns: 1fr; padding: 14px; gap:12px; max-height: calc(100vh - var(--header-height, 0px) - 20px); }
+    .activity-modal__title { font-size: 1.4rem; }
+    .activity-modal__close { right: 12px; top: 8px; transform: translateY(0); }
+}
+
+/* Mobile slide-from-bottom behaviour */
+@media (max-width: 700px) {
+    .activity-modal__inner {
+        transform: translateY(30%) scale(0.98);
+        transition: transform 0.36s cubic-bezier(.2,.9,.2,1), opacity 0.28s ease;
+        border-radius: 12px 12px 0 0;
+    }
+    .activity-modal.show .activity-modal__inner { transform: translateY(0%) scale(1); }
+    .activity-modal { align-items: flex-end; padding-bottom: env(safe-area-inset-bottom, 12px); }
+    .activity-modal__close { right: 12px; top: 8px; }
+}
+
+/* Gallery navigation inside modal */
+.activity-modal__gallery img { width: 72px; height: 52px; object-fit: cover; border-radius: 8px; cursor: pointer; opacity: 0.95; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.activity-modal__gallery img:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.activity-modal__media .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width:44px; height:44px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.36); color:#fff; border:none; cursor:pointer; z-index:3; }
+.activity-modal__media .nav-btn:hover { background: rgba(0,0,0,0.55); transform: translateY(-50%) scale(1.04); }
+.activity-modal__media .nav-prev { left: 10px; }
+.activity-modal__media .nav-next { right: 10px; }
+
+/* Z-index hierarchy set karna */
+.activity-modal {
+    z-index: 10000; /* Booking modal se kam rakhein */
+}
+
+/* Bootstrap ka backdrop aur modal hamesha sabse upar hona chahiye */
+#quoteModal {
+    z-index: 1060 !important; 
+}
+.modal-backdrop {
+    z-index: 1055 !important;
+}
+
+/* Fix: Jab modal open ho to scrolling ruk jaye, band hone par wapas aaye */
+body.modal-open {
+    overflow: hidden !important;
+}
+
+
+

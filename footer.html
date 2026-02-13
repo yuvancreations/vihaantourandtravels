@@ -1,0 +1,242 @@
+<style>
+    /* ================= SEO PREMIUM FOOTER STYLING ================= */
+    footer {
+        background: #0f172a;
+        color: #ffffff;
+        position: relative;
+        border-top: 3px solid #0d6efd;
+    }
+
+    /* Footer Heading Style */
+    .footer-heading {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        color: #ffffff;
+    }
+
+    .footer-heading::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background: #0d6efd;
+    }
+
+    /* Social Icons Modern */
+    .social-box {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .social-box a {
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        color: #fff;
+        transition: 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+    }
+
+    .social-box a:hover {
+        background: #0d6efd;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+    }
+
+    /* Link Animations */
+    .f-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: 0.3s;
+        display: block;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+
+    .f-link:hover {
+        color: #ffffff;
+        padding-left: 8px;
+    }
+
+    .f-link i {
+        font-size: 10px;
+        margin-right: 8px;
+        color: #0d6efd;
+    }
+
+    /* Contact Details */
+    .contact-item {
+        display: flex;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .contact-item i {
+        margin-right: 15px;
+        margin-top: 4px;
+        color: #0d6efd;
+    }
+
+    .contact-item a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* Back to Top */
+    #btn-back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: none;
+        z-index: 1000;
+        border-radius: 50%;
+        padding: 12px 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Yuvan Credit Blink Effect */
+    @keyframes blink-effect {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1.02);
+        }
+    }
+    .yuvan-credit {
+        animation: blink-effect 2.5s ease-in-out infinite;
+        display: inline-block; /* Needed for transform to work correctly */
+        transition: all 0.3s ease;
+    }
+
+    .footer-logo img {
+        width: 300px;
+        max-width: 100%;
+        height: 85px;
+        display: block;
+        padding-left: 30px;
+
+    }
+</style>
+
+<footer class="pt-5 pb-0">
+    <div class="container">
+        <div class="row g-4 mb-5">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-logo mb-3">
+                    <img src="assets/Logo.png" alt="Vihaan Tour and Travels Logo">
+                </div>
+                <p class="text-white-50 small mb-4" style="line-height: 1.8;">
+                    Leading <strong>Tour and Travels agency in Haridwar</strong> since 2015. We specialize in <strong>Chardham Yatra packages</strong>, luxury car rentals, and customized Uttarakhand tour itineraries.
+                </p>
+                <div class="social-box">
+                    <a href="https://www.facebook.com/vihaan.travels.7" title="Follow on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vihaan_travels_?igsh=YzU4dnl0cjl0Z3Iz" title="Follow on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919897352211" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/@ketansehgal-f5s" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="f-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="packages.html" class="f-link"><i class="fas fa-chevron-right"></i> Tour Packages</a></li>
+                    <li><a href="destinations.html" class="f-link"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+                    <li><a href="hotels.html" class="f-link"><i class="fas fa-chevron-right"></i> Hotel Booking</a></li>
+                    <li><a href="contact.html" class="f-link"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Our Services</h5>
+                <ul class="list-unstyled">
+                    <li><a href="car-rental.html" class="f-link"><i class="fas fa-car"></i> Taxi Service Haridwar</a></li>
+                    <li><a href="weddingpackage.html" class="f-link"><i class="fas fa-heart"></i> Wedding Car Rental</a></li>
+                    <li><a href="bus-rental.html" class="f-link"><i class="fas fa-bus"></i> Luxury Bus Booking</a></li>
+                    <li><a href="activities.html" class="f-link"><i class="fas fa-mountain"></i> Adventure Tours</a></li>
+                    <li><a href="helicopter-packages.html" class="f-link"><i class="fas fa-helicopter"></i> Chardham Helicopter</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Contact Us</h5>
+                <div class="contact-item">
+                    <i class="fas fa-user-tie"></i>
+                    <span><strong>Ketan Sehgal</strong><br><small>Managing Director</small></span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>
+                        <a href="tel:+919897352211">+91 9897352211</a><br>
+                        <a href="tel:+919761620581">+91 9997303671</a>
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@vihaantravels.com">info@vihaantravels.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Shop No. 8, Railway Road, Haridwar, Uttarakhand 249401</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-secondary opacity-25">
+
+        <div class="row py-4 align-items-center">
+            <div class="col-md-7 text-center text-md-start">
+                <p class="small text-white-50 m-0 mb-2">
+                    &copy; 2026-2027 <strong>Vihaan Tour & Travels</strong>. All Rights Reserved. 
+                </p>
+                <div class="yuvan-credit small text-white-50">
+                    Website Made with Trust by <a href="https://yuvancreations.github.io/yuvancreations/" target="_blank" rel="noopener noreferrer" class="text-white-50 text-decoration-none"><strong>Yuvan Creations</strong></a> (<a href="tel:+919557300217" class="text-white-50 text-decoration-none">+91-9557300217</a>, <a href="tel:+918979220256" class="text-white-50 text-decoration-none">+91-8979220256</a>).
+                </div>
+            </div>
+            <div class="col-md-5 text-center text-md-end mt-3 mt-md-0">
+                <a href="#" class="text-white-50 text-decoration-none small me-3">Privacy Policy</a>
+                <a href="#" class="text-white-50 text-decoration-none small">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<button type="button" class="btn btn-primary btn-lg" id="btn-back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+    // Back to Top Logic
+    let mybutton = document.getElementById("btn-back-to-top");
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    mybutton.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>

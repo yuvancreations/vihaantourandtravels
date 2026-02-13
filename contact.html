@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Vihaan Tour & Travels for premium travel planning, Chardham Yatra, hotels, and car rentals in Haridwar, Uttarakhand.">
+    <title>Contact Us | Vihaan Tour & Travels</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+ <!-- ============  MASTER HEADER ============ -->
+   <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+    </script>
+    <!-- ============ END MASTER HEADER ============ -->
+
+    <!-- Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 contact-hero-content">
+                    <div class="hero-badge mb-3">
+                        <i class="fa-solid fa-gem"></i>
+                        <span>Premium Support • Fast Replies • Local Experts</span>
+                    </div>
+                    <h1 class="mb-3">Let’s Plan Your Next Uttarakhand Journey</h1>
+                    <p class="mb-4">Share your dates and preferences — we’ll craft a premium itinerary for Char Dham, hill stations, hotels, cabs, and experiences.</p>
+
+                    <div class="d-flex flex-wrap gap-3 mb-3">
+                        <a href="#contactForm" class="btn btn-premium px-4">
+                            <i class="fas fa-paper-plane me-2"></i>Enquire Now
+                        </a>
+                        <a href="tel:+919897352211" class="btn btn-outline-light rounded-pill px-4">
+                            <i class="fas fa-phone me-2"></i>Call Now
+                        </a>
+                    </div>
+
+                    <!-- Live Clock -->
+                    <div class="live-clock" aria-live="polite">
+                        <div class="clock-label"><i class="fa-regular fa-clock me-2"></i>Haridwar Time (IST)</div>
+                        <div class="clock-time" id="liveClockTime">--:--:--</div>
+                        <div class="clock-date" id="liveClockDate">Loading…</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="attraction-card">
+                        <img
+                            src="https://wallpapers.com/images/hd/banke-bihari-and-god-krishna-de0iq32gaw9eddn5.jpg"
+                            alt="A beautiful travel attraction in Uttarakhand"
+                            loading="lazy"
+                        >
+                        <div class="attraction-overlay text-white">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div>
+                                    <p class="attraction-title mb-0">Attractions, Temples & Views</p>
+                                    <p class="attraction-subtitle mb-0">Book Now with Vihan Tour & Travel</p>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge rounded-pill text-bg-warning text-dark fw-bold">Explore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-wrap">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-2">Contact Vihaan Tour & Travels</h2>
+                <p class="text-muted mb-0">Premium planning, transparent pricing, and reliable on-ground support.</p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <h5 class="fw-bold mb-2">Call / WhatsApp</h5>
+                        <p class="text-muted small mb-3">Quick availability and quotes from local experts.</p>
+                        <div class="d-flex flex-column gap-1">
+                            <a class="fw-semibold" href="tel:+919897352211">+91-9897352211</a>
+                            <a class="fw-semibold" href="tel:+919761620581">+91-9761620581</a>
+                            <a class="text-primary fw-semibold" href="https://wa.me/919897352211">
+                                <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <h5 class="fw-bold mb-2">Email</h5>
+                        <p class="text-muted small mb-3">Share your plan details — we’ll reply with options.</p>
+                        <a class="fw-semibold" href="mailto:info@vihaantravels.com">info@vihaantravels.com</a>
+                        <div class="mini-note mt-3"><i class="fa-solid fa-shield-halved me-2 text-success"></i>Your details stay private.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                        <h5 class="fw-bold mb-2">Office</h5>
+                        <p class="text-muted small mb-2">Shop No. 8, Railway Road, Haridwar, Uttarakhand 249401</p>
+                        <div class="mini-note"><i class="fa-solid fa-route me-2 text-primary"></i>Easy pickup & drop support.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-7">
+                    <div class="contact-form-card" id="contactForm">
+                        <div class="contact-form-header">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <div>
+                                    <h4 class="fw-bold mb-1">Send Us Your Travel Enquiry</h4>
+                                    <div class="mini-note">We usually respond within 30–60 minutes during business hours.</div>
+                                </div>
+                                <span class="badge rounded-pill text-bg-primary px-3 py-2">
+                                    <i class="fa-solid fa-crown me-2"></i>Fill The Form
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-body">
+                            <form id="premiumContactForm" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="fullName">Full Name</label>
+                                        <div class="input-with-icon">
+                                            <i class="fa-solid fa-user input-icon"></i>
+                                            <input class="form-control premium-input" id="fullName" name="fullName" type="text" placeholder="Your name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="phone">Phone Number</label>
+                                        <div class="input-with-icon">
+                                            <i class="fa-solid fa-phone input-icon"></i>
+                                            <input class="form-control premium-input" id="phone" name="phone" type="tel" placeholder="+91-xxxxxxxxxx" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="email">Email</label>
+                                        <div class="input-with-icon">
+                                            <i class="fa-solid fa-envelope input-icon"></i>
+                                            <input class="form-control premium-input" id="email" name="email" type="email" placeholder="you@example.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="service">Service</label>
+                                        <div class="input-with-icon">
+                                            <i class="fa-solid fa-compass input-icon"></i>
+                                            <select class="form-select premium-input" id="service" name="service" required>
+                                                <option value="" selected disabled>Select a service</option>
+                                                <option>Char Dham Yatra</option>
+                                                <option>Hotel Booking</option>
+                                                <option>Car / Cab Rental</option>
+                                                <option>Adventure & Sightseeing</option>
+                                                <option>Custom Tour Package</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="travelDate">Preferred Start Date</label>
+                                        <div class="input-with-icon">
+                                            <i class="fa-solid fa-calendar input-icon"></i>
+                                            <input class="form-control premium-input" id="travelDate" name="travelDate" type="date">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="people">Travelers</label>
+                                        <div class="input-with-icon">
+                                            <i class="fa-solid fa-users input-icon"></i>
+                                            <input class="form-control premium-input" id="people" name="people" type="number" min="1" placeholder="e.g., 4">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold" for="message">Message</label>
+                                        <div class="input-with-icon">
+                                            <i class="fa-solid fa-message input-icon"></i>
+                                            <textarea class="form-control premium-input" id="message" name="message" rows="5" placeholder="Tell us your route, hotel preference, pickup city, and budget." required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex flex-wrap gap-3 align-items-center justify-content-between">
+                                        <button type="submit" class="btn btn-premium px-4">
+                                            <i class="fa-solid fa-paper-plane me-2"></i>Send Message
+                                        </button>
+                                        <div class="mini-note">
+                                            <i class="fa-solid fa-lock me-2"></i>Secure form • No spam
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="map-embed h-100">
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-2">Find Us Easily</h5>
+                            <p class="text-muted small mb-3">Visit our Haridwar office or share your pickup location — we’ll guide you.</p>
+                        </div>
+                        <div class="ratio ratio-4x3">
+                            <iframe
+                                title="Map to Vihaan Tour & Travels, Haridwar"
+                                src="https://www.google.com/maps?q=Railway%20Road%20Haridwar%20Uttarakhand&output=embed"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+     <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Live clock (Haridwar / IST)
+        (function () {
+            const timeEl = document.getElementById('liveClockTime');
+            const dateEl = document.getElementById('liveClockDate');
+            if (!timeEl || !dateEl) return;
+
+            const tz = 'Asia/Kolkata';
+            const timeFmt = new Intl.DateTimeFormat('en-IN', {
+                timeZone: tz,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+            const dateFmt = new Intl.DateTimeFormat('en-IN', {
+                timeZone: tz,
+                weekday: 'long',
+                year: 'numeric',
+                month: 'short',
+                day: '2-digit'
+            });
+
+            function tick() {
+                const now = new Date();
+                try {
+                    timeEl.textContent = timeFmt.format(now);
+                    dateEl.textContent = dateFmt.format(now);
+                } catch (e) {
+                    timeEl.textContent = now.toLocaleTimeString();
+                    dateEl.textContent = now.toLocaleDateString();
+                }
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        })();
+
+        // Premium contact form UX (front-end only)
+        (function () {
+            const form = document.getElementById('premiumContactForm');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const required = form.querySelectorAll('[required]');
+                let ok = true;
+                required.forEach((field) => {
+                    if (!field.value || !field.value.trim()) ok = false;
+                });
+
+                if (!ok) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                alert('Thank you! Your enquiry has been received. We will contact you shortly.');
+                form.reset();
+            });
+        })();
+    </script>
+</body>
+</html>

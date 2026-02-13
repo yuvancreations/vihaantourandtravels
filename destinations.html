@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore premium travel destinations across Uttarakhand, Himachal Pradesh, Kashmir and more with Vihaan Tour & Travels.">
+    <title>Explore Destinations | Vihaan Tour & Travels</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Destinations Page Styles */
+        .destinations-hero {
+            background:
+                linear-gradient(135deg, rgba(0, 106, 228, 0.644) 0%, rgba(0, 53, 128, 0.541) 100%),
+                url('https://images.unsplash.com/photo-1547378809-db8f9515a63b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            background-attachment: fixed;
+            padding: 110px 0 80px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destinations-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .destinations-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .destinations-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .destinations-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-pill i { color: #febb02; }
+
+        .destinations-hero-actions {
+            position: relative;
+            z-index: 2;
+            margin-top: 28px;
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-attraction-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.25);
+            position: relative;
+            transform: translateZ(0);
+        }
+
+        .hero-attraction-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 40%, transparent 70%);
+            transform: translateX(-120%);
+            transition: transform 0.8s ease;
+            pointer-events: none;
+        }
+
+        .hero-attraction-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            transform: scale(1.01);
+            transition: transform 0.6s ease;
+            display: block;
+        }
+
+        .hero-attraction-overlay {
+            position: absolute;
+            inset: auto 16px 16px 16px;
+            padding: 14px 14px;
+            border-radius: 14px;
+            background: rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.18);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-attraction-card:hover img { transform: scale(1.08); }
+        .hero-attraction-card:hover::after { transform: translateX(120%); }
+
+        .destinations-filter {
+            background: white;
+            padding: 40px;
+            margin-top: -50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .destinations-stats {
+            margin-bottom: 18px;
+        }
+
+        .stat-pill {
+            background: #f5f7fa;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 14px;
+            padding: 14px 14px;
+            height: 100%;
+            box-shadow: 0 14px 35px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-pill i {
+            color: #006ce4;
+            margin-right: 8px;
+        }
+
+        .stat-pill strong { color: #1a1a1a; }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #1a1a1a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            color: white;
+            border-color: #006ce4;
+            box-shadow: 0 5px 20px rgba(0,108,228,0.3);
+        }
+
+        .destinations-grid {
+            padding: 60px 0;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f0f0f0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .destination-card:hover {
+            box-shadow: 0 20px 50px rgba(0,108,228,0.15);
+            transform: translateY(-15px);
+            border-color: #006ce4;
+        }
+
+        .destination-image {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover .destination-image img {
+            transform: scale(1.15);
+        }
+
+        .destination-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #febb02 0%, #f9a825 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(254,187,2,0.3);
+            z-index: 2;
+        }
+
+        .destination-region-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            color: #006ce4;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .destination-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .destination-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .destination-description {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .destination-highlights {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #006ce4;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .highlight i {
+            font-size: 0.9rem;
+        }
+
+        .destination-action {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-explore {
+            flex: 1;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .btn-explore:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,108,228,0.3);
+            color: white;
+        }
+
+        .btn-wishlist {
+            padding: 12px 18px;
+            border: 2px solid #006ce4;
+            background: white;
+            color: #006ce4;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-wishlist:hover {
+            background: #f5f7fa;
+            box-shadow: 0 5px 15px rgba(0,108,228,0.15);
+        }
+
+        .btn-wishlist.is-favorite {
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,108,228,0.25);
+        }
+
+        @media (max-width: 991.98px) {
+            .destinations-hero { background-attachment: scroll; padding: 90px 0 70px; }
+            .destinations-hero h1 { font-size: 2.7rem; }
+            .hero-attraction-card img { height: 300px; }
+        }
+
+        /* Quick Stats Section */
+        .stats-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #006ce4 0%, #003580 100%);
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Region Info Cards */
+        .region-info {
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
+
+        .region-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            border-left: 5px solid #006ce4;
+            transition: all 0.3s ease;
+        }
+
+        .region-card:hover {
+            box-shadow: 0 15px 40px rgba(0,108,228,0.1);
+            transform: translateY(-5px);
+        }
+
+        .region-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .region-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+        }
+
+        .region-card p {
+            color: #6b6b6b;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .region-count {
+            display: inline-block;
+            background: #f0f7ff;
+            color: #006ce4;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Why Visit Section */
+        .why-visit-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .why-visit-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .visit-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .visit-feature {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: #f5f7fa;
+            transition: all 0.4s ease;
+        }
+
+        .visit-feature:hover {
+            background: #e8f0ff;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,108,228,0.1);
+        }
+
+        .visit-feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .visit-feature h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .visit-feature p {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .destinations-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .destinations-hero p {
+                font-size: 1.05rem;
+            }
+
+            .destinations-filter {
+                padding: 20px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+                margin: 3px;
+            }
+
+            .destination-image {
+                height: 200px;
+            }
+
+            .why-visit-title {
+                font-size: 1.8rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .destination-card:hover {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Modal Animation */
+        .modal.fade .modal-dialog {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal.show .modal-dialog {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        /* Destination Modal Specifics */
+        #destinationModal .modal-header { border-bottom: none; }
+        #destinationModal .highlight { background: #f0f7ff; padding: 6px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 5px; margin-bottom: 5px; display: inline-flex; align-items: center; gap: 5px; }
+        #destinationModal .highlight i { color: #006ce4; }
+
+        /* Blur Backdrop */
+        .modal-backdrop.show {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        /* Keep modal between fixed header and bottom of viewport
+           - Ensure modal is above fixed header (header has z-index:2000)
+           - Push dialog down below header and prevent it from overflowing
+           - Make modal-body scrollable when content is tall */
+        :root { --site-header-height: 140px; --site-footer-height: 120px; }
+
+        .modal-backdrop.show { z-index: 2090 !important; }
+        .modal { z-index: 2100 !important; display: flex; align-items: flex-start; }
+
+        /* For centered dialogs, align to top area (below header) */
+        .modal.modal-dialog-centered { align-items: flex-start; }
+
+        .modal { padding-top: calc(var(--site-header-height) + 12px); }
+
+        .modal-dialog {
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+            max-height: calc(100vh - var(--site-header-height) - 40px);
+        }
+
+        .modal-content {
+            max-height: calc(100vh - var(--site-header-height) - 80px);
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            max-height: calc(100vh - var(--site-header-height) - 40px);
+        }
+
+        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important; }
+    </style>
+</head>
+<body>
+
+    <!-- ============  MASTER HEADER ============ -->
+   <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+    </script>
+    <!-- ============ END MASTER HEADER ============ -->
+
+    <!-- HERO SECTION -->
+    <section class="destinations-hero">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-lg-start text-center">
+                    <div class="hero-pill mb-3">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Attractions • Verified Routes • Premium Support</span>
+                    </div>
+                    <h1>Explore Destinations</h1>
+                    <p>Discover breathtaking locations across Uttarakhand, Himachal Pradesh, Kashmir, and beyond with Vihaan Tour & Travels.</p>
+
+                    <div class="destinations-hero-actions">
+                        <a href="#" class="btn btn-warning rounded-pill px-4 fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                        <a href="https://wa.me/919897352211" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="#destinationsGrid" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-arrow-down me-2"></i>Browse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-attraction-card">
+                        <img src="https://images.unsplash.com/photo-1547378809-db8f9515a63b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Uttarakhand attraction" loading="lazy">
+                        <div class="hero-attraction-overlay text-white">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div>
+                                    <p class="mb-0 fw-bold">Our Sacred Destinations</p>
+                                    <p class="mb-0 small" style="opacity: 0.9;">Touch with Nature </p>
+                                </div>
+                                <span class="badge rounded-pill text-bg-warning text-dark fw-bold">Explore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER SECTION -->
+    <div class="container">
+        <div class="destinations-filter">
+            <div class="text-center mb-4">
+                <h4 style="color: #1a1a1a; font-weight: 700; margin-bottom: 30px;">Filter by Region</h4>
+            </div>
+
+            <div class="destinations-stats">
+                <div class="row g-3 text-center">
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-medal"></i><strong>Trusted</strong></div>
+                            <div class="text-muted small">Since 2015</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-route"></i><strong>Curated</strong></div>
+                            <div class="text-muted small">Best routes</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-hotel"></i><strong>Verified</strong></div>
+                            <div class="text-muted small">Stays & drivers</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-headset"></i><strong>Support</strong></div>
+                            <div class="text-muted small">24×7 help</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+                <button class="filter-btn active" onclick="filterDestinations('all', this)">All Destinations</button>
+                <button class="filter-btn" onclick="filterDestinations('uttarakhand', this)">Uttarakhand</button>
+                <button class="filter-btn" onclick="filterDestinations('himachal', this)">Himachal Pradesh</button>
+                <button class="filter-btn" onclick="filterDestinations('kashmir', this)">Kashmir</button>
+                <button class="filter-btn" onclick="filterDestinations('pilgrimage', this)">Pilgrimage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESTINATIONS GRID -->
+    <section class="destinations-grid" id="destinationsGrid">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Haridwar -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="uttarakhand" data-category="pilgrimage">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://media.istockphoto.com/id/1212167865/photo/panoramic-view-of-har-ki-pauri-famous-ghat-on-the-banks-of-the-ganges-in-haridwar-india-stock.jpg?s=612x612&w=0&k=20&c=vUmJfglelluc44WX6ATaIfpXfTAHcH0reJoBPB4Q3Rc=" alt="Haridwar">
+                            <span class="destination-region-badge">Uttarakhand</span>
+                            <span class="destination-badge">Sacred</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Haridwar</h3>
+                            <p class="destination-description">Holy city known for the Ganga Aarti, ancient temples, and spiritual significance. Gateway to the Himalayas.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-gopuram"></i> Temples</div>
+                                <div class="highlight"><i class="fas fa-water"></i> Ganga Aarti</div>
+                                <div class="highlight"><i class="fas fa-om"></i> Spirituality</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rishikesh -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="uttarakhand" data-category="adventure">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1720819029162-8500607ae232?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rishikesh">
+                            <span class="destination-region-badge">Uttarakhand</span>
+                            <span class="destination-badge">Adventure</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Rishikesh</h3>
+                            <p class="destination-description">Yoga capital of the world with Ganges river, adventure sports, temples, and meditation retreats for spiritual seekers.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-om"></i> Yoga</div>
+                                <div class="highlight"><i class="fas fa-water"></i> Rafting</div>
+                                <div class="highlight"><i class="fas fa-spa"></i> Peace</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kedarnath -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="uttarakhand" data-category="pilgrimage">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://media.istockphoto.com/id/539105384/photo/kedarnath-in-india.jpg?s=612x612&w=0&k=20&c=0nK5I_7HUWn3VOuHyWxGc7_eJilZY1Wa975eA_FKdB8=" alt="Kedarnath">
+                            <span class="destination-region-badge">Uttarakhand</span>
+                            <span class="destination-badge">Pilgrimage</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Kedarnath</h3>
+                            <p class="destination-description">Sacred pilgrimage site and major part of Char Dham Yatra. Ancient temple dedicated to Lord Shiva in the Himalayas.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-gopuram"></i> Temple</div>
+                                <div class="highlight"><i class="fas fa-person-hiking"></i> Trek</div>
+                                <div class="highlight"><i class="fas fa-mountain"></i> Views</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badrinath -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="uttarakhand" data-category="pilgrimage">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://media.istockphoto.com/id/1251156350/photo/badrinath-temple.jpg?s=612x612&w=0&k=20&c=x-bVZfAHl9lGE0nBE03Zxk7SSBt4xuOoew0NTjxy0dk=" alt="Badrinath">
+                            <span class="destination-region-badge">Uttarakhand</span>
+                            <span class="destination-badge">Sacred</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Badrinath</h3>
+                            <p class="destination-description">Revered Hindu temple dedicated to Lord Vishnu. Final destination of Char Dham pilgrimage with breathtaking mountain views.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-gopuram"></i> Temple</div>
+                                <div class="highlight"><i class="fas fa-hot-tub"></i> Hot Springs</div>
+                                <div class="highlight"><i class="fas fa-mountain"></i> Alpine</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nainital -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="uttarakhand">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1712201649803-ab1b13dae600?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Nainital">
+                            <span class="destination-region-badge">Uttarakhand</span>
+                            <span class="destination-badge">Hill Station</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Nainital</h3>
+                            <p class="destination-description">Serene lakes, colonial charm, and scenic boating. Perfect hill station for relaxation and family vacation with panoramic views.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-boat"></i> Boating</div>
+                                <div class="highlight"><i class="fas fa-gopuram"></i> Temple</div>
+                                <div class="highlight"><i class="fas fa-tree"></i> Nature</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mussoorie -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="uttarakhand">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://media.istockphoto.com/id/2214166280/photo/surkanda-devi-temple.jpg?s=612x612&w=0&k=20&c=w0nCc0-mqA570rEvVsxYuMd3Zb7Hb1KCpwIhEUFgI5g=" alt="Mussoorie">
+                            <span class="destination-region-badge">Uttarakhand</span>
+                            <span class="destination-badge">Queen of Hills</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Mussoorie</h3>
+                            <p class="destination-description">Queen of Hill Stations with misty mountains, cascading waterfalls, and vibrant Mall Road. Ideal for adventure and relaxation.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-water"></i> Waterfalls</div>
+                                <div class="highlight"><i class="fas fa-person-hiking"></i> Trekking</div>
+                                <div class="highlight"><i class="fas fa-mountain"></i> Scenic</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manali -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="himachal">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1712388430474-ace0c16051e2?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Manali">
+                            <span class="destination-region-badge">Himachal Pradesh</span>
+                            <span class="destination-badge">Adventure</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Manali</h3>
+                            <p class="destination-description">Snow-capped mountains, adventure sports, and pristine nature. Paradise for trekking, paragliding, and mountain lovers seeking thrills.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-person-hiking"></i> Trekking</div>
+                                <div class="highlight"><i class="fas fa-water"></i> Rafting</div>
+                                <div class="highlight"><i class="fas fa-snowflake"></i> Snow</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shimla -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="himachal">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1600065755981-a7f7f560ab04?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shimla">
+                            <span class="destination-region-badge">Himachal Pradesh</span>
+                            <span class="destination-badge">Heritage</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Shimla</h3>
+                            <p class="destination-description">Capital city with colonial architecture, Mall Road shopping, and scenic railway. Historic hill station with vibrant culture.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-gopuram"></i> Heritage</div>
+                                <div class="highlight"><i class="fas fa-shopping-bag"></i> Shopping</div>
+                                <div class="highlight"><i class="fas fa-train"></i> Railway</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dharamshala -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="himachal">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1503265192943-9d7eea6fc77a?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dharamshala">
+                            <span class="destination-region-badge">Himachal Pradesh</span>
+                            <span class="destination-badge">Spiritual</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Dharamshala</h3>
+                            <p class="destination-description">Home to Dalai Lama with rich Tibetan culture, monasteries, and spiritual teachings. Hub for meditation and cultural exploration.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-gopuram"></i> Monastery</div>
+                                <div class="highlight"><i class="fas fa-om"></i> Spiritual</div>
+                                <div class="highlight"><i class="fas fa-tree"></i> Nature</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auli -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="uttarakhand" data-category="adventure">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1618661057370-7cf87dfad271?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Auli">
+                            <span class="destination-region-badge">Uttarakhand</span>
+                            <span class="destination-badge">Ski Resort</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Auli</h3>
+                            <p class="destination-description">India's premier ski destination with stunning Himalayan views. Perfect for winter sports, skiing, and snow adventures.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-person-skiing"></i> Skiing</div>
+                                <div class="highlight"><i class="fas fa-mountain"></i> Views</div>
+                                <div class="highlight"><i class="fas fa-snowflake"></i> Winter</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Srinagar (Kashmir) -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="kashmir">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://media.istockphoto.com/id/2165340782/photo/scenic-view-of-lake-and-mountains-against-sky.jpg?s=612x612&w=0&k=20&c=49LquChjR0Z78VmmU4lWVKNhVe9h6M1hpfYDYjjE2b4=" alt="Srinagar">
+                            <span class="destination-region-badge">Kashmir</span>
+                            <span class="destination-badge">Paradise</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Srinagar</h3>
+                            <p class="destination-description">Paradise on earth with Dal Lake, Shikara rides, and Mughal gardens. Experience the beauty and romance of Kashmir.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-water"></i> Dal Lake</div>
+                                <div class="highlight"><i class="fas fa-boat"></i> Shikara</div>
+                                <div class="highlight"><i class="fas fa-flower"></i> Gardens</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gulmarg (Kashmir) -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="kashmir">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://media.istockphoto.com/id/665366534/photo/gandola-cable-car-in-gulmarg.webp?a=1&b=1&s=612x612&w=0&k=20&c=CySNY-afooBGXOXcTFM94KHEtYO7m_na01GmrEt6Ccs=" alt="Gulmarg">
+                            <span class="destination-region-badge">Kashmir</span>
+                            <span class="destination-badge">Scenic</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Gulmarg</h3>
+                            <p class="destination-description">The paradise of Kashmir with meadows of flowers, skiing, and gondola rides. Breathtaking alpine beauty and adventure.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-flower"></i> Meadows</div>
+                                <div class="highlight"><i class="fas fa-person-skiing"></i> Skiing</div>
+                                <div class="highlight"><i class="fas fa-cable-car"></i> Gondola</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="contact.html#contactForm" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pahalgam (Kashmir) -->
+                <div class="col-lg-4 col-md-6 destination-item" data-region="kashmir">
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1701957494338-95527b753a7f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pahalgam">
+                            <span class="destination-region-badge">Kashmir</span>
+                            <span class="destination-badge">Scenic</span>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">Pahalgam</h3>
+                            <p class="destination-description">Lush valleys and starting point of Amarnath Yatra. Beautiful meadows ideal for trekking and experiencing pristine Himalayan beauty.</p>
+                            <div class="destination-highlights">
+                                <div class="highlight"><i class="fas fa-person-hiking"></i> Trekking</div>
+                                <div class="highlight"><i class="fas fa-gopuram"></i> Pilgrimage</div>
+                                <div class="highlight"><i class="fas fa-tree"></i> Valley</div>
+                            </div>
+                            <div class="destination-action">
+                                <a href="#" class="btn-explore">Explore</a>
+                                <button class="btn-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="destination-highlights" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Highlights</h6>
+                <h2 class="fw-bold text-dark">Featured Attractions</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">A quick premium preview of the most-loved experiences — perfect for adding into your itinerary.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="packages.html" aria-label="Explore Char Dham Yatra">
+                        <img src="https://www.chardhamhotels.net/images/chardham-2025.jpg" alt="Char Dham / Kedarnath" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Spiritual</span>
+                            <h5 class="mb-1 fw-bold">Char Dham Yatra</h5>
+                            <p class="mb-0 small">VIP support, stays & transport</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="packages.html" aria-label="Explore Rishikesh Adventures">
+                        <img src="https://images.unsplash.com/photo-1716573260891-23ad993e8833?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rishikesh rafting and river" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Adventure</span>
+                            <h5 class="mb-1 fw-bold">Rishikesh</h5>
+                            <p class="mb-0 small">Rafting, camping & yoga</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="attraction-tile" href="packages.html" aria-label="Explore Snow Escapes">
+                        <img src="https://media.istockphoto.com/id/2227491158/photo/panoramic-view-of-the-man-made-auli-lake-situated-atop-auli-in-joshimath-uttarakhand-india.webp?a=1&b=1&s=612x612&w=0&k=20&c=o-Mwyp3gDSylz2cao33oXdIVY4t6lH8vWfUqn024Ad0=" alt="Snow mountains" loading="lazy">
+                        <div class="attraction-tile__overlay">
+                            <span class="attraction-tile__tag">Snow</span>
+                            <h5 class="mb-1 fw-bold">Auli</h5>
+                            <p class="mb-0 small">Skiing & winter escapes</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="packages.html" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+                    See Matching Packages <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK STATS -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Popular Destinations</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Happy Travelers</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGION INFO -->
+    <section class="region-info">
+        <div class="container">
+            <h2 class="why-visit-title">Discover Each Region</h2>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="region-card">
+                        <h3>
+                            <span class="region-icon"><i class="fas fa-gopuram"></i></span>
+                            Uttarakhand
+                        </h3>
+                        <p>Known as the "Land of Gods," Uttarakhand is renowned for its spiritual significance with the holy Char Dham pilgrimage, adventure activities, and pristine natural beauty. Home to the Himalayas, ancient temples, and serene landscapes.</p>
+                        <span class="region-count">6 Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="region-card">
+                        <h3>
+                            <span class="region-icon"><i class="fas fa-mountain"></i></span>
+                            Himachal Pradesh
+                        </h3>
+                        <p>A paradise for nature lovers and adventure seekers with stunning hill stations, apple orchards, and adventure sports. Famous for trekking, paragliding, skiing, and colonial heritage with vibrant Tibetan culture.</p>
+                        <span class="region-count">3 Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="region-card">
+                        <h3>
+                            <span class="region-icon"><i class="fas fa-water"></i></span>
+                            Kashmir
+                        </h3>
+                        <p>Called the "Paradise on Earth," Kashmir is famous for Dal Lake, Mughal gardens, snow-capped mountains, and pristine meadows. A breathtaking destination for romance, adventure, and cultural exploration.</p>
+                        <span class="region-count">3 Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="region-card">
+                        <h3>
+                            <span class="region-icon"><i class="fas fa-leaf"></i></span>
+                            Diverse Experiences
+                        </h3>
+                        <p>From sacred pilgrimages and spiritual retreats to thrilling adventure sports and wildlife safaris, our destinations offer something for every traveler. Experience the true essence of the Indian Himalayas.</p>
+                        <span class="region-count">Premium Quality</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY VISIT -->
+    <section class="why-visit-section">
+        <div class="container">
+            <h2 class="why-visit-title">Why Visit These Destinations?</h2>
+
+            <div class="visit-features">
+                <div class="visit-feature">
+                    <div class="visit-feature-icon"><i class="fas fa-gopuram"></i></div>
+                    <h4>Spiritual Significance</h4>
+                    <p>Experience sacred sites, ancient temples, and spiritual retreats that offer deep connection and inner peace.</p>
+                </div>
+
+                <div class="visit-feature">
+                    <div class="visit-feature-icon"><i class="fas fa-mountain"></i></div>
+                    <h4>Natural Beauty</h4>
+                    <p>Witness breathtaking Himalayan landscapes, pristine lakes, cascading waterfalls, and verdant valleys.</p>
+                </div>
+
+                <div class="visit-feature">
+                    <div class="visit-feature-icon"><i class="fas fa-person-hiking"></i></div>
+                    <h4>Adventure Activities</h4>
+                    <p>Enjoy thrilling experiences like trekking, rafting, skiing, paragliding, and wildlife safaris with expert guidance.</p>
+                </div>
+
+                <div class="visit-feature">
+                    <div class="visit-feature-icon"><i class="fas fa-users"></i></div>
+                    <h4>Rich Culture</h4>
+                    <p>Explore vibrant traditions, local cuisine, handicrafts, festivals, and warm hospitality of mountain communities.</p>
+                </div>
+
+                <div class="visit-feature">
+                    <div class="visit-feature-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Perfect for Everyone</h4>
+                    <p>Whether seeking peace, adventure, romance, or family fun, find the perfect destination tailored to your needs.</p>
+                </div>
+
+                <div class="visit-feature">
+                    <div class="visit-feature-icon"><i class="fas fa-umbrella"></i></div>
+                    <h4>Year-Round Appeal</h4>
+                    <p>Each season brings unique charm - summer trekking, autumn festivals, winter sports, and spring blooms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="destination-testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Reviews</h6>
+                <h2 class="fw-bold text-dark">Loved by Travelers</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">S</div>
+                                <div>
+                                    <div class="fw-bold">Saurabh Jain</div>
+                                    <div class="text-muted small">Haridwar • Rishikesh</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Great planning and premium cab. They suggested the best aarti timing and nearby attractions — very smooth trip.”</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">M</div>
+                                <div>
+                                    <div class="fw-bold">Meera Kapoor</div>
+                                    <div class="text-muted small">Kashmir Tour</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Beautiful locations and very good hotel suggestions. The itinerary felt premium and everything was on time.”</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="testimonial-avatar">A</div>
+                                <div>
+                                    <div class="fw-bold">Anil Rawat</div>
+                                    <div class="text-muted small">Himachal Trip</div>
+                                </div>
+                            </div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">“Clean stays and a professional driver. The team helped us customize the route with local experiences.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white" id="destinations-faq">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">FAQ</h6>
+                <h2 class="fw-bold text-dark">Before You Travel</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Short answers for common questions. For custom routes, contact our team.</p>
+            </div>
+
+            <div class="accordion accordion-flush bg-white" id="destFaq">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="destFaqOneHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#destFaqOne" aria-expanded="false" aria-controls="destFaqOne">
+                            Which season is best for Uttarakhand?
+                        </button>
+                    </h2>
+                    <div id="destFaqOne" class="accordion-collapse collapse" aria-labelledby="destFaqOneHeading" data-bs-parent="#destFaq">
+                        <div class="accordion-body text-muted">
+                            March–June is great for hill stations, monsoon brings lush views, and winter is ideal for snow destinations like Auli. We’ll suggest the best route for your dates.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="destFaqTwoHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#destFaqTwo" aria-expanded="false" aria-controls="destFaqTwo">
+                            Can you arrange a cab + hotel together?
+                        </button>
+                    </h2>
+                    <div id="destFaqTwo" class="accordion-collapse collapse" aria-labelledby="destFaqTwoHeading" data-bs-parent="#destFaq">
+                        <div class="accordion-body text-muted">
+                            Yes. We provide complete trip planning with cab, stays, and sightseeing schedule — aligned to your comfort and budget.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="destFaqThreeHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#destFaqThree" aria-expanded="false" aria-controls="destFaqThree">
+                            How do I finalize the itinerary?
+                        </button>
+                    </h2>
+                    <div id="destFaqThree" class="accordion-collapse collapse" aria-labelledby="destFaqThreeHeading" data-bs-parent="#destFaq">
+                        <div class="accordion-body text-muted">
+                            Tap “Get Quote” or “Explore” and share your dates, pickup city, and preferences. We’ll send route options and confirm availability before booking.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section py-5 text-white" id="destinations-cta">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-2">Want a Premium Custom Route?</h2>
+                    <p class="mb-0 opacity-75">Tell us your dates and interests — we’ll craft a comfortable itinerary with verified stays and transport.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+                        <a href="https://wa.me/919897352211" class="btn btn-warning rounded-pill px-4 fw-bold text-dark">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="contact.html#contactForm" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-paper-plane me-2"></i>Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destination Details Modal -->
+    <div class="modal fade" id="destinationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <!-- Move header image inside modal-body so image scrolls with content -->
+                <div class="modal-body p-0">
+                    <div class="position-relative">
+                        <img src="" id="modalDestImage" class="w-100" style="height: 350px; object-fit: cover; display: block;" alt="Destination">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <button type="button" class="btn-close btn-close-white bg-dark bg-opacity-50 rounded-circle p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                            <span class="badge bg-warning text-dark mb-2" id="modalDestBadge">Badge</span>
+                            <h2 class="text-white fw-bold mb-0" id="modalDestTitle">Destination Name</h2>
+                            <p class="text-white-50 mb-0" id="modalDestRegion"><i class="fas fa-map-marker-alt me-1"></i> Region</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h5 class="fw-bold text-dark mb-3">About this Destination</h5>
+                                <p class="text-muted mb-4" id="modalDestDesc" style="line-height: 1.8; font-size: 0.95rem;">Description...</p>
+                                
+                                <!-- New Travel Info Section -->
+                                <div class="bg-light p-3 rounded-3 mb-4 border border-light">
+                                    <div class="row g-3">
+                                        <div class="col-6 col-sm-4">
+                                            <small class="text-uppercase text-primary fw-bold" style="font-size: 0.7rem; letter-spacing: 1px; display: block; margin-bottom: 4px;">Best Time</small>
+                                            <div class="fw-bold text-dark" style="font-size: 0.9rem;" id="modalDestTime"><i class="far fa-calendar-alt me-2 text-warning"></i>Loading...</div>
+                                        </div>
+                                        <div class="col-6 col-sm-4">
+                                            <small class="text-uppercase text-primary fw-bold" style="font-size: 0.7rem; letter-spacing: 1px; display: block; margin-bottom: 4px;">Ideal Stay</small>
+                                            <div class="fw-bold text-dark" style="font-size: 0.9rem;" id="modalDestDuration"><i class="far fa-clock me-2 text-warning"></i>Loading...</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-dark mb-3">Top Experiences</h6>
+                                <ul class="list-unstyled row g-2 mb-4" id="modalDestExperiences">
+                                    <!-- Populated by JS -->
+                                </ul>
+
+                                <h6 class="fw-bold text-dark mt-4 mb-3">Highlights</h6>
+                                <div id="modalDestHighlights" class="d-flex flex-wrap gap-2">
+                                    <!-- Highlights will be injected here -->
+                                </div>
+
+                                <!-- Related Packages Section -->
+                                <div class="mt-4 pt-3 border-top">
+                                    <h6 class="fw-bold text-dark mb-3">Related Packages</h6>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <a href="packages.html" class="d-block text-decoration-none">
+                                                <div class="d-flex align-items-center bg-white border rounded-3 p-2 shadow-sm h-100 hover-lift">
+                                                    <div class="rounded-3 overflow-hidden me-3" style="width: 70px; height: 70px; flex-shrink: 0;">
+                                                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=200&auto=format&fit=crop" class="w-100 h-100 object-fit-cover" alt="Package">
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-1 text-dark fw-bold small">Premium Packages</h6>
+                                                        <p class="mb-0 text-muted small" style="font-size: 0.75rem;">Best Deals & Offers</p>
+                                                        <span class="text-primary small fw-bold" style="font-size: 0.75rem;">View All <i class="fas fa-arrow-right ms-1"></i></span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="packages.html" class="d-block text-decoration-none">
+                                                <div class="d-flex align-items-center bg-white border rounded-3 p-2 shadow-sm h-100 hover-lift">
+                                                    <div class="rounded-3 overflow-hidden me-3" style="width: 70px; height: 70px; flex-shrink: 0;">
+                                                        <img src="https://images.unsplash.com/photo-1593182440959-9d5165b29b59?q=80&w=200&auto=format&fit=crop" class="w-100 h-100 object-fit-cover" alt="Package">
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-1 text-dark fw-bold small">Custom Itinerary</h6>
+                                                        <p class="mb-0 text-muted small" style="font-size: 0.75rem;">Plan Your Own Trip</p>
+                                                        <span class="text-primary small fw-bold" style="font-size: 0.75rem;">Enquire <i class="fas fa-arrow-right ms-1"></i></span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <h6 class="fw-bold mb-3">Plan Your Trip</h6>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary fw-bold py-2" data-bs-target="#quoteModal" data-bs-toggle="modal"><i class="fas fa-paper-plane me-2"></i>Book Now</button>
+                                        <a href="#" id="modalWhatsAppBtn" target="_blank" class="btn btn-outline-success fw-bold py-2"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
+                                    </div>
+                                    <p class="small text-muted text-center mt-3 mb-0"><i class="fas fa-shield-alt me-1"></i> Best Price Guaranteed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header border-0 text-white p-4" style="background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);">
+                    <div>
+                        <h5 class="modal-title fw-bold mb-1" id="quoteModalLabel">Plan Your Trip</h5>
+                        <p class="mb-0 small opacity-75">Get a customized quote within 30 minutes</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <form id="modalQuoteForm">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Quote Request from Website">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control border-0 shadow-sm" id="modalName" name="name" placeholder="Your Name" required>
+                            <label for="modalName" class="text-muted">Full Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control border-0 shadow-sm" id="modalPhone" name="phone" placeholder="Phone" required>
+                            <label for="modalPhone" class="text-muted">Phone Number</label>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control border-0 shadow-sm" id="modalDate" name="date">
+                                    <label for="modalDate" class="text-muted">Travel Date</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control border-0 shadow-sm" id="modalGuests" name="guests" placeholder="Guests" min="1">
+                                    <label for="modalGuests" class="text-muted">Guests</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control border-0 shadow-sm" placeholder="Message" id="modalMessage" name="message" style="height: 100px"></textarea>
+                            <label for="modalMessage" class="text-muted">Requirements (Optional)</label>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-pill shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+    
+    <!-- Back to Top Button -->
+    <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Filter functionality
+        function filterDestinations(region, btnEl) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            const items = document.querySelectorAll('.destination-item');
+            items.forEach(item => {
+                const itemRegion = item.dataset.region;
+                const itemCategory = item.dataset.category;
+                const show = region === 'all' || itemRegion === region || itemCategory === region;
+
+                if (show) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 0);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 250);
+                }
+            });
+        }
+
+        // Wishlist toggle (UI only)
+        document.querySelectorAll('.btn-wishlist').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('is-favorite');
+                const icon = btn.querySelector('i');
+                if (!icon) return;
+                icon.classList.toggle('fas');
+                icon.classList.toggle('far');
+            });
+        });
+
+        // Modal Form Submission
+        document.getElementById('modalQuoteForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert('Thank you! We have received your enquiry. Our team will contact you shortly.');
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+                    modal.hide();
+                    form.reset();
+                } else {
+                    console.log(response);
+                    alert(json.message);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Something went wrong! Please try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Destination Modal Logic
+        const destinationData = {
+            "Haridwar": {
+                desc: "Haridwar, meaning 'Gateway to God', is one of the seven holiest places in India. It is where the holy Ganges river enters the Indo-Gangetic plains. The city is famous for the Kumbh Mela and the mesmerizing daily Ganga Aarti at Har Ki Pauri, a spiritual spectacle of light, sound, and devotion that attracts millions.",
+                bestTime: "Oct - Apr",
+                duration: "1-2 Days",
+                experiences: ["Witness the evening Ganga Aarti", "Cable car ride to Mansa Devi", "Street food walk in Bara Bazaar", "Visit Shanti Kunj Ashram"]
+            },
+            "Rishikesh": {
+                desc: "Known as the 'Yoga Capital of the World', Rishikesh is a serene town nestled in the Himalayan foothills beside the Ganges. It gained global fame after The Beatles visited in the 60s. Today, it's a hub for yoga, meditation, and adrenaline-pumping adventure sports like white-water rafting and bungee jumping.",
+                bestTime: "Sep - Jun",
+                duration: "2-3 Days",
+                experiences: ["River Rafting in Ganges", "Visit Beatles Ashram", "Attend Parmarth Niketan Aarti", "Bungee Jumping at Jumpin Heights"]
+            },
+            "Kedarnath": {
+                desc: "Kedarnath is one of the most sacred Hindu temples dedicated to Lord Shiva, located near the Mandakini river in the Himalayas. It is part of the Char Dham pilgrimage. The trek to the temple offers breathtaking views of snow-clad peaks and lush green valleys, making it a journey of both faith and beauty.",
+                bestTime: "May - Oct",
+                duration: "2-3 Days",
+                experiences: ["Darshan at Kedarnath Temple", "Trek from Gaurikund", "Visit Bhairavnath Temple", "Meditation near Mandakini River"]
+            },
+            "Badrinath": {
+                desc: "Badrinath is a holy town and a nagar panchayat in Chamoli district. It is one of the four sites in India's Char Dham pilgrimage. The Badrinath Temple, dedicated to Lord Vishnu, is the main attraction, surrounded by the Nar and Narayan mountain ranges and the Neelkanth peak.",
+                bestTime: "May - Oct",
+                duration: "1-2 Days",
+                experiences: ["Badrinath Temple Darshan", "Dip in Tapt Kund", "Visit Mana (Last Indian Village)", "View Vasudhara Falls"]
+            },
+            "Nainital": {
+                desc: "Nainital is a Himalayan resort town in the Kumaon region of Uttarakhand. It is set around Nainital Lake, a popular boating site with Naina Devi Hindu Temple on its north shore. The town is famous for its colonial architecture, pleasant weather, and scenic viewpoints of the Himalayas.",
+                bestTime: "Mar - Jun",
+                duration: "2-3 Days",
+                experiences: ["Boating in Naini Lake", "Naina Devi Temple visit", "Shopping at Mall Road", "Snow View Point cable car"]
+            },
+            "Mussoorie": {
+                desc: "Mussoorie, the 'Queen of the Hills', is a hill station located in the Dehradun district. It offers spectacular views of the Himalayas and the Doon Valley. With its green hills, varied flora and fauna, and colonial heritage, it is a fascinating holiday destination for honeymooners and families.",
+                bestTime: "Mar - Jun",
+                duration: "2-3 Days",
+                experiences: ["Kempty Falls", "Walk on Camel's Back Road", "Gun Hill Ropeway", "Visit Landour Bakehouse"]
+            },
+            "Manali": {
+                desc: "Manali is a high-altitude Himalayan resort town in Himachal Pradesh. It has a reputation as a backpacking center and honeymoon destination. Set on the Beas River, it’s a gateway for skiing in the Solang Valley and trekking in Parvati Valley. It's also a jumping-off point for paragliding and rafting.",
+                bestTime: "Oct - Jun",
+                duration: "3-4 Days",
+                experiences: ["Solang Valley Adventure", "Rohtang Pass Snow Point", "Hadimba Devi Temple", "Cafe hopping in Old Manali"]
+            },
+            "Shimla": {
+                desc: "Shimla is the capital of Himachal Pradesh and a popular hill station. It was the summer capital of British India. The town is famous for its Victorian architecture, the pedestrian-only Mall Road, and the scenic Kalka-Shimla Railway, a UNESCO World Heritage site.",
+                bestTime: "Mar - Jun",
+                duration: "2-3 Days",
+                experiences: ["Walk on The Ridge", "Jakhu Temple Hike", "Toy Train Ride", "Shopping at Lakkar Bazaar"]
+            },
+            "Dharamshala": {
+                desc: "Dharamshala is a city in the Indian state of Himachal Pradesh. Surrounded by cedar forests on the edge of the Himalayas, this hillside city is home to the Dalai Lama and the Tibetan government-in-exile. The Thekchen Chöling Temple Complex is a spiritual center for Tibetan Buddhism.",
+                bestTime: "Feb - Jun",
+                duration: "2 Days",
+                experiences: ["Dalai Lama Temple", "Bhagsunag Waterfall", "Triund Trek", "Visit HPCA Stadium"]
+            },
+            "Auli": {
+                desc: "Auli is a ski destination in Chamoli district in the Himalayan mountains of Uttarakhand. Auli is known for its snowy slopes and is a popular destination for skiing enthusiasts. It offers panoramic views of some of India's highest peaks, including Nanda Devi.",
+                bestTime: "Nov - Mar",
+                duration: "2-3 Days",
+                experiences: ["Skiing & Snowboarding", "Auli Ropeway (Asia's longest)", "View of Nanda Devi", "Trek to Gorson Bugyal"]
+            },
+            "Srinagar": {
+                desc: "Srinagar is the largest city and the summer capital of Jammu and Kashmir. It lies in the Kashmir Valley on the banks of the Jhelum River. The city is famous for its gardens, waterfronts, and houseboats. Traditional Kashmiri handicrafts and dried fruits are also popular here.",
+                bestTime: "Apr - Oct",
+                duration: "3-4 Days",
+                experiences: ["Shikara Ride on Dal Lake", "Stay in a Houseboat", "Mughal Gardens visit", "Shankaracharya Temple"]
+            },
+            "Gulmarg": {
+                desc: "Gulmarg is a town, a hill station, a popular skiing destination, and a notified area committee in the Baramulla district of Jammu and Kashmir. It is located in the Pir Panjal Range in the Western Himalayas. It has one of the world's highest gondolas (cable cars).",
+                bestTime: "Oct - Mar",
+                duration: "2 Days",
+                experiences: ["Gulmarg Gondola Ride", "Skiing in winter", "Golf Course visit", "Strawberry Valley"]
+            },
+            "Pahalgam": {
+                desc: "Pahalgam is a hill station in the north Indian state of Jammu and Kashmir. Mountain trails run northeast to Amarnath Cave Temple, a Hindu shrine and site of the annual Amarnath Yatra pilgrimage. It is known for its scenic beauty, valleys, and the Lidder River.",
+                bestTime: "Mar - Nov",
+                duration: "2 Days",
+                experiences: ["Betaab Valley", "Aru Valley", "Lidder River Rafting", "Pony Ride to Baisaran"]
+            }
+        };
+
+        function openDestinationModal(element) {
+            const card = element.closest('.destination-card');
+            
+            // Extract Data from the card
+            const title = card.querySelector('.destination-title').innerText;
+            const desc = card.querySelector('.destination-description').innerText;
+            const imgSrc = card.querySelector('.destination-image img').src;
+            const badge = card.querySelector('.destination-badge').innerText;
+            const region = card.querySelector('.destination-region-badge').innerText;
+            const highlights = card.querySelector('.destination-highlights').innerHTML;
+
+            // Get Rich Data
+            const data = destinationData[title] || {
+                desc: desc,
+                bestTime: "All Year",
+                duration: "Flexible",
+                experiences: ["Sightseeing", "Local Culture", "Photography"]
+            };
+
+            // Populate Modal
+            document.getElementById('modalDestTitle').innerText = title;
+            document.getElementById('modalDestDesc').innerText = data.desc; // Use rich description
+            document.getElementById('modalDestImage').src = imgSrc;
+            document.getElementById('modalDestBadge').innerText = badge;
+            document.getElementById('modalDestRegion').innerHTML = '<i class="fas fa-map-marker-alt me-1"></i> ' + region;
+            document.getElementById('modalDestHighlights').innerHTML = highlights;
+            
+            // Populate New Fields
+            document.getElementById('modalDestTime').innerHTML = `<i class="far fa-calendar-alt me-2 text-warning"></i>${data.bestTime}`;
+            document.getElementById('modalDestDuration').innerHTML = `<i class="far fa-clock me-2 text-warning"></i>${data.duration}`;
+            
+            const expList = document.getElementById('modalDestExperiences');
+            expList.innerHTML = '';
+            data.experiences.forEach(exp => {
+                expList.innerHTML += `<li class="col-md-6"><i class="fas fa-check-circle text-success me-2 small"></i>${exp}</li>`;
+            });
+            
+            // Update WhatsApp Link
+            const waMsg = encodeURIComponent(`Hi, I am interested in booking a trip to ${title}. Please share details.`);
+            document.getElementById('modalWhatsAppBtn').href = `https://wa.me/919897352211?text=${waMsg}`;
+
+            // Show Modal
+            new bootstrap.Modal(document.getElementById('destinationModal')).show();
+        }
+
+        // Attach click event to all Explore buttons automatically
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.btn-explore').forEach(btn => {
+                btn.setAttribute('href', '#');
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openDestinationModal(btn);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

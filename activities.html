@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium adventure and nature activities in Uttarakhand — rafting, camping, bungee jumping, and jungle safari with Vihaan Tour & Travels.">
+    <title>Activities | Vihaan Tour & Travels</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="activities.css">
+    <style>
+        /* Modal Animation */
+        .modal.fade .modal-dialog {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal.show .modal-dialog {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============ MASTER HEADER ============ -->
+    <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+    </script>
+
+    <!-- ============ END MASTER HEADER ============ -->
+
+
+    <!-- ============ ACTIVITIES PAGE CONTENT ============ -->
+    <section class="activities-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-lg-start text-center">
+                    <div class="hero-pill mb-3">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>Premium Activities • Verified Guides • Safety Focus</span>
+                    </div>
+                    <h1 class="activities-title mb-3">Adventure Activities in Uttarakhand</h1>
+                    <p class="activities-subtitle mb-4">Rafting, camping, bungee jumping, and jungle safari — curated for comfort, safety, and unforgettable memories.</p>
+
+                    <div class="d-flex flex-wrap gap-3 justify-content-lg-start justify-content-center">
+                        <a href="#" class="btn btn-warning rounded-pill px-4 fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                        <a href="https://wa.me/919897352211" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="#activitiesList" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-arrow-down me-2"></i>Browse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-attraction-card">
+                        <img src="https://media.istockphoto.com/id/547436912/photo/bungee-jumping.webp?a=1&b=1&s=612x612&w=0&k=20&c=U0ONjFPAwKX4s7D0ZbKwnSVzSyPSv2aahfrYCVfi6xI=" alt="River adventure in Rishikesh" loading="lazy">
+                        <div class="hero-attraction-overlay text-white">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div>
+                                    <p class="mb-0 fw-bold">Rafting • Camping • Adventure</p>
+                                    <p class="mb-0 small" style="opacity: 0.9;">Experience the best Adventure in Uttarakhand</p>
+                                </div>
+                                <span class="badge rounded-pill text-bg-warning text-dark fw-bold">Go</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white" id="activitiesList">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Choose</h6>
+                <h2 class="fw-bold text-dark">Popular Activities</h2>
+                <div class="divider mx-auto bg-primary"></div>
+                <p class="text-muted mt-3 mb-0">Tap a category to filter activities. Enquire to get timing, pricing, and inclusions.</p>
+            </div>
+
+            <div class="activities-stats mb-4">
+                <div class="row g-3 text-center">
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-shield-halved"></i><strong>Safety</strong></div>
+                            <div class="text-muted small">Verified operators</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-user-check"></i><strong>Guides</strong></div>
+                            <div class="text-muted small">Trained & friendly</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-location-dot"></i><strong>Locations</strong></div>
+                            <div class="text-muted small">Best spots</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-pill">
+                            <div class="fw-bold"><i class="fas fa-headset"></i><strong>Support</strong></div>
+                            <div class="text-muted small">Fast help</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Shortcut Tabs -->
+            <div class="activities-filter mb-4 text-center">
+                <button class="filter-btn active" onclick="filterActivities('all', this)">All</button>
+                <button class="filter-btn" onclick="filterActivities('rafting', this)">Rafting</button>
+                <button class="filter-btn" onclick="filterActivities('camping', this)">Camping</button>
+                <button class="filter-btn" onclick="filterActivities('bungee', this)">Bungee Jumping</button>
+                <button class="filter-btn" onclick="filterActivities('safari', this)">Jungle Safari</button>
+            </div>
+
+
+            <!-- Rafting -->
+            <div class="row g-4">
+                 <div class="col-lg-4 col-md-6 activity-item" data-category="rafting"
+                     data-title="Ganga River Rafting"
+                     data-location="Rishikesh"
+                     data-duration="2–4 hrs"
+                     data-difficulty="Moderate"
+                     data-price="Contact for pricing"
+                     data-gallery="https://media.istockphoto.com/id/1160403973/photo/group-of-people-white-water-rafting.jpg?s=612x612&w=0&k=20&c=pNVkrHXLxw1DckNLDNLIO5IvcoBaRoaik-ri3KwJAEg=,
+                                    https://images.unsplash.com/photo-1711992437606-bd676fb6fdf2?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,
+                                    https://plus.unsplash.com/premium_photo-1661889971049-6f0a39a3476f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,
+                                    https://ataliganga.com/wp-content/uploads/2022/09/About-02.jpg"
+                     data-meeting="Laxman Jhula, Rishikesh (09:00 AM)"
+                     data-includes="Safety Gear, Guide, Photos"
+                     data-cancellation="Free cancellation up to 48 hours before the activity"
+                     >
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <img src="https://media.istockphoto.com/id/1160403973/photo/group-of-people-white-water-rafting.jpg?s=612x612&w=0&k=20&c=pNVkrHXLxw1DckNLDNLIO5IvcoBaRoaik-ri3KwJAEg=" alt="River rafting in Rishikesh" loading="lazy">
+                            <span class="activity-badge">Rafting</span>
+                            <span class="activity-rating"><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                        <div class="activity-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i> Rishikesh</small>
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 2–4 hrs</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Ganga River Rafting</h5>
+                            <p class="text-muted small mb-3">Premium rafting experience with safety gear, guidance, and best river stretches.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-helmet-safety me-2"></i>Safety Gear</span>
+                                <span class="tag"><i class="fas fa-user-shield me-2"></i>Guide</span>
+                                <span class="tag"><i class="fas fa-camera me-2"></i>Photos</span>
+                            </div>
+                            <div class="activity-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save activity" aria-label="Save activity">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Camping -->
+                 <div class="col-lg-4 col-md-6 activity-item" data-category="camping"
+                     data-title="Riverside Camping"
+                     data-location="Rishikesh"
+                     data-duration="1 Night"
+                     data-difficulty="Easy"
+                     data-price="Contact for pricing"
+                     data-gallery="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop, 
+                                https://media.istockphoto.com/id/999802872/photo/moon-rise-seen-from-campsite-in-shivpuri.jpg?s=612x612&w=0&k=20&c=zSCaN0edN7iLmW8RTODZLfTmy0OtqApIMGVdCPzwQ9Y=,
+                                https://media.istockphoto.com/id/991755408/photo/camping-tents.jpg?s=612x612&w=0&k=20&c=reWnU0cFmVyCyAybU7bGVS8Onbk8ya5VhEC6ZYh-zKc=,
+                                https://majesticjourney.in/wp-content/uploads/2020/05/rishikesh-camping.jpg,
+                                https://media3.thrillophilia.com/filestore/teuiwr73g4xyrna47q5dtqhai2hy_1583915816_20190907_130912.jpg?w=753&h=450&dpr=2.0"
+                     data-meeting="Campsite entrance, Rishikesh (04:00 PM)"
+                     data-includes="Tent, Bonfire, Meals"
+                     data-cancellation="Free cancellation up to 72 hours before arrival"
+                     >
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop" alt="Camping and bonfire" loading="lazy">
+                            <span class="activity-badge">Camping</span>
+                            <span class="activity-rating"><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <div class="activity-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i> Rishikesh</small>
+                                <small class="text-muted"><i class="far fa-moon me-1"></i> 1 Night</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Riverside Camping</h5>
+                            <p class="text-muted small mb-3">Premium tents, bonfire nights, and peaceful river vibes. Add rafting on request.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-fire me-2"></i>Bonfire</span>
+                                <span class="tag"><i class="fas fa-utensils me-2"></i>Meals</span>
+                                <span class="tag"><i class="fas fa-music me-2"></i>Music</span>
+                            </div>
+                            <div class="activity-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save activity" aria-label="Save activity">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Bungee Jumping -->
+                 <div class="col-lg-4 col-md-6 activity-item" data-category="bungee"
+                     data-title="Bungee Jumping"
+                     data-location="Rishikesh"
+                     data-duration="30–60 mins (per slot)"
+                     data-difficulty="Thrilling"
+                     data-price="Contact for pricing"
+                     data-gallery="https://media.istockphoto.com/id/547436912/photo/bungee-jumping.jpg?s=612x612&w=0&k=20&c=yGAdtv_o5h9uzsLhHFxU9al_H-3EzgSCuqRiJ9Hq08A=,
+                                    https://woodycamps.com/wp-content/uploads/2021/09/bungee5.jpg,
+                                    https://campinginrishikesh.in/wp-content/uploads/2023/08/bungee_1.jpg,
+                                    https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/1e/59/43.jpg"
+                     data-meeting="Jump site entrance (10:00 AM)"
+                     data-includes="Certified trainer, Safety checks, Video"
+                     data-cancellation="Non-refundable within 24 hours of slot"
+                     >
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <img src="https://media.istockphoto.com/id/547436912/photo/bungee-jumping.jpg?s=612x612&w=0&k=20&c=yGAdtv_o5h9uzsLhHFxU9al_H-3EzgSCuqRiJ9Hq08A=" alt="Bungee jumping adventure" loading="lazy">
+                            <span class="activity-badge">Bungee</span>
+                            <span class="activity-rating"><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <div class="activity-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i> Rishikesh</small>
+                                <small class="text-muted"><i class="fas fa-bolt me-1"></i> Thrilling</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Bungee Jumping</h5>
+                            <p class="text-muted small mb-3">A premium adrenaline experience with verified operators and safety-first support.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-shield-halved me-2"></i>Certified</span>
+                                <span class="tag"><i class="fas fa-user-check me-2"></i>Trainer</span>
+                                <span class="tag"><i class="fas fa-camera me-2"></i>Video</span>
+                            </div>
+                            <div class="activity-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save activity" aria-label="Save activity">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Jungle Safari -->
+                 <div class="col-lg-4 col-md-6 activity-item" data-category="safari"
+                     data-title="Jungle Safari"
+                     data-location="Rajaji / Corbett"
+                     data-duration="3–5 hrs"
+                     data-difficulty="Easy"
+                     data-price="Contact for pricing"
+                     data-gallery="https://www.sevencorbett.com/wp-content/themes/sevencorbett/assets/img/safari-about.png,
+                                    https://www.winsomeresorts.com/images/blogs/learning-with-jungle-safari-in-jim-corbett/jeep-safari-in-jim-corbett.jpg,
+                                    https://images.unsplash.com/photo-1765375906788-3526ea224645?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,
+                                    https://media.istockphoto.com/id/2244415902/photo/wild-male-sambar-deer-or-rusa-unicolor-side-profile-walking-in-fast-flowing-ramganga-river.jpg?s=612x612&w=0&k=20&c=uFFjl6MgbQpmqhuOxB1gn6zjdEZbzZA61vkJSaNdtpM="
+                     data-meeting="Park gate pickup point (06:00 AM)"
+                     data-includes="Jeep, Guide, Permits"
+                     data-cancellation="Free cancellation up to 72 hours before departure"
+                     >
+                    <div class="activity-card">
+                        <div class="activity-img">
+                            <img src="https://www.sevencorbett.com/wp-content/themes/sevencorbett/assets/img/safari-about.png" alt="Jungle safari trail" loading="lazy">
+                            <span class="activity-badge">Safari</span>
+                            <span class="activity-rating"><i class="fas fa-star"></i> 4.6</span>
+                        </div>
+                        <div class="activity-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i> Rajaji / Corbett</small>
+                                <small class="text-muted"><i class="fas fa-binoculars me-1"></i> Wildlife</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Jungle Safari</h5>
+                            <p class="text-muted small mb-3">Explore national parks with permit assistance, best timings, and comfortable travel planning.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-ticket me-2"></i>Permits</span>
+                                <span class="tag"><i class="fas fa-car me-2"></i>Jeep</span>
+                                <span class="tag"><i class="fas fa-leaf me-2"></i>Nature</span>
+                            </div>
+                            <div class="activity-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save activity" aria-label="Save activity">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Safety & Support Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">Promise</h6>
+                <h2 class="fw-bold text-dark">Safety & Premium Support</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="love-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="love-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div>
+                                <div class="fw-bold">Verified Operators</div>
+                                <div class="text-muted small">We prioritize trusted partners and clear inclusions.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="love-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="love-icon"><i class="fas fa-user-check"></i></div>
+                            <div>
+                                <div class="fw-bold">Trained Guides</div>
+                                <div class="text-muted small">Guidance and safety briefing before activities.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="love-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="love-icon"><i class="fas fa-headset"></i></div>
+                            <div>
+                                <div class="fw-bold">Fast Support</div>
+                                <div class="text-muted small">Trip help and quick coordination for timings.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ -->
+    <section class="py-5 bg-white" id="activitiesFaq">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-success fw-bold text-uppercase ls-2">FAQ</h6>
+                <h2 class="fw-bold text-dark">Before You Book</h2>
+                <div class="divider mx-auto bg-primary"></div>
+            </div>
+
+            <div class="accordion accordion-flush bg-white" id="actFaq">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="actFaqOneHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#actFaqOne" aria-expanded="false" aria-controls="actFaqOne">
+                            Can you add activities to my tour package?
+                        </button>
+                    </h2>
+                    <div id="actFaqOne" class="accordion-collapse collapse" aria-labelledby="actFaqOneHeading" data-bs-parent="#actFaq">
+                        <div class="accordion-body text-muted">
+                            Yes. We can add rafting, camping, bungee, and safari into your itinerary with timings and transport support.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="actFaqTwoHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#actFaqTwo" aria-expanded="false" aria-controls="actFaqTwo">
+                            Are activities suitable for families?
+                        </button>
+                    </h2>
+                    <div id="actFaqTwo" class="accordion-collapse collapse" aria-labelledby="actFaqTwoHeading" data-bs-parent="#actFaq">
+                        <div class="accordion-body text-muted">
+                            Many activities are family friendly. Share your group details and we’ll recommend the best options for comfort and safety.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="actFaqThreeHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#actFaqThree" aria-expanded="false" aria-controls="actFaqThree">
+                            How do I get the latest pricing and slots?
+                        </button>
+                    </h2>
+                    <div id="actFaqThree" class="accordion-collapse collapse" aria-labelledby="actFaqThreeHeading" data-bs-parent="#actFaq">
+                        <div class="accordion-body text-muted">
+                            Use “Get Quote” or WhatsApp us your date and activity — we’ll confirm slots, inclusions, and best time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section py-5 text-white" id="activitiesCta">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-2">Ready for an Adventure Day?</h2>
+                    <p class="mb-0 opacity-75">Tell us your date and preferred activity — we’ll suggest the best slots with premium support.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+                        <a href="https://wa.me/919897352211" class="btn btn-warning rounded-pill px-4 fw-bold text-dark">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="contact.html#contactForm" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-paper-plane me-2"></i>Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header border-0 text-white p-4" style="background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);">
+                    <div>
+                        <h5 class="modal-title fw-bold mb-1" id="quoteModalLabel">Plan Your Adventure</h5>
+                        <p class="mb-0 small opacity-75">Get a customized quote within 30 minutes</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <form id="modalQuoteForm">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Activity Quote Request from Website">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control border-0 shadow-sm" id="modalName" name="name" placeholder="Your Name" required>
+                            <label for="modalName" class="text-muted">Full Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control border-0 shadow-sm" id="modalPhone" name="phone" placeholder="Phone" required>
+                            <label for="modalPhone" class="text-muted">Phone Number</label>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control border-0 shadow-sm" id="modalDate" name="date">
+                                    <label for="modalDate" class="text-muted">Activity Date</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control border-0 shadow-sm" id="modalGuests" name="guests" placeholder="Guests" min="1">
+                                    <label for="modalGuests" class="text-muted">Participants</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control border-0 shadow-sm" placeholder="Message" id="modalMessage" name="message" style="height: 100px"></textarea>
+                            <label for="modalMessage" class="text-muted">Requirements (Optional)</label>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-pill shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+     <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function filterActivities(category, btnEl) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            document.querySelectorAll('.activity-item').forEach(item => {
+                const show = category === 'all' || item.dataset.category === category;
+                if (show) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 0);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 250);
+                }
+            });
+        }
+
+        document.querySelectorAll('.btn-save').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('is-favorite');
+                const icon = btn.querySelector('i');
+                if (!icon) return;
+                icon.classList.toggle('fas');
+                icon.classList.toggle('far');
+            });
+        });
+
+        // Modal Form Submission
+        document.getElementById('modalQuoteForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert('Thank you! We have received your enquiry. Our team will contact you shortly.');
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+                    modal.hide();
+                    form.reset();
+                } else {
+                    console.log(response);
+                    alert(json.message);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Something went wrong! Please try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        /* Activity popup: open a premium modal when clicking an activity card (excluding action buttons) */
+        (function(){
+            const modalHtml = `
+                <div id="activityModal" class="activity-modal" aria-hidden="true">
+                    <div class="activity-modal__backdrop"></div>
+                    <div class="activity-modal__inner" role="dialog" aria-modal="true">
+                        <button class="activity-modal__close" aria-label="Close activity">&times;</button>
+                        <div class="activity-modal__media">
+                            <button class="nav-btn nav-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                            <span class="activity-modal__badge"></span>
+                            <span class="activity-modal__rating"></span>
+                            <img src="" alt="Activity image">
+                            <button class="nav-btn nav-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="activity-modal__content">
+                            <div class="activity-modal__title"></div>
+                            <div class="activity-modal__meta"></div>
+                            <div class="d-flex gap-3 flex-wrap activity-modal__info">
+                                <div class="activity-modal__price"></div>
+                                <div class="activity-modal__difficulty"></div>
+                                <div class="activity-modal__meeting"></div>
+                            </div>
+                            <div class="activity-modal__desc"></div>
+                            <div class="activity-modal__section">
+                                <h6 style="margin:6px 0 8px; font-weight:800; color:rgba(255,255,255,0.95)">Includes</h6>
+                                <div class="activity-modal__tags"></div>
+                            </div>
+                            <div class="activity-modal__section">
+                                <h6 style="margin:6px 0 8px; font-weight:800; color:rgba(255,255,255,0.95)">Cancellation</h6>
+                                <div class="activity-modal__cancel" style="color:rgba(255,255,255,0.9)"></div>
+                            </div>
+                            <div class="activity-modal__section activity-modal__gallery" style="display:flex;gap:8px;margin-top:6px"></div>
+                            <div class="activity-modal__actions">
+                                <button class="activity-modal__cta" type="button">Enquire</button>
+                                <button class="activity-modal__save btn-secondary-premium" type="button" title="Save activity"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            const modal = document.getElementById('activityModal');
+            const inner = modal.querySelector('.activity-modal__inner');
+            const backdrop = modal.querySelector('.activity-modal__backdrop');
+            const btnClose = modal.querySelector('.activity-modal__close');
+            const imgEl = modal.querySelector('.activity-modal__media img');
+            const badgeEl = modal.querySelector('.activity-modal__badge');
+            const ratingEl = modal.querySelector('.activity-modal__rating');
+            const titleEl = modal.querySelector('.activity-modal__title');
+            const metaEl = modal.querySelector('.activity-modal__meta');
+            const descEl = modal.querySelector('.activity-modal__desc');
+            const tagsEl = modal.querySelector('.activity-modal__tags');
+            const saveBtn = modal.querySelector('.activity-modal__save');
+            const prevBtn = modal.querySelector('.nav-prev');
+            const nextBtn = modal.querySelector('.nav-next');
+
+            let galleryImages = [];
+            let galleryIndex = 0;
+
+            function setGalleryIndex(i){
+                if (!galleryImages || galleryImages.length === 0) return;
+                galleryIndex = (i + galleryImages.length) % galleryImages.length;
+                imgEl.style.opacity = 0;
+                setTimeout(()=>{ imgEl.src = galleryImages[galleryIndex]; imgEl.style.opacity = 1; }, 120);
+                // highlight active thumb
+                modal.querySelectorAll('.activity-modal__gallery img').forEach((t, idx)=>{
+                    t.style.boxShadow = idx === galleryIndex ? '0 14px 40px rgba(0,108,228,0.28)' : '0 8px 20px rgba(0,0,0,0.25)';
+                    t.style.opacity = idx === galleryIndex ? '1' : '0.9';
+                    t.style.transform = idx === galleryIndex ? 'translateY(-4px)' : 'none';
+                });
+            }
+
+            function openActivity(item){
+                // prefer richer dataset attributes if available
+                const ds = item.dataset || {};
+                const img = item.querySelector('.activity-img img')?.src || ds.img || '';
+                const badge = item.querySelector('.activity-badge')?.textContent || ds.category || '';
+                const rating = item.querySelector('.activity-rating')?.innerHTML || '';
+                const title = ds.title || item.querySelector('.activity-body h5')?.textContent || '';
+                const desc = ds.description || item.querySelector('.activity-body p')?.textContent || '';
+                const location = ds.location || '';
+                const duration = ds.duration || '';
+                const difficulty = ds.difficulty || '';
+                const price = ds.price || '';
+                const meeting = ds.meeting || '';
+                const includes = ds.includes ? ds.includes.split(',').map(s=>s.trim()) : Array.from(item.querySelectorAll('.tag')).map(t=>t.textContent.trim());
+                const cancel = ds.cancellation || '';
+
+                // header aware sizing
+                const headerEl = document.getElementById('header') || document.querySelector('.navbar');
+                const headerH = headerEl ? headerEl.offsetHeight || 0 : 0;
+                modal.style.setProperty('--header-height', headerH + 'px');
+
+                imgEl.src = img;
+                badgeEl.textContent = badge;
+                ratingEl.innerHTML = rating;
+                titleEl.textContent = title;
+                descEl.textContent = desc;
+                metaEl.innerHTML = `<span>${location}</span><span>•</span><span>${duration}</span>`;
+
+                // info blocks
+                modal.querySelector('.activity-modal__price').textContent = price;
+                modal.querySelector('.activity-modal__difficulty').textContent = difficulty ? `Difficulty: ${difficulty}` : '';
+                modal.querySelector('.activity-modal__meeting').textContent = meeting ? `Meeting: ${meeting}` : '';
+                modal.querySelector('.activity-modal__cancel').textContent = cancel;
+
+                // includes
+                tagsEl.innerHTML = '';
+                includes.forEach(t => { const el = document.createElement('div'); el.className='activity-modal__tag'; el.textContent = t; tagsEl.appendChild(el); });
+
+                // gallery: prefer data-gallery attribute (comma separated), else use main image
+                const galleryWrap = modal.querySelector('.activity-modal__gallery');
+                galleryWrap.innerHTML = '';
+                galleryImages = [];
+                if (ds.gallery) {
+                    galleryImages = ds.gallery.split(',').map(s=>s.trim()).filter(Boolean);
+                }
+                if (galleryImages.length === 0 && img) galleryImages = [img];
+
+                galleryImages.forEach((gsrc, idx) => {
+                    const t = document.createElement('img');
+                    t.src = gsrc;
+                    t.dataset.idx = idx;
+                    t.addEventListener('click', ()=> setGalleryIndex(idx));
+                    galleryWrap.appendChild(t);
+                });
+                // init gallery index
+                setGalleryIndex(0);
+
+                // wire prev/next
+                prevBtn.onclick = ()=> setGalleryIndex(galleryIndex - 1);
+                nextBtn.onclick = ()=> setGalleryIndex(galleryIndex + 1);
+
+                // show modal
+                modal.classList.add('show');
+                modal.setAttribute('aria-hidden','false');
+                document.body.style.overflow='hidden';
+                btnClose.focus();
+
+                // wire enquire to prefill quote modal
+                const enquireBtn = modal.querySelector('.activity-modal__cta');
+                enquireBtn.onclick = function(){
+                    // optional: prefill message on the contact page is not possible cross-page without storage;
+                    // perform a smooth redirect to the contact form anchor
+                    window.location.href = 'contact.html#contactForm';
+                };
+            }
+
+            function closeActivity(){
+                modal.classList.remove('show');
+                modal.setAttribute('aria-hidden','true');
+                document.body.style.overflow='';
+            }
+
+            // attach handlers to cards
+            document.querySelectorAll('.activity-item').forEach(item => {
+                const card = item.querySelector('.activity-card');
+                if (!card) return;
+                card.addEventListener('click', function(e){
+                    // ignore clicks on action buttons
+                    if (e.target.closest('.activity-actions') || e.target.closest('a') || e.target.closest('button.btn-save')) return;
+                    openActivity(item);
+                });
+            });
+
+            btnClose.addEventListener('click', closeActivity);
+            backdrop.addEventListener('click', closeActivity);
+            document.addEventListener('keydown', function(e){ 
+                if (e.key==='Escape') closeActivity(); 
+                if (!modal.classList.contains('show')) return;
+                if (e.key === 'ArrowLeft') setGalleryIndex(galleryIndex - 1);
+                if (e.key === 'ArrowRight') setGalleryIndex(galleryIndex + 1);
+            });
+
+            // save toggle inside modal
+            saveBtn.addEventListener('click', function(){ this.classList.toggle('is-favorite'); });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium helicopter packages in Uttarakhand — Kedarnath, Do Dham, and Char Dham routes with premium coordination by Vihaan Tour & Travels.">
+    <title>Helicopter Packages | Vihaan Tour & Travels</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="helicopter-packages.css">
+    <style>
+        /* Modal Animation */
+        .modal.fade .modal-dialog {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal.show .modal-dialog {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============ MASTER HEADER ============ -->
+   <div id="de-loader"></div>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+    </script>
+
+    <!-- ============ END MASTER HEADER ============ -->
+
+    <section class="heli-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-lg-start text-center">
+                    <div class="d-inline-flex align-items-center gap-3 mb-3">
+                        <span class="rotor" aria-hidden="true"><i class="fas fa-gear"></i></span>
+                        <div class="heli-pill">
+                            <i class="fa-solid fa-helicopter"></i>
+                            <span>Premium Coordination • Fast Confirmation • VIP Comfort</span>
+                        </div>
+                    </div>
+                    <h1 class="heli-title mb-3">Helicopter Packages in Uttarakhand</h1>
+                    <p class="heli-subtitle mb-4">
+                        Kedarnath, Do Dham, and Char Dham helicopter routes with premium planning, pickup assistance, and smooth coordination —
+                        perfect for senior citizens, families, and time-smart travellers.
+                    </p>
+
+                    <div class="d-flex gap-3 flex-wrap justify-content-lg-start justify-content-center">
+                        <a href="#" class="btn-hero-primary" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                            <i class="fas fa-paper-plane"></i>Get Quote
+                        </a>
+                        <a href="https://wa.me/919897352211" class="btn-hero-outline">
+                            <i class="fab fa-whatsapp"></i>WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-3 flex-wrap justify-content-lg-start justify-content-center opacity-90">
+                        <small><i class="fas fa-shield-halved me-2 text-warning"></i>Verified support</small>
+                        <small><i class="fas fa-calendar-check me-2 text-warning"></i>Slot coordination</small>
+                        <small><i class="fas fa-user-shield me-2 text-warning"></i>Travel assistance</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="heli-hero-card">
+                        <img src="https://www.udanaviation.in/include/img/chardham-yatra-by-helicopter-related-1.webp" alt="Helicopter over mountains" loading="lazy">
+                        <div class="heli-hero-overlay text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="fw-bold">
+                                    <i class="fas fa-crown me-2 text-warning"></i>Premium Experience
+                                </div>
+                                <div class="small opacity-75">
+                                    <i class="fas fa-location-dot me-1"></i>Uttarakhand
+                                </div>
+                            </div>
+                            <div class="small mt-2 opacity-75">Fast routes • Scenic views • Premium coordination</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heli-stats">
+                <div class="row g-3">
+                    <div class="col-md-3 col-6">
+                        <div class="stat-pill reveal">
+                            <i class="fas fa-headset"></i><strong> 24x7</strong>
+                            <div class="small text-muted mt-1">Support</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-pill reveal">
+                            <i class="fas fa-bolt"></i><strong> Fast</strong>
+                            <div class="small text-muted mt-1">Confirmations</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-pill reveal">
+                            <i class="fas fa-route"></i><strong> Curated</strong>
+                            <div class="small text-muted mt-1">Routes</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-pill reveal">
+                            <i class="fas fa-user-check"></i><strong> Assisted</strong>
+                            <div class="small text-muted mt-1">Planning</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="heliPackages">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-2">Popular Helicopter Packages</h2>
+                <p class="text-muted mb-0">Choose your route type — we’ll share the best available options for your date.</p>
+            </div>
+
+            <div class="package-filter mb-4 text-center">
+                <button class="filter-btn active" onclick="filterHeliPackages('all', this)">All</button>
+                <button class="filter-btn" onclick="filterHeliPackages('kedarnath', this)">Kedarnath</button>
+                <button class="filter-btn" onclick="filterHeliPackages('dodham', this)">Do Dham</button>
+                <button class="filter-btn" onclick="filterHeliPackages('chardham', this)">Char Dham</button>
+                <button class="filter-btn" onclick="filterHeliPackages('vip', this)">VIP</button>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 package-item reveal" data-category="kedarnath">
+                    <div class="package-card">
+                        <div class="package-img">
+                            <img src="https://images.unsplash.com/photo-1676182255054-7e5d81cbaa9c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kedarnath temple in Himalayas" loading="lazy">
+                            <span class="package-badge">Kedarnath</span>
+                            <span class="package-meta"><i class="far fa-clock me-1"></i>Same Day</span>
+                        </div>
+                        <div class="package-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i>Dehradun</small>
+                                <small class="text-muted"><i class="fas fa-user-group me-1"></i>1–5 Pax</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Kedarnath Heli Darshan</h5>
+                            <p class="text-muted small mb-3">Fast darshan support with premium coordination and on-ground guidance.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-bolt me-2"></i>Fast</span>
+                                <span class="tag"><i class="fas fa-shield-halved me-2"></i>Assisted</span>
+                                <span class="tag"><i class="fas fa-mountain me-2"></i>Scenic</span>
+                            </div>
+                            <div class="package-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save package" aria-label="Save package">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 package-item reveal" data-category="dodham">
+                    <div class="package-card">
+                        <div class="package-img">
+                            <img src="https://www.chardhamhotel.in/include/img/tours/badrinath-yatra-by-helicopter-1-banner.webp" alt="Helicopter travel over mountains" loading="lazy">
+                            <span class="package-badge">Do Dham</span>
+                            <span class="package-meta"><i class="far fa-clock me-1"></i>2 Days</span>
+                        </div>
+                        <div class="package-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i>Dehradun</small>
+                                <small class="text-muted"><i class="fas fa-hotel me-1"></i>Stay</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Kedarnath + Badrinath</h5>
+                            <p class="text-muted small mb-3">Premium planning with hotel coordination and seamless route management.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-hotel me-2"></i>Stay</span>
+                                <span class="tag"><i class="fas fa-user-shield me-2"></i>Assistance</span>
+                                <span class="tag"><i class="fas fa-route me-2"></i>Smart</span>
+                            </div>
+                            <div class="package-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save package" aria-label="Save package">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 package-item reveal" data-category="chardham">
+                    <div class="package-card">
+                        <div class="package-img">
+                            <img src="https://www.indiantempletour.com/wp-content/uploads/2025/07/Sampurna-Chardham-Yatra-by-Helicopter.jpg" alt="Mountain aerial view" loading="lazy">
+                            <span class="package-badge">Char Dham</span>
+                            <span class="package-meta"><i class="far fa-clock me-1"></i>4–5 Days</span>
+                        </div>
+                        <div class="package-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i>Dehradun</small>
+                                <small class="text-muted"><i class="fas fa-crown me-1"></i>Premium</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Char Dham Heli Tour</h5>
+                            <p class="text-muted small mb-3">Premium end-to-end coordination with VIP-like comfort and support.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-crown me-2"></i>Premium</span>
+                                <span class="tag"><i class="fas fa-headset me-2"></i>Support</span>
+                                <span class="tag"><i class="fas fa-calendar-check me-2"></i>Planned</span>
+                            </div>
+                            <div class="package-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save package" aria-label="Save package">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 package-item reveal" data-category="vip">
+                    <div class="package-card">
+                        <div class="package-img">
+                            <img src="https://transbharat.in/wp-content/uploads/2025/12/TBA_Gallery_01.png" alt="Luxury travel" loading="lazy">
+                            <span class="package-badge">VIP</span>
+                            <span class="package-meta"><i class="fas fa-rupee-sign me-1"></i>On Request</span>
+                        </div>
+                        <div class="package-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i>Any</small>
+                                <small class="text-muted"><i class="fas fa-user-tie me-1"></i>VIP</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Private Charter / VIP Transfer</h5>
+                            <p class="text-muted small mb-3">Private helicopter options for VIP travel, events, and urgent transfers (subject to availability).</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-user-shield me-2"></i>Private</span>
+                                <span class="tag"><i class="fas fa-bolt me-2"></i>Urgent</span>
+                                <span class="tag"><i class="fas fa-crown me-2"></i>Elite</span>
+                            </div>
+                            <div class="package-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save package" aria-label="Save package">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 package-item reveal" data-category="kedarnath">
+                    <div class="package-card">
+                        <div class="package-img">
+                            <img src="https://www.chardhamyatra2020.com/wp-content/uploads/2019/05/kedarnath-helicopter-service.jpg" alt="Temple and mountains" loading="lazy">
+                            <span class="package-badge">Kedarnath</span>
+                            <span class="package-meta"><i class="far fa-clock me-1"></i>Same Day</span>
+                        </div>
+                        <div class="package-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted"><i class="fas fa-location-dot me-1"></i>Phata / Guptkashi</small>
+                                <small class="text-muted"><i class="fas fa-ticket me-1"></i>Slot</small>
+                            </div>
+                            <h5 class="fw-bold mb-2">Kedarnath Shuttle Assistance</h5>
+                            <p class="text-muted small mb-3">We help with planning and guidance for shuttle routes and timing coordination.</p>
+                            <div class="tag-row mb-3">
+                                <span class="tag"><i class="fas fa-calendar-check me-2"></i>Slots</span>
+                                <span class="tag"><i class="fas fa-route me-2"></i>Plan</span>
+                                <span class="tag"><i class="fas fa-headset me-2"></i>Support</span>
+                            </div>
+                            <div class="package-actions">
+                                <a href="contact.html#contactForm" class="btn-primary-premium">Enquire</a>
+                                <button class="btn-secondary-premium btn-save" type="button" title="Save package" aria-label="Save package">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white" id="howItWorks">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-2">How Booking Works</h2>
+                <p class="text-muted mb-0">A premium, guided process — so you can travel with confidence.</p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-7">
+                    <div class="timeline reveal">
+                        <div class="timeline-step">
+                            <div class="timeline-dot" aria-hidden="true"></div>
+                            <div>
+                                <div class="fw-bold">Share Your Date & Route</div>
+                                <div class="small text-muted">Kedarnath / Do Dham / Char Dham, passenger count, pickup city, and preferences.</div>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-dot" aria-hidden="true"></div>
+                            <div>
+                                <div class="fw-bold">We Confirm Best Available Options</div>
+                                <div class="small text-muted">We check schedules and availability and share the best option with clear inclusions.</div>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-dot" aria-hidden="true"></div>
+                            <div>
+                                <div class="fw-bold">Premium Coordination</div>
+                                <div class="small text-muted">Support for timing, reporting points, luggage guidelines, and route flow.</div>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-dot" aria-hidden="true"></div>
+                            <div>
+                                <div class="fw-bold">Travel Smoothly</div>
+                                <div class="small text-muted">You get on-ground assistance and fast updates on WhatsApp/call as needed.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="info-card reveal">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="info-icon"><i class="fas fa-circle-info"></i></div>
+                            <h5 class="fw-bold mb-0">Quick Checklist</h5>
+                        </div>
+                        <ul class="text-muted small mb-0 ps-3">
+                            <li class="mb-2">Passenger names & ID details</li>
+                            <li class="mb-2">Preferred date + backup date</li>
+                            <li class="mb-2">Pickup city and contact number</li>
+                            <li class="mb-2">Baggage preference (light travel recommended)</li>
+                            <li class="mb-0">Special assistance for seniors (on request)</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="contact.html#contactForm" class="btn-primary-premium w-100">Send Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="heliHighlights">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-2">Premium Highlights</h2>
+                <p class="text-muted mb-0">Comfort, clarity, and coordination — the Vihaan way.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-card reveal">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="info-icon"><i class="fas fa-calendar-check"></i></div>
+                            <h5 class="fw-bold mb-0">Slot Support</h5>
+                        </div>
+                        <p class="text-muted small mb-0">Guidance for timing, reporting points, and schedule coordination.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-card reveal">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="info-icon"><i class="fas fa-bag-shopping"></i></div>
+                            <h5 class="fw-bold mb-0">Smart Packing</h5>
+                        </div>
+                        <p class="text-muted small mb-0">Clear baggage guidance to help you travel lighter and smoother.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-card reveal">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="info-icon"><i class="fas fa-map-location-dot"></i></div>
+                            <h5 class="fw-bold mb-0">Route Clarity</h5>
+                        </div>
+                        <p class="text-muted small mb-0">We share route flow and inclusions in a clear, premium manner.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-card reveal">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="info-icon"><i class="fas fa-headset"></i></div>
+                            <h5 class="fw-bold mb-0">Dedicated Support</h5>
+                        </div>
+                        <p class="text-muted small mb-0">Quick updates and assistance on WhatsApp/call throughout your travel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white" id="heliFaqSection">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-2">Helicopter Packages FAQ</h2>
+                <p class="text-muted mb-0">Common questions — answered for a smooth booking.</p>
+            </div>
+
+            <div class="accordion shadow-sm reveal" id="heliFaq">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heliFaqOneHeading">
+                        <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#heliFaqOne" aria-expanded="true" aria-controls="heliFaqOne">
+                            What details do you need to share for a quote?
+                        </button>
+                    </h2>
+                    <div id="heliFaqOne" class="accordion-collapse collapse show" aria-labelledby="heliFaqOneHeading" data-bs-parent="#heliFaq">
+                        <div class="accordion-body text-muted">
+                            Share route type (Kedarnath / Do Dham / Char Dham), date, passenger count, pickup city, and your contact number. We’ll suggest the best available option.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heliFaqTwoHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#heliFaqTwo" aria-expanded="false" aria-controls="heliFaqTwo">
+                            Is it suitable for senior citizens?
+                        </button>
+                    </h2>
+                    <div id="heliFaqTwo" class="accordion-collapse collapse" aria-labelledby="heliFaqTwoHeading" data-bs-parent="#heliFaq">
+                        <div class="accordion-body text-muted">
+                            Yes — helicopter routes are popular for senior travellers. Share assistance needs and we’ll help plan the most comfortable flow.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heliFaqThreeHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#heliFaqThree" aria-expanded="false" aria-controls="heliFaqThree">
+                            Are luggage limits strict?
+                        </button>
+                    </h2>
+                    <div id="heliFaqThree" class="accordion-collapse collapse" aria-labelledby="heliFaqThreeHeading" data-bs-parent="#heliFaq">
+                        <div class="accordion-body text-muted">
+                            Baggage rules depend on the route/operator. We’ll guide you with the best packing plan for your chosen option.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heliFaqFourHeading">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#heliFaqFour" aria-expanded="false" aria-controls="heliFaqFour">
+                            Can you arrange pickup, stay, and full planning?
+                        </button>
+                    </h2>
+                    <div id="heliFaqFour" class="accordion-collapse collapse" aria-labelledby="heliFaqFourHeading" data-bs-parent="#heliFaq">
+                        <div class="accordion-body text-muted">
+                            Yes. We can plan pickup/drop, hotels, and full route coordination (subject to package type). Share your preferences and we’ll tailor a premium plan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section py-5 text-white" id="heliCta">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-2">Want the Best Heli Option for Your Date?</h2>
+                    <p class="mb-0 opacity-75">Send your route and passenger count — we’ll reply with the best available package options.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+                        <a href="https://wa.me/919897352211" class="btn btn-warning rounded-pill px-4 fw-bold text-dark">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        <a href="contact.html#contactForm" class="btn btn-outline-light rounded-pill px-4 fw-bold">
+                            <i class="fas fa-paper-plane me-2"></i>Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header border-0 text-white p-4" style="background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);">
+                    <div>
+                        <h5 class="modal-title fw-bold mb-1" id="quoteModalLabel">Plan Heli Trip</h5>
+                        <p class="mb-0 small opacity-75">Get a customized quote within 30 minutes</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <form id="modalQuoteForm">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Helicopter Quote Request">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control border-0 shadow-sm" id="modalName" name="name" placeholder="Your Name" required>
+                            <label for="modalName" class="text-muted">Full Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control border-0 shadow-sm" id="modalPhone" name="phone" placeholder="Phone" required>
+                            <label for="modalPhone" class="text-muted">Phone Number</label>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control border-0 shadow-sm" id="modalDate" name="date">
+                                    <label for="modalDate" class="text-muted">Travel Date</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control border-0 shadow-sm" id="modalGuests" name="guests" placeholder="Guests" min="1">
+                                    <label for="modalGuests" class="text-muted">Passengers</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control border-0 shadow-sm" placeholder="Message" id="modalMessage" name="message" style="height: 100px"></textarea>
+                            <label for="modalMessage" class="text-muted">Requirements (Optional)</label>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-pill shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- ============ MASTER FOOTER ============ -->
+   
+        <div id="footer"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            });
+        </script>
+    <!-- ============ END MASTER FOOTER ============ -->
+
+     <button class="btn btn-primary btn-sm rounded-circle back-to-top d-none" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function filterHeliPackages(category, btnEl) {
+            document.querySelectorAll('#heliPackages .filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            document.querySelectorAll('.package-item').forEach(item => {
+                const show = category === 'all' || item.dataset.category === category;
+                if (show) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 0);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 250);
+                }
+            });
+        }
+
+        document.querySelectorAll('.btn-save').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('is-favorite');
+                const icon = btn.querySelector('i');
+                if (!icon) return;
+                icon.classList.toggle('fas');
+                icon.classList.toggle('far');
+            });
+        });
+
+        const revealEls = document.querySelectorAll('.reveal');
+        if (revealEls.length && 'IntersectionObserver' in window) {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('in-view');
+                    obs.unobserve(entry.target);
+                });
+            }, { threshold: 0.18 });
+            revealEls.forEach(el => obs.observe(el));
+        } else {
+            revealEls.forEach(el => el.classList.add('in-view'));
+        }
+
+        // Modal Form Submission
+        document.getElementById('modalQuoteForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert('Thank you! We have received your enquiry. Our team will contact you shortly.');
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+                    modal.hide();
+                    form.reset();
+                } else {
+                    console.log(response);
+                    alert(json.message);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Something went wrong! Please try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
