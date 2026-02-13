@@ -258,6 +258,9 @@
                         </div>
                         <div class="quote-card-body">
                             <form id="carRentalForm" novalidate>
+                                <input type="hidden" name="access_key" value="487ea9c6-808f-427f-aede-150c44b47298">
+                                <input type="hidden" name="subject" value="Vihaan Tou & Travels Web Query - Car Rental Enquiry">
+                                <input type="hidden" name="from_name" value="Vihaan Tou & Travels Web Query">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label class="form-label fw-semibold" for="fullName">Full Name</label>
@@ -498,8 +501,45 @@
                     return;
                 }
 
-                alert('Thank you! Your car rental enquiry has been received. We will contact you shortly.');
-                form.reset();
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+                if (submitBtn) {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                    submitBtn.disabled = true;
+                }
+
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData.entries());
+                const json = JSON.stringify(object);
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    const json = await response.json();
+                    if (response.status === 200) {
+                        alert('Thank you! Your car rental enquiry has been received. We will contact you shortly.');
+                        form.reset();
+                    } else {
+                        console.log(response);
+                        alert(json.message || 'Something went wrong! Please try again.');
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert('Something went wrong! Please try again.');
+                })
+                .finally(() => {
+                    if (submitBtn) {
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                });
             });
         })();
     </script>

@@ -679,6 +679,52 @@
         .modal-body { overflow-y:auto; -webkit-overflow-scrolling: touch; max-height: calc(100vh - var(--site-header-height) - 40px); }
         .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important; }
+        .btn-booknow-card {
+            background: linear-gradient(135deg, #febb02 0%, #f39c12 100%);
+            color: #1f1f1f;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            padding: 10px 16px;
+            box-shadow: 0 12px 26px rgba(254, 187, 2, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-booknow-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px rgba(243, 156, 18, 0.35);
+        }
+        .quote-modal-premium {
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 108, 228, 0.12);
+            background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+            box-shadow: 0 30px 70px rgba(2, 40, 90, 0.2);
+        }
+        .quote-modal-premium .modal-header {
+            border-bottom: none;
+            background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);
+            color: #fff;
+        }
+        .quote-modal-premium .modal-body {
+            background:
+                radial-gradient(circle at top right, rgba(0, 108, 228, 0.08), transparent 35%),
+                radial-gradient(circle at bottom left, rgba(254, 187, 2, 0.1), transparent 30%),
+                #f7fbff;
+        }
+        .quote-modal-premium .form-control {
+            border-radius: 12px;
+        }
+        .quote-modal-premium .form-control:focus {
+            border-color: #006ce4;
+            box-shadow: 0 0 0 0.2rem rgba(0, 108, 228, 0.18);
+        }
+        .quote-selected-package {
+            background: #ffffff;
+            border: 1px solid rgba(0, 108, 228, 0.2);
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 8px 24px rgba(0, 108, 228, 0.08);
+        }
     </style>
 </head>
 <body>  
@@ -727,6 +773,16 @@
                                 action.insertBefore(exploreBtn, action.firstChild);
 
                                 exploreBtn.addEventListener('click', function(){ openPackageModal(idx); });
+
+                                const bookNowBtn = document.createElement('button');
+                                bookNowBtn.className = 'btn-booknow-card';
+                                bookNowBtn.type = 'button';
+                                bookNowBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i> Book Now';
+                                bookNowBtn.dataset.idx = idx;
+                                action.insertBefore(bookNowBtn, action.firstChild.nextSibling);
+                                bookNowBtn.addEventListener('click', function(){
+                                    openQuoteModalForPackage(idx);
+                                });
                         });
 
                         // Delegated fallback: open modal when any premium CTA is clicked
@@ -810,7 +866,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="quick-info-panel bg-light rounded-3 mb-3 sticky-top" style="top:18px;">
                                                             <div class="d-grid mb-3">
-                                                                    <a id="modalBookNow" class="btn btn-primary-premium btn-lg fw-bold mb-2" href="contact.html#contactForm"><i class="fas fa-paper-plane me-2"></i> Book Now</a>
+                                                                    <button id="modalBookNow" type="button" class="btn btn-primary-premium btn-lg fw-bold mb-2"><i class="fas fa-paper-plane me-2"></i> Book Now</button>
                                                                     <a id="modalWhatsApp" class="btn btn-whatsapp-premium btn-lg fw-bold" href="#"><i class="fab fa-whatsapp me-2"></i> WhatsApp</a>
                                                                 </div>
                                                             <h6 class="fw-bold">Quick Info</h6>
@@ -888,6 +944,51 @@
                             // Only act if the clicked dismiss belongs to the packageModal
                             if (!dismiss.closest || !dismiss.closest('#packageModal')) return;
                             ensurePackageModal().then(m=>{ if (m && typeof m.hide === 'function') m.hide(); });
+                        });
+
+                        function setQuoteModalContext(pkg) {
+                            const form = document.getElementById('modalQuoteForm');
+                            if (!form) return;
+
+                            const packageField = document.getElementById('quotePackageName');
+                            const subjectField = form.querySelector('input[name="subject"]');
+                            const messageField = document.getElementById('modalMessage');
+
+                            if (packageField) packageField.value = pkg?.title || '';
+                            if (subjectField) {
+                                subjectField.value = pkg?.title
+                                    ? `Vihaan Tou & Travels Web Query - Tour Package Enquiry (${pkg.title})`
+                                    : 'Vihaan Tou & Travels Web Query - Tour Package Enquiry';
+                            }
+
+                            if (messageField && pkg?.title) {
+                                messageField.value = `I am interested in the ${pkg.title} package. Please share availability and full details.`;
+                            } else if (messageField) {
+                                messageField.value = '';
+                            }
+                        }
+
+                        function openQuoteModalForPackage(idx) {
+                            const pkg = packages[idx];
+                            if (!pkg) return;
+
+                            setQuoteModalContext(pkg);
+                            ensurePackageModal().then((m) => {
+                                if (m && typeof m.hide === 'function') m.hide();
+                            });
+
+                            const quoteModalEl = document.getElementById('quoteModal');
+                            if (!quoteModalEl || !window.bootstrap) return;
+                            const quoteModal = bootstrap.Modal.getOrCreateInstance
+                                ? bootstrap.Modal.getOrCreateInstance(quoteModalEl)
+                                : new bootstrap.Modal(quoteModalEl);
+                            setTimeout(() => quoteModal.show(), 160);
+                        }
+
+                        document.querySelectorAll('[data-bs-target="#quoteModal"]').forEach((btn) => {
+                            btn.addEventListener('click', function() {
+                                setQuoteModalContext(null);
+                            });
                         });
 
                         function openPackageModal(idx){
@@ -1017,7 +1118,10 @@
                                 if (waBtn) waBtn.href = waHref;
 
                                 const bookBtn = document.getElementById('modalBookNow');
-                                if (bookBtn) bookBtn.href = 'contact.html#contactForm';
+                                if (bookBtn) {
+                                    bookBtn.dataset.idx = String(pkg.idx);
+                                    bookBtn.onclick = function() { openQuoteModalForPackage(pkg.idx); };
+                                }
 
                                 // Show modal with subtle animation (ensure modal initialized)
                                 ensurePackageModal().then(m=>{ if (m && typeof m.show === 'function') m.show(); else if (!m) console.warn('Bootstrap modal not available to show.'); });
@@ -1156,7 +1260,7 @@
                             </div>
                             <div class="package-pricing">
                                 <div class="price-section">
-                                    <div class="original-price">₹35,000</div>
+                                  
                                     <div class="final-price">₹24,999 <span class="price-suffix">/person</span></div>
                                 </div>
                                 <div class="rating-badge">
@@ -1778,19 +1882,26 @@
     <!-- Quote Modal -->
     <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
-                <div class="modal-header border-0 text-white p-4" style="background: linear-gradient(135deg, #006ce4 0%, #0048a0 100%);">
+            <div class="modal-content quote-modal-premium">
+                <div class="modal-header p-4">
                     <div>
                         <h5 class="modal-title fw-bold mb-1" id="quoteModalLabel">Plan Your Trip</h5>
-                        <p class="mb-0 small opacity-75">Get a customized quote within 30 minutes</p>
+                        <p class="mb-0 small opacity-75">Share details and get your package quote quickly</p>
                     </div>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4 bg-light">
+                <div class="modal-body p-4">
                     <form id="modalQuoteForm">
                         <!-- Web3Forms Access Key -->
-                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                        <input type="hidden" name="subject" value="New Quote Request from Website">
+                        <input type="hidden" name="access_key" value="487ea9c6-808f-427f-aede-150c44b47298">
+                        <input type="hidden" name="subject" value="Vihaan Tou & Travels Web Query - Tour Package Enquiry">
+                        <input type="hidden" name="from_name" value="Vihaan Tou & Travels Web Query">
+                        <input type="hidden" name="source_page" value="packages.html">
+
+                        <div class="quote-selected-package mb-3">
+                            <label for="quotePackageName" class="form-label fw-semibold mb-2">Selected Package</label>
+                            <input type="text" class="form-control border-0 shadow-sm" id="quotePackageName" name="package_name" placeholder="Select a package and click Book Now" readonly>
+                        </div>
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control border-0 shadow-sm" id="modalName" name="name" placeholder="Your Name" required>
