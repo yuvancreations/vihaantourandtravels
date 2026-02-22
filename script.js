@@ -1,16 +1,94 @@
 /* Master JavaScript (site-wide) */
+function initHeaderDropdownFallback() {
+    if (window.__vihaanHeaderDropdownInit) return;
+
+    const bindDropdowns = () => {
+        const headerRoot = document.getElementById('header') || document;
+        const dropdowns = headerRoot.querySelectorAll('.navbar .dropdown');
+        if (!dropdowns.length) return false;
+
+        window.__vihaanHeaderDropdownInit = true;
+        const isDesktop = () => window.matchMedia('(min-width: 992px)').matches;
+
+        const closeAll = () => {
+            dropdowns.forEach((dropdown) => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                dropdown.classList.remove('show');
+                if (toggle) toggle.classList.remove('show');
+                if (menu) menu.classList.remove('show');
+            });
+        };
+
+        dropdowns.forEach((dropdown) => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (!toggle || !menu) return;
+
+            dropdown.addEventListener('mouseenter', () => {
+                if (!isDesktop()) return;
+                dropdown.classList.add('show');
+                toggle.classList.add('show');
+                menu.classList.add('show');
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                if (!isDesktop()) return;
+                dropdown.classList.remove('show');
+                toggle.classList.remove('show');
+                menu.classList.remove('show');
+            });
+
+            toggle.addEventListener('click', (e) => {
+                if (isDesktop()) return;
+                e.preventDefault();
+                const willOpen = !dropdown.classList.contains('show');
+                closeAll();
+                if (willOpen) {
+                    dropdown.classList.add('show');
+                    toggle.classList.add('show');
+                    menu.classList.add('show');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const headerRootNow = document.getElementById('header');
+            if (!headerRootNow) return;
+            if (!headerRootNow.contains(e.target)) closeAll();
+        });
+
+        window.addEventListener('resize', () => {
+            closeAll();
+        });
+
+        return true;
+    };
+
+    if (bindDropdowns()) return;
+    let attempts = 0;
+    const timer = setInterval(() => {
+        attempts += 1;
+        if (bindDropdowns() || attempts >= 20) clearInterval(timer);
+    }, 200);
+}
+
+document.addEventListener("DOMContentLoaded", initHeaderDropdownFallback);
+
 document.addEventListener("DOMContentLoaded", function () {
     
     // Navbar Scroll Shadow Logic (YatraGo Style)
     const navbar = document.querySelector(".navbar");
     
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 10) {
-            navbar.classList.add("shadow");
-        } else {
-            navbar.classList.remove("shadow");
-        }
-    });
+    if (navbar) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 10) {
+                navbar.classList.add("shadow");
+            } else {
+                navbar.classList.remove("shadow");
+            }
+        });
+    }
 
     // Desktop Dropdown on Hover
     if (window.innerWidth > 992) {
@@ -85,9 +163,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     navLinks_mobile.forEach(link => {
         link.addEventListener('click', function () {
-            if (navbarCollapse.classList.contains('show')) {
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                 const toggler = document.querySelector('.navbar-toggler');
-                toggler.click();
+                if (toggler) toggler.click();
             }
         });
     });
@@ -99,15 +177,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Navbar Scroll Logic - Keeps it sticky and adds shadow
     const navbar = document.querySelector(".navbar");
     
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 20) {
-            navbar.classList.add("shadow");
-            // Optional: Compact the top bar if you want the nav to go higher, 
-            // but since you said "wahi rahe", we just add shadow.
-        } else {
-            navbar.classList.remove("shadow");
-        }
-    });
+    if (navbar) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 20) {
+                navbar.classList.add("shadow");
+                // Optional: Compact the top bar if you want the nav to go higher, 
+                // but since you said "wahi rahe", we just add shadow.
+            } else {
+                navbar.classList.remove("shadow");
+            }
+        });
+    }
 
     // Desktop Dropdown on Hover (Preserved your request)
     if (window.innerWidth > 992) {

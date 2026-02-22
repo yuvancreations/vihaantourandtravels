@@ -22,6 +22,76 @@
             transform: scale(1) translateY(0);
             opacity: 1;
         }
+        #packageDetailModal .modal-dialog { max-width: 1040px; }
+        #packageDetailModal .modal-content {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 24px 70px rgba(2, 30, 75, 0.24);
+        }
+        #packageDetailModal .detail-media {
+            height: 310px;
+            overflow: hidden;
+            background: #eef4ff;
+        }
+        #packageDetailModal .detail-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #packageDetailModal .detail-body { padding: 24px; }
+        #packageDetailModal .detail-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #eef5ff;
+            color: #0f3d91;
+            border: 1px solid rgba(13, 108, 228, 0.18);
+            margin: 4px 8px 4px 0;
+        }
+        #packageDetailModal .detail-panel {
+            background: #f8fbff;
+            border: 1px solid rgba(13, 108, 228, 0.12);
+            border-radius: 14px;
+            padding: 14px 16px;
+        }
+        #packageDetailModal .detail-panel h6 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        #packageDetailModal .detail-panel ul {
+            margin-bottom: 0;
+            padding-left: 1.1rem;
+        }
+        #packageDetailModal .detail-itinerary li { margin-bottom: 8px; }
+        #packageDetailModal .note-box {
+            font-size: 0.88rem;
+            color: #5f6b7a;
+            border-left: 3px solid rgba(13, 108, 228, 0.35);
+            padding-left: 10px;
+            margin-top: 12px;
+        }
+        .btn-view-premium {
+            background: #ffffff;
+            color: #0d6efd;
+            border: 1px solid rgba(13, 108, 228, 0.24);
+            border-radius: 12px;
+            font-weight: 700;
+            padding: 10px 14px;
+            transition: all 0.2s ease;
+        }
+        .btn-view-premium:hover {
+            background: #f0f6ff;
+            color: #0b53a0;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            #packageDetailModal .detail-media { height: 210px; }
+            #packageDetailModal .detail-body { padding: 16px; }
+        }
     </style>
 </head>
 <body>
@@ -528,6 +598,51 @@
         </div>
     </div>
 
+    <div class="modal fade" id="packageDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="detail-media position-relative">
+                    <img id="detailImage" src="" alt="Package image">
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white rounded-circle p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="detail-body">
+                    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-2">
+                        <div>
+                            <h4 id="detailTitle" class="fw-bold mb-1"></h4>
+                            <div id="detailSubtitle" class="text-primary small fw-semibold"></div>
+                        </div>
+                        <div id="detailBadges"></div>
+                    </div>
+                    <p id="detailDescription" class="text-muted mb-3"></p>
+
+                    <div class="row g-3">
+                        <div class="col-lg-7">
+                            <div class="detail-panel detail-itinerary mb-3">
+                                <h6><i class="fas fa-route me-2 text-primary"></i>Suggested Itinerary</h6>
+                                <ol id="detailItinerary"></ol>
+                            </div>
+                            <p class="note-box">This itinerary is shared as a premium reference plan. Final routing and timelines depend on date, weather, and operator availability.</p>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="detail-panel mb-3">
+                                <h6><i class="fas fa-check-circle me-2 text-success"></i>Inclusions</h6>
+                                <ul id="detailInclusions"></ul>
+                            </div>
+                            <div class="detail-panel mb-3">
+                                <h6><i class="fas fa-ban me-2 text-danger"></i>Exclusions</h6>
+                                <ul id="detailExclusions"></ul>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button id="detailBookNow" class="btn btn-primary btn-lg fw-bold" type="button"><i class="fas fa-paper-plane me-2"></i>Book This Package</button>
+                                <a id="detailWhatsApp" class="btn btn-success btn-lg fw-bold" href="#"><i class="fab fa-whatsapp me-2"></i>WhatsApp Query</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   <!-- ============ MASTER FOOTER ============ -->
    
         <div id="footer"></div>
@@ -547,6 +662,114 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     <script>
+        const helicopterPackageDetails = {
+            "Kedarnath Heli Darshan": {
+                subtitle: "Dehradun | Same Day Fast Darshan",
+                badges: ["Same Day", "Premium Assisted", "Senior Friendly"],
+                itinerary: [
+                    "Early reporting at Dehradun helipad and briefing with team.",
+                    "Helicopter transfer toward Kedarnath sector as per slot timing.",
+                    "Darshan assistance and local movement guidance.",
+                    "Return transfer and drop coordination."
+                ],
+                inclusions: [
+                    "Helicopter route coordination as per available slot",
+                    "Priority guidance for reporting and boarding flow",
+                    "Dedicated support team over call/WhatsApp",
+                    "Basic darshan movement assistance"
+                ],
+                exclusions: [
+                    "VIP tickets, palki/pony, and personal expenses",
+                    "Any stay/meal not explicitly confirmed",
+                    "Weather-related waiting expenses if applicable"
+                ]
+            },
+            "Kedarnath + Badrinath": {
+                subtitle: "Dehradun | 2 Days Do Dham Route",
+                badges: ["2 Days", "Stay Assisted", "Popular Route"],
+                itinerary: [
+                    "Departure from Dehradun and Kedarnath darshan support.",
+                    "Stay coordination with route management team.",
+                    "Next day Badrinath darshan flow with transfer planning.",
+                    "Return to Dehradun with closure briefing."
+                ],
+                inclusions: [
+                    "Route planning for both dham sectors",
+                    "Hotel/stay coordination support (as selected plan)",
+                    "Ground assistance and timing updates",
+                    "Travel desk support till trip completion"
+                ],
+                exclusions: [
+                    "Special puja costs and personal purchases",
+                    "Extra room upgrades and optional transfers",
+                    "Charges from third-party changes after confirmation"
+                ]
+            },
+            "Char Dham Heli Tour": {
+                subtitle: "Dehradun | 4-5 Days Premium Circuit",
+                badges: ["4-5 Days", "End-to-End", "High Demand"],
+                itinerary: [
+                    "Day 1: Departure, briefing, and first dham movement.",
+                    "Day 2-3: Sequential dham route with managed transitions.",
+                    "Day 4: Remaining darshan sectors and rest buffer.",
+                    "Day 5: Return movement and completion support."
+                ],
+                inclusions: [
+                    "Comprehensive char dham route coordination",
+                    "Premium support for reporting and schedule sync",
+                    "Planned routing advisories and briefing",
+                    "Dedicated assistance desk for passengers"
+                ],
+                exclusions: [
+                    "Temple-specific donations or VIP darshan fees",
+                    "Any custom add-ons not in final confirmation",
+                    "Unplanned overnight or medical contingencies"
+                ]
+            },
+            "Private Charter / VIP Transfer": {
+                subtitle: "Custom Route | On Request Charter",
+                badges: ["Private", "Urgent", "VIP"],
+                itinerary: [
+                    "Requirement capture: route, date, passenger profile.",
+                    "Operator and slot feasibility check.",
+                    "Customized charter plan and movement schedule.",
+                    "Priority execution with dedicated support."
+                ],
+                inclusions: [
+                    "Personalized charter planning and advisories",
+                    "Confidential handling of VIP movement details",
+                    "Rapid communication and schedule support",
+                    "Dedicated relationship manager assistance"
+                ],
+                exclusions: [
+                    "Statutory permissions outside agreed plan",
+                    "Special security arrangements unless requested",
+                    "Unscheduled detours beyond confirmed itinerary"
+                ]
+            },
+            "Kedarnath Shuttle Assistance": {
+                subtitle: "Phata / Guptkashi | Shuttle Planning",
+                badges: ["Shuttle", "Slot Guidance", "On-ground Support"],
+                itinerary: [
+                    "Select shuttle sector and preferred date window.",
+                    "Receive reporting instructions and timing advisories.",
+                    "Get assisted flow for onward darshan movement.",
+                    "Return shuttle coordination and closure updates."
+                ],
+                inclusions: [
+                    "Shuttle slot planning support",
+                    "Reporting point and timing guidance",
+                    "Basic route advisory for pilgrims",
+                    "Live support for operational queries"
+                ],
+                exclusions: [
+                    "Final operator charges not part of quote",
+                    "Personal transport and premium add-ons",
+                    "Delay costs due to weather/traffic disruptions"
+                ]
+            }
+        };
+
         function filterHeliPackages(category, btnEl) {
             document.querySelectorAll('#heliPackages .filter-btn').forEach(btn => btn.classList.remove('active'));
             if (btnEl) btnEl.classList.add('active');
@@ -571,6 +794,86 @@
                 icon.classList.toggle('fas');
                 icon.classList.toggle('far');
             });
+        });
+
+        const detailModalEl = document.getElementById('packageDetailModal');
+        const detailModal = detailModalEl && window.bootstrap ? new bootstrap.Modal(detailModalEl) : null;
+        const quoteModalEl = document.getElementById('quoteModal');
+        const quoteModal = quoteModalEl && window.bootstrap ? new bootstrap.Modal(quoteModalEl) : null;
+
+        function openPackageDetail(card) {
+            if (!card) return;
+            const title = card.querySelector('h5')?.innerText?.trim() || 'Helicopter Package';
+            const description = card.querySelector('.package-body p')?.innerText?.trim() || '';
+            const image = card.querySelector('.package-img img')?.src || '';
+            const category = card.closest('.package-item')?.dataset?.category || '';
+            const meta = helicopterPackageDetails[title] || {};
+
+            document.getElementById('detailTitle').innerText = title;
+            document.getElementById('detailSubtitle').innerText = meta.subtitle || 'Premium Helicopter Coordination';
+            document.getElementById('detailDescription').innerText = description;
+            document.getElementById('detailImage').src = image;
+
+            const badgeWrap = document.getElementById('detailBadges');
+            badgeWrap.innerHTML = '';
+            const chips = (meta.badges && meta.badges.length ? meta.badges : [category.toUpperCase(), 'Assisted']).slice(0, 3);
+            chips.forEach(chip => {
+                const el = document.createElement('span');
+                el.className = 'detail-chip';
+                el.innerHTML = `<i class="fas fa-circle-check"></i>${chip}`;
+                badgeWrap.appendChild(el);
+            });
+
+            const itineraryEl = document.getElementById('detailItinerary');
+            itineraryEl.innerHTML = '';
+            (meta.itinerary || ['Share your date and we will provide a confirmed route plan.', 'Receive best available options and detailed confirmation.']).forEach(row => {
+                const li = document.createElement('li');
+                li.innerText = row;
+                itineraryEl.appendChild(li);
+            });
+
+            const incEl = document.getElementById('detailInclusions');
+            incEl.innerHTML = '';
+            (meta.inclusions || ['Premium coordination support', 'Availability assistance']).forEach(row => {
+                const li = document.createElement('li');
+                li.innerText = row;
+                incEl.appendChild(li);
+            });
+
+            const excEl = document.getElementById('detailExclusions');
+            excEl.innerHTML = '';
+            (meta.exclusions || ['Items not listed in confirmation']).forEach(row => {
+                const li = document.createElement('li');
+                li.innerText = row;
+                excEl.appendChild(li);
+            });
+
+            const wa = document.getElementById('detailWhatsApp');
+            wa.href = `https://wa.me/919897352211?text=${encodeURIComponent(`I want details for ${title} package. Please share availability and price.`)}`;
+
+            const bookBtn = document.getElementById('detailBookNow');
+            bookBtn.onclick = () => {
+                if (detailModal) detailModal.hide();
+                setTimeout(() => {
+                    const msg = document.getElementById('modalMessage');
+                    if (msg) msg.value = `Interested in: ${title}. Please share final itinerary and pricing.`;
+                    if (quoteModal) quoteModal.show();
+                }, 180);
+            };
+
+            if (detailModal) detailModal.show();
+        }
+
+        document.querySelectorAll('#heliPackages .package-card').forEach(card => {
+            const actions = card.querySelector('.package-actions');
+            if (!actions || actions.querySelector('.btn-view-premium')) return;
+
+            const viewBtn = document.createElement('button');
+            viewBtn.type = 'button';
+            viewBtn.className = 'btn-view-premium';
+            viewBtn.innerHTML = '<i class="fas fa-eye me-2"></i>View Details';
+            viewBtn.addEventListener('click', () => openPackageDetail(card));
+            actions.insertBefore(viewBtn, actions.firstChild);
         });
 
         const revealEls = document.querySelectorAll('.reveal');

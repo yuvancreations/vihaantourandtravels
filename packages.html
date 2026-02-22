@@ -613,15 +613,47 @@
         }
 
         /* Package modal specific styles */
-        #packageModal .modal-dialog { max-width: 1100px; }
+        #packageModal.modal {
+            align-items: center !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        #packageModal .modal-dialog { max-width: 960px; }
         #packageModal .modal-content {
             background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 30px 80px rgba(2,40,90,0.18);
+            max-height: calc(100vh - 1.5rem);
         }
-        #packageModal .modal-body { padding: 0; max-height: 92vh; overflow: auto; }
-        #packageModal .package-carousel img { width:100%; height:420px; object-fit:cover; display:block; }
+        #packageModal .modal-dialog {
+            width: calc(100% - 2.5rem);
+            margin: 0.75rem auto;
+            max-height: calc(100vh - 1.5rem);
+        }
+        #packageModal .modal-body { padding: 0; max-height: calc(100vh - 1.5rem); overflow: auto; }
+        #packageModal .package-carousel img { width:100%; height:280px; object-fit:cover; display:block; }
+        #packageModal .package-modal-topbar {
+            background: #fff;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 8px 12px;
+        }
+        #packageModal .package-modal-topbar .btn-close {
+            background-color: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.16);
+            border-radius: 50%;
+            padding: 8px;
+            opacity: 0.9;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        }
+        #packageModal .package-modal-topbar .btn-close:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
         #packageModal .modal-main { padding: 22px 30px; }
         /* Top toolbar buttons */
         .btn-booknow { background: linear-gradient(135deg,#006ce4 0%,#0048a0 100%) !important; color:#fff !important; padding:8px 18px; border-radius:12px; font-weight:800; box-shadow:0 12px 30px rgba(0,108,228,0.14); transition: transform .18s ease, box-shadow .18s ease; }
@@ -654,8 +686,23 @@
 
         .related-thumb { width:72px; height:52px; object-fit:cover; border-radius:8px; }
         @media (max-width: 768px) {
-            #packageModal .package-carousel img { height: 220px; }
-            #packageModal .modal-dialog { max-width: 95%; }
+            #packageModal .package-carousel img { height: 150px; }
+            #packageModal.modal {
+                align-items: center !important;
+                padding-top: 0 !important;
+            }
+            #packageModal .modal-dialog {
+                max-width: calc(100% - 0.75rem);
+                width: calc(100% - 0.75rem);
+                margin: 0.375rem auto;
+                max-height: calc(100vh - 0.75rem);
+            }
+            #packageModal .modal-content { max-height: calc(100vh - 0.75rem); }
+            #packageModal .modal-body { max-height: calc(100vh - 0.75rem); }
+            #packageModal .package-modal-topbar {
+                min-height: 46px;
+                padding: 6px 10px;
+            }
         }
         /* --- Destination modal styles (copied from destinations.html) --- */
         .modal.fade .modal-dialog {
@@ -724,6 +771,36 @@
             border-radius: 14px;
             padding: 12px;
             box-shadow: 0 8px 24px rgba(0, 108, 228, 0.08);
+        }
+        #quoteModal {
+            align-items: center !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        #quoteModal .modal-dialog {
+            max-width: 640px;
+            margin: 1rem auto;
+            max-height: calc(100vh - 2rem);
+        }
+        #quoteModal .modal-content {
+            max-height: calc(100vh - 2rem);
+        }
+        #quoteModal .modal-body {
+            max-height: calc(100vh - 170px);
+            overflow-y: auto;
+        }
+        @media (max-width: 768px) {
+            #quoteModal .modal-dialog {
+                max-width: calc(100% - 1.25rem);
+                margin: 0.625rem auto;
+                max-height: calc(100vh - 1.25rem);
+            }
+            #quoteModal .modal-content {
+                max-height: calc(100vh - 1.25rem);
+            }
+            #quoteModal .modal-body {
+                max-height: calc(100vh - 150px);
+            }
         }
     </style>
 </head>
@@ -806,6 +883,9 @@
                                 <div class="modal-content border-0 rounded-4 overflow-hidden shadow-lg" style="border-radius:18px;">
                                     <div class="bg-gradient-light" style="height:8px; background:linear-gradient(90deg,#006ce4,#febb02);"></div>
                                     <div class="modal-body" style="padding:0;">
+                                        <div class="package-modal-topbar">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
                                         <div class="package-carousel">
                                             <div id="packageCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
                                                 <div class="carousel-inner" id="packageCarouselInner"></div>
@@ -817,11 +897,6 @@
                                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                     <span class="visually-hidden">Next</span>
                                                 </button>
-
-                                                <!-- Top-right overlay: only close button (keep as-is) -->
-                                                <div style="position:absolute; top:12px; right:12px; z-index:1070; display:flex; gap:8px;">
-                                                    <button type="button" class="btn-close btn-close-white bg-dark bg-opacity-50 rounded-circle p-2" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
 
                                             </div>
 
@@ -842,6 +917,7 @@
 
                                                         <h6 class="fw-bold mt-3">Detailed Itinerary</h6>
                                                         <div id="modalItinerary" class="mb-3"></div>
+                                                        <p class="small text-muted mb-3">This itinerary is shared only as an idea. If you need a proper and valid itinerary according to your tour plan, please <a href="contact.html#contactForm">contact us</a> or <a href="#" id="modalItineraryEmailLink">email us</a> for the best tour plan and prices with professional itinerary.</p>
 
                                                         <div class="row">
                                                             <div class="col-md-6">
@@ -1025,7 +1101,7 @@
                                         const active = i===0 ? 'active' : '';
                                         const slide = document.createElement('div');
                                         slide.className = 'carousel-item '+active;
-                                        slide.innerHTML = `<img src="${src}" class="d-block w-100" style="height:460px; object-fit:cover; filter: saturate(1.02) contrast(1.02);" alt="Slide ${i+1}">`;
+                                        slide.innerHTML = `<img src="${src}" class="d-block w-100" style="object-fit:cover; filter: saturate(1.02) contrast(1.02);" alt="Slide ${i+1}">`;
                                         inner.appendChild(slide);
                                 });
 
@@ -1121,6 +1197,14 @@
                                 if (bookBtn) {
                                     bookBtn.dataset.idx = String(pkg.idx);
                                     bookBtn.onclick = function() { openQuoteModalForPackage(pkg.idx); };
+                                }
+                                const itineraryEmailLink = document.getElementById('modalItineraryEmailLink');
+                                if (itineraryEmailLink) {
+                                    itineraryEmailLink.onclick = function(e) {
+                                        e.preventDefault();
+                                        ensurePackageModal().then(m => { if (m && typeof m.hide === 'function') m.hide(); });
+                                        openQuoteModalForPackage(pkg.idx);
+                                    };
                                 }
 
                                 // Show modal with subtle animation (ensure modal initialized)
@@ -1237,14 +1321,16 @@
                         <div class="package-content">
                                 <div id="chardham-complete-package" class="package-card" 
                                     data-itinerary="<ol>
-                                        <li><strong>Day 1:</strong> Drive from Delhi to Barkot via Haridwar. Evening arrival and hotel stay.</li>
-                                        <li><strong>Day 2:</strong> Yamunotri darshan and return to Barkot; local sightseeing.</li>
-                                        <li><strong>Day 3:</strong> Drive to Uttarkashi; short Ganga ghats visit and rest.</li>
-                                        <li><strong>Day 4:</strong> Drive towards Guptkashi / Sonprayag area; prepare for Kedarnath.</li>
-                                        <li><strong>Day 5:</strong> Kedarnath darshan (by trek/heli as per plan) and overnight at local stay.</li>
-                                        <li><strong>Day 6:</strong> Travel to Joshimath and on to Badrinath area; evening rest.</li>
-                                        <li><strong>Day 7:</strong> Badrinath darshan and visit local temples; start return towards Haridwar/Rishikesh.</li>
-                                        <li><strong>Day 8:</strong> Drive back to Delhi with enroute breaks; trip conclusion.</li>
+                                        <li><strong>Day 1:</strong> Drive from Delhi to Barkot via Haridwar/Dehradun; check-in at hotel and overnight stay.</li>
+                                        <li><strong>Day 2:</strong> Early drive to Janki Chatti, trek/pony to Yamunotri for darshan, then return to Barkot.</li>
+                                        <li><strong>Day 3:</strong> Drive Barkot to Uttarkashi; visit Kashi Vishwanath Temple and rest.</li>
+                                        <li><strong>Day 4:</strong> Drive to Gangotri, take holy dip and darshan, then return to Uttarkashi for overnight stay.</li>
+                                        <li><strong>Day 5:</strong> Drive from Uttarkashi to Guptkashi/Sitapur via scenic mountain route; check-in and rest.</li>
+                                        <li><strong>Day 6:</strong> Drive to Sonprayag/Gaurikund and proceed to Kedarnath by trek/pony/palki/helicopter (as per plan); overnight stay.</li>
+                                        <li><strong>Day 7:</strong> Kedarnath morning darshan, descend to Gaurikund, then drive back to Guptkashi.</li>
+                                        <li><strong>Day 8:</strong> Drive Guptkashi to Badrinath via Joshimath; evening darshan and local temple visit.</li>
+                                        <li><strong>Day 9:</strong> Morning Badrinath darshan, visit Mana Village, then drive to Rudraprayag/Pipalkoti.</li>
+                                        <li><strong>Day 10:</strong> Drive to Delhi via Rishikesh/Haridwar with enroute breaks; yatra concludes.</li>
                                         </ol>" data-images="https://media.istockphoto.com/id/1251156350/photo/badrinath-temple.webp?a=1&b=1&s=612x612&w=0&k=20&c=D4_mT03ClQryr76KtfLcGe6llwf_0svxWwwXzz3JrU8=,
                                                             https://triuttarakhand.in/tri-turismo/wp-content/uploads/2022/09/Yamunotri1.jpg,
                                                             https://www.namasteindiatrip.com/wp-content/uploads/2019/09/Gangotri-Travel-HD.jpg,
@@ -1286,12 +1372,15 @@
                         </div>
                             <div class="package-content">
                                 <div class="package-card" 
-                                    data-itinerary="<ol><li><strong>Day 1:</strong> Depart Delhi for Rishikesh; attend Ganga aarti and overnight stay.</li>
-                                                    <li><strong>Day 2:</strong> Drive towards Sonprayag and proceed to Kedarnath for darshan; stay nearby.</li>
-                                                    <li><strong>Day 3:</strong> Return from Kedarnath to Guptkashi/Joshimath area; relax and local visits.</li>
-                                                    <li><strong>Day 4:</strong> Drive to Badrinath with scenic stops; evening rest at Joshimath.</li>
-                                                    <li><strong>Day 5:</strong> Badrinath darshan and drive back towards Delhi with enroute breaks.</li>
-                                                </ol>" data-images="https://images.unsplash.com/photo-1547378809-db8f9515a63b?q=80&w=1200&auto=format&fit=crop,">
+                                    data-itinerary="<ol>
+                                                    <li><strong>Day 1:</strong> Drive from Delhi to Guptkashi/Sitapur via Rishikesh; check-in and overnight stay.</li>
+                                                    <li><strong>Day 2:</strong> Drive to Sonprayag/Gaurikund and proceed to Kedarnath by trek/pony/palki/helicopter (as per plan).</li>
+                                                    <li><strong>Day 3:</strong> Kedarnath morning darshan, descend to Gaurikund, then drive back to Guptkashi.</li>
+                                                    <li><strong>Day 4:</strong> Drive Guptkashi to Badrinath via Joshimath; evening darshan and overnight stay.</li>
+                                                    <li><strong>Day 5:</strong> Morning Badrinath darshan, visit Mana Village, then drive to Rudraprayag/Srinagar.</li>
+                                                    <li><strong>Day 6:</strong> Drive back to Delhi via Rishikesh/Haridwar; yatra concludes.</li>
+                                                </ol>" data-images="https://mohitbangari.com/wp-content/uploads/2024/07/Kedarnath-Mandir.jpg.webp,
+                                                                    https://www.supertrekkers.in/wp-content/uploads/2025/04/DoDham-Yatra-Super-Trekkers.jpg">
                                 </div>
                             <div class="package-subtitle">Kedarnath & Badrinath</div>
                             <h3 class="package-title">Do Dham Yatra</h3>
@@ -1324,17 +1413,17 @@
                     <div class="premium-package-card">
                         <div class="package-image-wrapper">
                             <img src="https://www.naturetravelagency.com/uploads/1739354839Best%20time%20to%20visit%20Rishikesh.jpg" alt="Rishikesh">
-                            <span class="package-days-badge">3N-4D</span>
+                            <span class="package-days-badge">6N-7D</span>
                             <span class="package-badge">Adventure</span>
                         </div>
                         <div class="package-content">
-                            <div class="package-card"   data-itinerary="<ol><li><strong>Day 1:</strong> Arrive Rishikesh; evening Ganga aarti at Triveni Ghat and relax.</li>
-                                                                        <li><strong>Day 2:</strong> River rafting experience on the Ganges and beach time.</li>
-                                                                        <li><strong>Day 3:</strong> Morning yoga session and meditation at an ashram.</li>
-                                                                        <li><strong>Day 4:</strong> Trek to Neer Garh Falls and visit Beatles Ashram.</li>
-                                                                        <li><strong>Day 5:</strong> Adventure day with camping or zipline activities.</li>
-                                                                        <li><strong>Day 6:</strong> Optional bungee jump or local exploration.</li>
-                                                                        <li><strong>Day 7:</strong> Depart for home with peaceful morning by the Ganga.</li>
+                            <div class="package-card"   data-itinerary="<ol><li><strong>Day 1:</strong> Arrival in Rishikesh, hotel check-in, and evening Ganga aarti at Triveni Ghat.</li>
+                                                                        <li><strong>Day 2:</strong> White-water rafting session on the Ganga and leisure time at riverside cafes.</li>
+                                                                        <li><strong>Day 3:</strong> Morning yoga and meditation session followed by ashram visits.</li>
+                                                                        <li><strong>Day 4:</strong> Excursion to Neer Garh Waterfall and Beatles Ashram sightseeing.</li>
+                                                                        <li><strong>Day 5:</strong> Adventure activities such as zipline, giant swing, or bungee (optional).</li>
+                                                                        <li><strong>Day 6:</strong> Half-day excursion to nearby temples/ghats and shopping at local markets.</li>
+                                                                        <li><strong>Day 7:</strong> Check-out and departure for Delhi/home destination.</li>
                                                                     </ol>" data-images="https://www.naturetravelagency.com/uploads/1739354839Best%20time%20to%20visit%20Rishikesh.jpg,
                                                                                         https://images.unsplash.com/photo-1720819029162-8500607ae232?q=80&w=1200&auto=format&fit=crop"></div>
                             <div class="package-subtitle">Spiritual & Adventure</div>
@@ -1368,11 +1457,11 @@
                     <div class="premium-package-card">
                         <div class="package-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1667029838861-2fe3a590a1d2?q=80&w=936&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Nainital">
-                            <span class="package-days-badge">4 Days</span>
+                            <span class="package-days-badge">3N-4D</span>
                             <span class="package-badge">Peaceful</span>
                         </div>
                         <div class="package-content">
-                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Nainital; evening boat ride on Naini Lake.</li><li><strong>Day 2:</strong> Visit Naini Peak, Snow View Point and Mall Road shopping.</li><li><strong>Day 3:</strong> Excursion to Bhimtal and Sattal; birdwatching and lakeside walks.</li><li><strong>Day 4:</strong> Morning market visit and drive back to Delhi.</li></ol>"></div>
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Nainital, check-in, and evening boat ride at Naini Lake.</li><li><strong>Day 2:</strong> Local sightseeing including Naina Devi Temple, Snow View Point, and Mall Road.</li><li><strong>Day 3:</strong> Excursion to Bhimtal, Sattal, and Naukuchiatal with leisure time.</li><li><strong>Day 4:</strong> Breakfast, check-out, and drive back to Delhi.</li></ol>"></div>
                             <div class="package-subtitle">Hill Station Getaway</div>
                             <h3 class="package-title">Nainital Lake Escape</h3>
                             <p class="package-description">Relax by the shimmering lakes, wander through colonial lanes, and enjoy tranquil boat rides in the charming hill station of Nainital.</p>
@@ -1404,11 +1493,11 @@
                     <div class="premium-package-card">
                         <div class="package-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1675545404805-900ec2b85c04?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mussoorie">
-                            <span class="package-days-badge">4 Days</span>
+                            <span class="package-days-badge">3N-4D</span>
                             <span class="package-badge">Scenic</span>
                         </div>
                         <div class="package-content">
-                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive to Mussoorie; evening stroll on Mall Road and local dining.</li><li><strong>Day 2:</strong> Visit Kempty Falls, Gun Hill cable car and viewpoints.</li><li><strong>Day 3:</strong> Explore Landour, Camel's Back Road and waterfalls; short treks.</li><li><strong>Day 4:</strong> Leisure morning and return to Delhi.</li></ol>"></div>
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Mussoorie, hotel check-in, and evening walk on Mall Road.</li><li><strong>Day 2:</strong> Visit Kempty Falls, Gun Hill, Company Garden, and local viewpoints.</li><li><strong>Day 3:</strong> Explore Landour, Camel&#39;s Back Road, and Mussoorie Lake.</li><li><strong>Day 4:</strong> Breakfast, check-out, and return drive to Delhi.</li></ol>"></div>
                             <div class="package-subtitle">Mountain Retreat</div>
                             <h3 class="package-title">Mussoorie Hill Escape</h3>
                             <p class="package-description">Wander through misty hills, visit cascading waterfalls, and enjoy stunning panoramic views of the Himalayan ranges from Queen of Hills.</p>
@@ -1440,11 +1529,11 @@
                     <div class="premium-package-card">
                         <div class="package-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1665129967399-f28a228d064e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jim Corbett">
-                            <span class="package-days-badge">3 Days</span>
+                            <span class="package-days-badge">2N-3D</span>
                             <span class="package-badge">Wildlife</span>
                         </div>
                         <div class="package-content">
-                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Arrive at Corbett area; evening nature walk and lodge stay.</li><li><strong>Day 2:</strong> Early morning jeep safari in the national park followed by afternoon birdwatching.</li><li><strong>Day 3:</strong> Optional second safari or nature trail; depart for home in the afternoon.</li></ol>"></div>
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive to Jim Corbett, check-in at resort, and enjoy evening leisure/nature walk.</li><li><strong>Day 2:</strong> Early morning jeep safari, followed by garjiya temple/river-side local sightseeing.</li><li><strong>Day 3:</strong> Breakfast, check-out, and return journey to Delhi/home destination.</li></ol>"></div>
                             <div class="package-subtitle">Wildlife Adventure</div>
                             <h3 class="package-title">Jim Corbett</h3>
                             <p class="package-description">Embark on an exhilarating jungle safari to spot tigers, elephants, and exotic wildlife in India's oldest national park with expert naturalists.</p>
@@ -1476,11 +1565,11 @@
                     <div class="premium-package-card">
                         <div class="package-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1618661057370-7cf87dfad271?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Auli">
-                            <span class="package-days-badge">5 Days</span>
+                            <span class="package-days-badge">4N-5D</span>
                             <span class="package-badge">Thrilling</span>
                         </div>
                         <div class="package-content">
-                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive to Joshimath and transfer to Auli; settle in and enjoy sunset views.</li><li><strong>Day 2:</strong> Skiing lessons and exploring gentle slopes; cable car ride to Gurso Bugyal.</li><li><strong>Day 3:</strong> Full day skiing and snow activities; optional snow trekking.</li><li><strong>Day 4:</strong> Day excursion to nearby meadows and scenic viewpoints.</li><li><strong>Day 5:</strong> Return to Delhi via Joshimath after breakfast.</li></ol>"></div>
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Joshimath, check-in, and rest.</li><li><strong>Day 2:</strong> Transfer to Auli, local sightseeing, and ropeway experience.</li><li><strong>Day 3:</strong> Full day snow activities/skiing and panoramic Himalayan viewpoints.</li><li><strong>Day 4:</strong> Visit Gurso Bugyal or nearby meadows, then return to Joshimath for overnight stay.</li><li><strong>Day 5:</strong> Breakfast and return drive to Delhi/home destination.</li></ol>"></div>
                             <div class="package-subtitle">Winter Wonderland</div>
                             <h3 class="package-title">Auli Snow Adventure</h3>
                             <p class="package-description">Glide down snowy slopes and marvel at awe-inspiring Himalayan vistas. Experience world-class skiing and adventure in India's premier ski destination.</p>
@@ -1512,11 +1601,11 @@
                     <div class="premium-package-card">
                         <div class="package-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1562649846-ab413ca01712?q=80&w=800&auto=format&fit=crop" alt="Shimla">
-                            <span class="package-days-badge">4 Days</span>
+                            <span class="package-days-badge">3N-4D</span>
                             <span class="package-badge">Colonial</span>
                         </div>
                         <div class="package-content">
-                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive to Shimla; evening walk on Mall Road and local market visit.</li><li><strong>Day 2:</strong> Explore The Ridge, Christ Church and Jakhu Temple with panoramic views.</li><li><strong>Day 3:</strong> Day trip to Kufri for horseback riding and scenic viewpoints.</li><li><strong>Day 4:</strong> Leisure morning and return to Delhi.</li></ol>"></div>
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Shimla, check-in, and evening visit to Mall Road.</li><li><strong>Day 2:</strong> Explore The Ridge, Christ Church, Jakhu Temple, and nearby colonial spots.</li><li><strong>Day 3:</strong> Day excursion to Kufri and leisure time in Shimla market.</li><li><strong>Day 4:</strong> Breakfast, check-out, and return drive to Delhi.</li></ol>"></div>
                             <div class="package-subtitle">Queen of Hills</div>
                             <h3 class="package-title">Shimla Colonial Charm</h3>
                             <p class="package-description">Walk through the historic Ridge, explore Mall Road, and enjoy the colonial architecture and pine forests of Shimla.</p>
@@ -1548,11 +1637,11 @@
                     <div class="premium-package-card">
                         <div class="package-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1579689189009-874f5cac2db5?q=80&w=704&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Manali">
-                            <span class="package-days-badge">5 Days</span>
+                            <span class="package-days-badge">4N-5D</span>
                             <span class="package-badge">Snow</span>
                         </div>
                         <div class="package-content">
-                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Manali; evening stroll on Mall Road.</li><li><strong>Day 2:</strong> Visit Hadimba Temple, Tibetan Monastery and local cafes in Old Manali.</li><li><strong>Day 3:</strong> Day at Solang Valley for zorbing, paragliding and snow activities.</li><li><strong>Day 4:</strong> Excursion to Rohtang Pass or nearby scenic valleys (seasonal).</li><li><strong>Day 5:</strong> Leisure morning and drive back to Delhi with stops enroute.</li></ol>"></div>
+                            <div class="package-card" data-itinerary="<ol><li><strong>Day 1:</strong> Drive from Delhi to Manali, check-in, and evening stroll on Mall Road.</li><li><strong>Day 2:</strong> Local sightseeing: Hadimba Temple, Vashisht, Tibetan Monastery, and Old Manali.</li><li><strong>Day 3:</strong> Excursion to Solang Valley for adventure activities and mountain views.</li><li><strong>Day 4:</strong> Rohtang Pass/Atal Tunnel excursion (seasonal) and free evening in Manali.</li><li><strong>Day 5:</strong> Breakfast, check-out, and return journey to Delhi/home destination.</li></ol>"></div>
                             <div class="package-subtitle">Valley of Gods</div>
                             <h3 class="package-title">Manali Mountain Bliss</h3>
                             <p class="package-description">Experience the thrill of Solang Valley, the peace of Hadimba Temple, and the vibrant cafe culture of Old Manali.</p>
@@ -1891,6 +1980,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
+                    <p class="small text-muted mb-3">This itinerary is shared only as an idea. If you need a proper and valid itinerary according to your tour plan, please <a href="contact.html#contactForm">contact us</a> or <a href="#" data-bs-toggle="modal" data-bs-target="#quoteModal">email us</a> for the best tour plan and prices with professional itinerary.</p>
                     <form id="modalQuoteForm">
                         <!-- Web3Forms Access Key -->
                         <input type="hidden" name="access_key" value="487ea9c6-808f-427f-aede-150c44b47298">
@@ -2038,4 +2128,3 @@
     </script>
 </body>
 </html>
-
